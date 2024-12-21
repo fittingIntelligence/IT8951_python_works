@@ -31,6 +31,8 @@ def parse_args():
 
 args = parse_args()
 
+args.mirror='flip'
+
 from IT8951.display import AutoEPDDisplay
 
 print('Initializing EPD...')
@@ -62,9 +64,10 @@ display_image_8bpp(display)
 partial_update_msg(display, text)
 
 
+
+text = []
 for i in range(10):
-    text = []
-    text.append(i)
+    text.append(str(i))
     partial_update_msg(display, ' '.join(text))
     
 
