@@ -57,7 +57,7 @@ clear_display(display)
 partial_update(display)
 
 #Initialize display-related variables)
-display_image = Image.new('1', (epd.width,epd.height), 255)
+display_image = Image.new('1', (display.epd.width,display.epd.height), 255)
 display_draw = ImageDraw.Draw(display_image)
 
 #Display settings like font size, spacing, etc.
