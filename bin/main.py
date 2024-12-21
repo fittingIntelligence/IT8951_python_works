@@ -89,6 +89,7 @@ try:
         prev_content, input_content = input_content, ui.input_content
         display_updating = ui.display_updating
         keypressed = ui.keypressed
+        v_clear_display = ui.v_clear_display
         
         content_changed = prev_content != input_content
         
@@ -114,6 +115,11 @@ try:
             partial_update_msg(display, input_content, prev_content, font) 
             ui.keypressed = False
             print(input_content)
+            
+        if v_clear_display:
+            clear_display(display)
+            
+        
 
         #time.sleep(0.05) #the sleep here seems to help the processor handle things, especially on 64-bit installs
 

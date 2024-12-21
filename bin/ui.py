@@ -11,6 +11,7 @@ __all__ = [
     'scrollindex',
     'typing_last_time',
     'keypressed',
+    'v_clear_display',
 
 ]
 
@@ -60,6 +61,7 @@ control_active  = False
 console_message  = False
 scrollindex  = 1
 keypressed = False
+v_clear_display = False
 
 def insert_character(character):
     global cursor_position
@@ -127,6 +129,10 @@ def handle_key_press(e):
         time.sleep(1)
         console_message = ""
         update_display()
+
+    if e.name== "-" and control_active:
+        global v_clear_display
+        v_clear_display=True
 
     #new file (clear) via ctrl + n
     if e.name== "n" and control_active: #ctrl+n
