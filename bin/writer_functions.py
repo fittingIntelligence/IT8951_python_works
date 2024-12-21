@@ -59,7 +59,7 @@ def partial_update(display):
 def partial_update_msg(display, updatetext, font, fontsize):
     # TODO: should use 1bpp for partial text update
     print('  writing partial...')
-    _place_text(display.frame_buf, updatetext, x_offset=0, y_offset=10)
+    _place_text(display.frame_buf, updatetext, x_offset=0, y_offset=10, font, fontsize)
     display.draw_partial(constants.DisplayModes.DU)
     
 
@@ -95,6 +95,12 @@ def set_font_size(fontsize):
 
 def _place_text(img, text, x_offset=0, y_offset=0, font, fontsize):
     draw = ImageDraw.Draw(img)
+    
+    try:
+        font = ImageFont.truetype('/usr/share/fonts/truetype/freefont/FreeSans.ttf', fontsize)
+    except OSError:
+        font = ImageFont.truetype('/usr/share/fonts/TTF/DejaVuSans.ttf', fontsize)
+
 
     img_width, img_height = img.size
     text_width = font.getlength(text)
