@@ -5,7 +5,8 @@ __all__ = [
     'display_image_8bpp',
     'partial_update',
     'partial_update_msg',
-    'set_font_size'
+    'set_font_size',
+    'fontsize'
 ]
 
 from PIL import Image, ImageDraw, ImageFont
@@ -13,6 +14,8 @@ from PIL import Image, ImageDraw, ImageFont
 from sys import path
 path += ['../../']
 from IT8951 import constants
+
+fontsize = 100
 
 def print_system_info(display):
     epd = display.epd
@@ -86,7 +89,9 @@ def _place_text_old(img, text, x_offset=0, y_offset=0):
 
     draw.text((draw_x, draw_y), text, font=font)
 
-def set_font_size(fontsize):
+def set_font_size(fontsize1):
+    global fontsize
+    fontsize = fontsize1
     try:
         font = ImageFont.truetype('/usr/share/fonts/truetype/freefont/FreeSans.ttf', fontsize)
     except OSError:
@@ -94,11 +99,13 @@ def set_font_size(fontsize):
     return font
 
 def _place_text(img, text, oldtext, font, x_offset=0, y_offset=0):
+    global fontsize
+    
     draw = ImageDraw.Draw(img)
     text_width = font.getlength(oldtext)
 
     draw_x = 100+x_offset + text_width
-    draw_y = 100+y_offset
+    draw_y = 100+y_offset + fontsize
     
     newtext = text.replace(oldtext, '')
     

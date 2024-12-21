@@ -90,8 +90,6 @@ try:
         
         content_changed = prev_content != input_content
         
-        
-        
         threshold = 1
         ct = time.time()
         pt = ui.typing_last_time
