@@ -90,6 +90,7 @@ def handle_key_press(e):
     global control_active
     global console_message
     global scrollindex
+    global keypressed
     
     #save via ctrl + s
     if e.name== "s" and control_active:
