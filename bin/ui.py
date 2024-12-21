@@ -1,7 +1,8 @@
 # functions defined in this file
 __all__ = [
     'handle_key_press',
-    'handle_interrupt'
+    'handle_interrupt',
+    'insert_character'
 ]
 
 import keyboard
@@ -47,6 +48,21 @@ input_catchup  = False
 control_active  = False
 console_message  = False
 scrollindex  = 0
+
+def insert_character(character):
+    global cursor_position
+    global input_content
+    global needs_display_update
+    
+    cursor_index = cursor_position
+    
+    if cursor_index <= len(input_content):
+        # Insert character in the text_content string
+        input_content = input_content[:cursor_index] + character + input_content[cursor_index:]
+        cursor_position += 1  # Move the cursor forward
+    
+    needs_input_update = True
+
 
 def handle_key_press(e):
     global cursor_position
