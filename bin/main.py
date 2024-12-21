@@ -114,7 +114,7 @@ try:
             pt = ui.typing_last_time
             diff = ct - pt
             
-            print([ct, pt, diff])
+            print([ct, pt, diff, diff < .5])
             
             time.sleep(0.05)
         
