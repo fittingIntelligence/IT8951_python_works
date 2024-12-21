@@ -9,20 +9,20 @@ import signal
 import time
 import os
 
-cursor_position  = False
-typing_last_time  = False
+cursor_position  = 0
+typing_last_time = time.time()
 display_start_line  = False
 needs_display_update  = False
 needs_input_update  = False
 shift_active  = False
 exit_cleanup  = False
-input_content  = False
-previous_lines  = False
+input_content  = ''
+previous_lines  = ''
 display_updating  = False
 input_catchup  = False
 control_active  = False
 console_message  = False
-scrollindex  = False
+scrollindex  = 0
 
 def handle_key_press(e):
     global cursor_position
