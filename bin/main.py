@@ -47,10 +47,13 @@ print('VCOM set to', epd.get_vcom())
 
 
 text = '''
-Welcome my love,
-this is a fun gift for you
+To my Kitten,
 
-love and kisses, B
+To your authoring adventures and beyond!
+
+Love and kisses, 
+
+Byron
 '''
 
 clear_display(display)
