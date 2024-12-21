@@ -106,8 +106,12 @@ try:
             #the screen enters a high refresh mode when there has been keyboard input
             if not ui.updating_input_area and ui.scrollindex==1:
                 text += ui.input_content
-                update_display(text)
+                print(text)
+                # update_display(text)
         #time.sleep(0.05) #the sleep here seems to help the processor handle things, especially on 64-bit installs
+        
+        else:
+            print (text)
         
 except KeyboardInterrupt:
     pass
