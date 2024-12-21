@@ -18,7 +18,7 @@ import argparse
 from test_functions import *
 
 def parse_args():
-    p = argparse.ArgumentParser(description='Test display.epd functionality')
+    p = argparse.ArgumentParser(description='Test EPD functionality')
     p.add_argument('-v', '--virtual', action='store_true',
                    help='display using a Tkinter window instead of the '
                         'actual e-paper device (for testing without a '
@@ -29,12 +29,11 @@ def parse_args():
                    help='Mirror the display (use this if text appears backwards)')
     return p.parse_args()
 
-args = parse_args()
 
 
 from IT8951.display import AutoEPDDisplay
 
-print('Initializing display.epd...')
+print('Initializing EPD...')
 
 # here, spi_hz controls the rate of data transfer to the device, so a higher
 # value means faster display refreshes. the documentation for the IT8951 device
@@ -42,7 +41,9 @@ print('Initializing display.epd...')
 # 80 MHz (80000000)
 display = AutoEPDDisplay(vcom=-2.15, rotate=args.rotate, mirror=args.mirror, spi_hz=24000000)
 
-print('VCOM set to', display.epd.get_vcom())
+epd = display.epd
+
+print('VCOM set to', epd.get_vcom())
 
 
 
@@ -50,20 +51,19 @@ print('VCOM set to', display.epd.get_vcom())
 
 # Initialize the e-Paper display
 # clear refreshes whole screen, should be done on slow init()
-# display.epd = new4in2part.EPD()
-# display.epd.init()
-# display.epd.Clear()
+# epd = new4in2part.EPD()
+# epd.init()
+# epd.Clear()
 clear_display(display)
 partial_update(display)
-display_image_8bpp(display)
 
 #Initialize display-related variables)
-display_image = Image.new('1', (display.epd.width,display.epd.height), 255)
+display_image = Image.new('1', (epd.width,epd.height), 255)
 display_draw = ImageDraw.Draw(display_image)
 
 #Display settings like font size, spacing, etc.
 display_start_line = 0
-# font24 = ImageFont.truetype('Courier Prime.ttf', 18) #24
+font24 = ImageFont.truetype('Courier Prime.ttf', 18) #24
 textWidth=16
 linespacing = 22
 chars_per_line = 32 #28
@@ -148,8 +148,8 @@ def update_display():
         console_message = ""
     
     #generate display buffer for display
-    partial_buffer = display.epd.getbuffer(display_image)
-    display.epd.display(partial_buffer)
+    partial_buffer = epd.getbuffer(display_image)
+    epd.display(partial_buffer)
 
     last_display_update = time.time()
     display_catchup = True
@@ -174,8 +174,8 @@ def update_input_area(): #this updates the input area of the typewriter (active 
     
     #generate display buffer for input line
     updating_input_area = True
-    partial_buffer = display.epd.getbuffer(display_image)
-    display.epd.display(partial_buffer)
+    partial_buffer = epd.getbuffer(display_image)
+    epd.display(partial_buffer)
     updating_input_area = False
     
 def insert_character(character):
@@ -286,8 +286,8 @@ def handle_key_press(e):
         #run powerdown script
         display_draw.rectangle((0, 0, 400, 300), fill=255)  # Clear display
         display_draw.text((55, 150), "ZeroWriter Powered Down.", font=font24, fill=0)
-        partial_buffer = display.epd.getbuffer(display_image)
-        display.epd.display(partial_buffer)
+        partial_buffer = epd.getbuffer(display_image)
+        epd.display(partial_buffer)
         time.sleep(3)
         subprocess.run(['sudo', 'poweroff', '-f'])
         
@@ -385,8 +385,8 @@ def handle_key_press(e):
     
 def handle_interrupt(signal, frame):
     keyboard.unhook_all()
-    display.epd.init()
-    display.epd.Clear()
+    epd.init()
+    epd.Clear()
     exit(0)
 
 #Startup Stuff ---
@@ -395,12 +395,11 @@ keyboard.on_release(handle_key_press, suppress=True)
 signal.signal(signal.SIGINT, handle_interrupt)
 
 #init_display routine
-# epd.init()
-# epd.Clear
-clear_display(display)
+epd.init()
+epd.Clear
 previous_lines = load_previous_lines(file_path)#('previous_lines.txt')
-# epd.init_Partial()
-# epd.Clear
+epd.init_Partial()
+epd.Clear
 needs_display_update = True
 needs_input_update = False
 
@@ -428,7 +427,7 @@ except KeyboardInterrupt:
 
 finally:
     keyboard.unhook_all()
-    # display.epd.init()
+    epd.init()
     time.sleep(1)
-    # display.epd.Clear()
-    # display.epd.sleep()
+    epd.Clear()
+    epd.sleep()
