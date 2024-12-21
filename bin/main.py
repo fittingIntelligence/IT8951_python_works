@@ -113,10 +113,11 @@ try:
             
         elif within_threshold: #if not doing a full refresh, do partials
             #the screen enters a high refresh mode when there has been keyboard input
-            if not ui.updating_input_area and ui.scrollindex==1 and not ui.display_updating: 
+            if not ui.updating_input_area and ui.scrollindex==1 and not ui.display_updating and ui.keypressed: 
                 text = ui.input_content
                 print(text)
                 update_display(text)
+                ui.keypressed = False
         #time.sleep(0.05) #the sleep here seems to help the processor handle things, especially on 64-bit installs
 
         

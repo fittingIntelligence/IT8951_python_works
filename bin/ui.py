@@ -9,6 +9,7 @@ __all__ = [
     'updating_input_area',
     'scrollindex',
     'typing_last_time',
+    'keypressed',
 
 ]
 
@@ -57,6 +58,7 @@ input_catchup  = False
 control_active  = False
 console_message  = False
 scrollindex  = 1
+keypressed = False
 
 def insert_character(character):
     global cursor_position
@@ -239,6 +241,8 @@ def handle_key_press(e):
     typing_last_time = time.time()
     input_catchup==True
     needs_input_update = True
+    
+    keypressed=True
     
     # print(e)
     # print(input_content)
