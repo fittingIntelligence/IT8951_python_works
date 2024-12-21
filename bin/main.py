@@ -97,7 +97,7 @@ try:
             break
                 
         if ui.needs_display_update and not ui.display_updating:
-            text += ui.input_content
+            text = ui.input_content
             update_display(text)
             needs_diplay_update=False
             ui.typing_last_time = time.time()
@@ -105,7 +105,7 @@ try:
         elif (time.time()- ui.typing_last_time)<(.5): #if not doing a full refresh, do partials
             #the screen enters a high refresh mode when there has been keyboard input
             if not ui.updating_input_area and ui.scrollindex==1:
-                text += ui.input_content
+                text = ui.input_content
                 print(text)
                 # update_display(text)
         #time.sleep(0.05) #the sleep here seems to help the processor handle things, especially on 64-bit installs
