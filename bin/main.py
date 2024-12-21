@@ -121,6 +121,7 @@ try:
             update_display(text)
             ui.keypressed = False
             print(text)
+            print(input_content)
 
         #time.sleep(0.05) #the sleep here seems to help the processor handle things, especially on 64-bit installs
 
