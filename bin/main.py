@@ -30,7 +30,7 @@ args = parse_args()
 args.rotate='flip'
 fontsize=36
 
-input_content =''
+input_content ='Hello Kitten'
 
 
 
@@ -74,5 +74,5 @@ partial_update_msg(display, text, font)
 # if __name__ == '__main__':
 #     main()
 
-keyboard.on_release(handle_key_press, suppress=False)
-signal.signal(signal.SIGINT, handle_interrupt)
+keyboard.on_release(ui.handle_key_press, suppress=False)
+signal.signal(signal.SIGINT, ui.handle_interrupt)

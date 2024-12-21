@@ -3,7 +3,6 @@ __all__ = [
     'handle_key_press',
     'handle_interrupt',
     'insert_character',
-    'input_content'
 ]
 
 import keyboard
@@ -44,7 +43,7 @@ needs_display_update  = False
 needs_input_update  = False
 shift_active  = False
 exit_cleanup  = False
-input_content  = ''
+# input_content  = ''
 previous_lines  = ''
 display_updating  = False
 input_catchup  = False
