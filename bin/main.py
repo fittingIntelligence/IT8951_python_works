@@ -30,7 +30,7 @@ args = parse_args()
 args.rotate='flip'
 fontsize=36
 
-input_content ='Hello Kitten'
+input_content =''
 
 
 
