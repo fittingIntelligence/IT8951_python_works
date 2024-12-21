@@ -1,6 +1,7 @@
 # functions defined in this file
 __all__ = [
     'handle_key_press',
+    'handle_interrupt'
 ]
 
 import keyboard
@@ -8,6 +9,20 @@ import signal
 import time
 import os
 
+cursor_position  = False
+typing_last_time  = False
+display_start_line  = False
+needs_display_update  = False
+needs_input_update  = False
+shift_active  = False
+exit_cleanup  = False
+input_content  = False
+previous_lines  = False
+display_updating  = False
+input_catchup  = False
+control_active  = False
+console_message  = False
+scrollindex  = False
 
 def handle_key_press(e):
     global cursor_position
@@ -186,5 +201,5 @@ def handle_interrupt(signal, frame):
 
 #Startup Stuff ---
 # keyboard.on_press(handle_key_down, suppress=False) #handles modifiers and shortcuts
-keyboard.on_release(handle_key_press, suppress=True)
+keyboard.on_release(handle_key_press, suppress=False)
 signal.signal(signal.SIGINT, handle_interrupt)

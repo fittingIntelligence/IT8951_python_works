@@ -32,6 +32,10 @@ args = parse_args()
 args.rotate='flip'
 fontsize=36
 
+
+
+
+
 font = set_font_size(fontsize)
 
 from IT8951.display import AutoEPDDisplay
