@@ -74,10 +74,6 @@ clear_display(display)
 # if __name__ == '__main__':
 #     main()
 
-def update_display(x):
-    global text
-    text += x
-    partial_update_msg(display, text, font)
 
 def local_key_press(e):
     ui.handle_key_press(e)
@@ -110,13 +106,13 @@ try:
                 
         if needs_display_update and not display_updating:
             print('path1')
-            update_display(input_content)
+            partial_update_msg(display, input_content, font) 
             ui.needs_display_update=False
             ui.typing_last_time = time.time()
             
         if keypressed:
             print('path2')
-            update_display(input_content)
+            partial_update_msg(display, input_content, font) 
             ui.keypressed = False
             print(input_content)
 
