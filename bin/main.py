@@ -12,7 +12,24 @@ import subprocess
 import signal
 import os
 from pathlib import Path
+
+import argparse
+
 from test_functions import *
+
+def parse_args():
+    p = argparse.ArgumentParser(description='Test EPD functionality')
+    p.add_argument('-v', '--virtual', action='store_true',
+                   help='display using a Tkinter window instead of the '
+                        'actual e-paper device (for testing without a '
+                        'physical device)')
+    p.add_argument('-r', '--rotate', default=None, choices=['CW', 'CCW', 'flip'],
+                   help='run the tests with the display rotated by the specified value')
+    p.add_argument('-m', '--mirror', action='store_true',
+                   help='Mirror the display (use this if text appears backwards)')
+    return p.parse_args()
+
+args = parse_args()
 
 
 from IT8951.display import AutoEPDDisplay
