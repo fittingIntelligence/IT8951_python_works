@@ -97,6 +97,9 @@ try:
         pt = ui.typing_last_time
         diff = ct - pt
         within_threshold = diff <= threshold
+        print([ct, pt, diff, within_threshold])
+        time.sleep(0.05)
+
         
         
         if exit_cleanup:
@@ -115,9 +118,7 @@ try:
                 print(text)
                 update_display(text)
         #time.sleep(0.05) #the sleep here seems to help the processor handle things, especially on 64-bit installs
-        else:
-            print([ct, pt, diff, within_threshold])
-            time.sleep(0.05)
+
         
 except KeyboardInterrupt:
     pass
