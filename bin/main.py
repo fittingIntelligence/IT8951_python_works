@@ -99,7 +99,7 @@ try:
         if ui.needs_display_update and not ui.display_updating:
             text = ui.input_content
             update_display(text)
-            ui.needs_diplay_update=False
+            ui.needs_display_update=False
             ui.typing_last_time = time.time()
             
         elif (time.time()- ui.typing_last_time)<(.5): #if not doing a full refresh, do partials
@@ -109,7 +109,9 @@ try:
                 print(text)
                 # update_display(text)
         #time.sleep(0.05) #the sleep here seems to help the processor handle things, especially on 64-bit installs
-        
+        else:
+            x = (time.time()- ui.typing_last_time)<(.5)
+            print(x)
         
 except KeyboardInterrupt:
     pass
