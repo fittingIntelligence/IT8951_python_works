@@ -102,8 +102,8 @@ try:
         pt = ui.typing_last_time
         diff = ct - pt
         within_threshold = diff <= threshold
-        print([ct, pt, diff, within_threshold, input_content])
-        time.sleep(0.05)
+        print([ct, pt, diff, within_threshold, input_content, keypressed])
+        time.sleep(1)
         
         if exit_cleanup:
             break
@@ -115,7 +115,7 @@ try:
             ui.needs_display_update=False
             ui.typing_last_time = time.time()
             
-        elif keypressed:
+        if keypressed:
             print('path2')
             text = input_content
             update_display(text)
