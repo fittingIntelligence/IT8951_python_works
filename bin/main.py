@@ -52,8 +52,8 @@ print('VCOM set to', epd.get_vcom())
 # Initialize the e-Paper display
 # clear refreshes whole screen, should be done on slow init()
 # epd = new4in2part.EPD()
-# epd.init()
-# epd.Clear()
+# # epd.init()
+# # epd.Clear()
 clear_display(display)
 partial_update(display)
 display_image_8bpp(display)
@@ -386,8 +386,8 @@ def handle_key_press(e):
     
 def handle_interrupt(signal, frame):
     keyboard.unhook_all()
-    epd.init()
-    epd.Clear()
+    # epd.init()
+    # epd.Clear()
     exit(0)
 
 #Startup Stuff ---
@@ -396,7 +396,7 @@ keyboard.on_release(handle_key_press, suppress=True)
 signal.signal(signal.SIGINT, handle_interrupt)
 
 #init_display routine
-epd.init()
+# epd.init()
 epd.Clear
 previous_lines = load_previous_lines(file_path)#('previous_lines.txt')
 epd.init_Partial()
@@ -428,7 +428,7 @@ except KeyboardInterrupt:
 
 finally:
     keyboard.unhook_all()
-    epd.init()
+    # epd.init()
     time.sleep(1)
-    epd.Clear()
+    # epd.Clear()
     epd.sleep()
