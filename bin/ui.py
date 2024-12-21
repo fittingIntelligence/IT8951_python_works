@@ -5,6 +5,9 @@ __all__ = [
 
 import keyboard
 import signal
+import time
+import os
+
 
 def handle_key_press(e):
     global cursor_position
@@ -172,6 +175,8 @@ def handle_key_press(e):
     typing_last_time = time.time()
     input_catchup==True
     needs_input_update = True
+    
+    print(e)
     
 def handle_interrupt(signal, frame):
     keyboard.unhook_all()

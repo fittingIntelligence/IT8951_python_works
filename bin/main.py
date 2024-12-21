@@ -62,10 +62,10 @@ clear_display(display)
 display_image_8bpp(display,'images/poetpre.png')
 partial_update_msg(display, text, font)
 
-text = []
-for i in range(10):
-    text.append(str(i))
-    partial_update_msg(display, ' '.join(text), font)
+# text = []
+# for i in range(10):
+#     text.append(str(i))
+#     partial_update_msg(display, ' '.join(text), font)
 
 # if __name__ == '__main__':
 #     main()
