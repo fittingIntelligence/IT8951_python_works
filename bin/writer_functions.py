@@ -93,7 +93,7 @@ def set_font_size(fontsize):
         font = ImageFont.truetype('/usr/share/fonts/TTF/DejaVuSans.ttf', fontsize)
     return font
 
-def _place_text(img, text, x_offset=0, y_offset=0, font, fontsize):
+def _place_text(img, text, x_offset=0, y_offset=0, font=font, fontsize=fontsize):
     draw = ImageDraw.Draw(img)
     
     try:
