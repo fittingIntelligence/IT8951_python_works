@@ -54,7 +54,7 @@ love and kisses, B
 '''
 
 clear_display(display)
-partial_update(display)
+# partial_update(display)
 display_image_8bpp(display)
 partial_update_msg(display, text)
 
