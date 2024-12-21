@@ -56,7 +56,7 @@ def partial_update(display):
     _place_text(display.frame_buf, 'update', x_offset=+display.width//4)
     display.draw_partial(constants.DisplayModes.DU)
     
-def partial_update_msg(display, updatetext, font):
+def partial_update_msg(display, updatetext, oldtext, font):
     # TODO: should use 1bpp for partial text update
     print('  writing partial...')
     _place_text(display.frame_buf, updatetext, font, x_offset=0, y_offset=10)
@@ -93,8 +93,13 @@ def set_font_size(fontsize):
         font = ImageFont.truetype('/usr/share/fonts/TTF/DejaVuSans.ttf', fontsize)
     return font
 
-def _place_text(img, text, font, x_offset=0, y_offset=0):
+def _place_text(img, text, oldtext, font, x_offset=0, y_offset=0):
     draw = ImageDraw.Draw(img)
-    draw_x = 100+x_offset
+    text_width = font.getlength(oldtext)
+
+    draw_x = 100+x_offset + text_width
     draw_y = 100+y_offset
-    draw.text((draw_x, draw_y), text, font=font)
+    
+    newtext = text.replace(oldtext, '')
+    
+    draw.text((draw_x, draw_y), newtext, font=font)

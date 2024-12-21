@@ -105,13 +105,13 @@ try:
                 
         if needs_display_update and not display_updating:
             print('path1')
-            partial_update_msg(display, input_content, font) 
+            partial_update_msg(display, input_content,prev_content, font) 
             ui.needs_display_update=False
             ui.typing_last_time = time.time()
             
         if content_changed:
             print('path2')
-            partial_update_msg(display, input_content, font) 
+            partial_update_msg(display, input_content,prev_content, font) 
             ui.keypressed = False
             print(input_content)
 
