@@ -214,6 +214,7 @@ def handle_key_press(e):
     needs_input_update = True
     
     print(e)
+    print(input_content)
     
 def handle_interrupt(signal, frame):
     keyboard.unhook_all()
