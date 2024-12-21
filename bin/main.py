@@ -31,7 +31,7 @@ def parse_args():
 
 args = parse_args()
 
-args.mirror='flip'
+args.rotate='flip'
 
 from IT8951.display import AutoEPDDisplay
 
