@@ -56,6 +56,7 @@ print('VCOM set to', epd.get_vcom())
 # epd.Clear()
 clear_display(display)
 partial_update(display)
+display_image_8bpp(display)
 
 #Initialize display-related variables)
 display_image = Image.new('1', (epd.width,epd.height), 255)
@@ -63,7 +64,7 @@ display_draw = ImageDraw.Draw(display_image)
 
 #Display settings like font size, spacing, etc.
 display_start_line = 0
-font24 = ImageFont.truetype('Courier Prime.ttf', 18) #24
+# font24 = ImageFont.truetype('Courier Prime.ttf', 18) #24
 textWidth=16
 linespacing = 22
 chars_per_line = 32 #28
