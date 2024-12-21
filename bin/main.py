@@ -79,10 +79,10 @@ def update_display(x):
     text += x
     partial_update_msg(display, text, font)
 
-def handle_key_press():
-    ui.handle_key_press()
+def local_key_press(e):
+    ui.handle_key_press(e)
     input_content = ui.input_content
-    update_display(x)
+    update_display(input_content)
 
-keyboard.on_release(handle_key_press, suppress=False)
+keyboard.on_release(ui.handle_key_press, suppress=False)
 signal.signal(signal.SIGINT, ui.handle_interrupt)
