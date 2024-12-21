@@ -27,7 +27,7 @@ display_start_line = 0
 # font24 = ImageFont.truetype('Courier Prime.ttf', 18) #24
 textWidth=16
 linespacing = 22
-chars_per_line = 32 #28
+chars_per_line = 100 #28
 lines_on_screen = 12
 last_display_update = time.time()
 
