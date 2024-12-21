@@ -91,7 +91,8 @@ try:
         v_clear_display = ui.v_clear_display
         
         content_changed = prev_content != input_content
-        content_smaller = len(input_content) - len(prev_content)
+        content_smaller = len(input_content) < len(prev_content)
+        print (content_smaller)
         
         threshold = 1
         ct = time.time()
