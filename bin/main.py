@@ -99,7 +99,7 @@ try:
         diff = ct - pt
         within_threshold = diff <= threshold
         # print([ct, pt, diff, within_threshold, input_content, keypressed])
-        time.sleep(0.05)
+        # time.sleep(0.05)
         
         if exit_cleanup:
             break
