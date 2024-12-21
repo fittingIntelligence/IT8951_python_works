@@ -102,7 +102,7 @@ try:
             ui.needs_display_update=False
             ui.typing_last_time = time.time()
             
-        elif (time.time()- ui.typing_last_time)<(.5): #if not doing a full refresh, do partials
+        elif (time.time()- ui.typing_last_time)<(5): #if not doing a full refresh, do partials
             #the screen enters a high refresh mode when there has been keyboard input
             if not ui.updating_input_area and ui.scrollindex==1:
                 text = ui.input_content
