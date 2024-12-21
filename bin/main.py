@@ -33,6 +33,10 @@ def parse_args():
 def main():
     args = parse_args()
     args.rotate='flip'
+    fontsize=30
+    
+    
+    font = set_font_size(fontsize)
 
     from IT8951.display import AutoEPDDisplay
     print('Initializing EPD...')

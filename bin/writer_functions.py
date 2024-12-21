@@ -4,7 +4,8 @@ __all__ = [
     'clear_display',
     'display_image_8bpp',
     'partial_update',
-    'partial_update_msg'
+    'partial_update_msg',
+    'set_font_size'
 ]
 
 from PIL import Image, ImageDraw, ImageFont
@@ -75,6 +76,27 @@ def _place_text(img, text, x_offset=0, y_offset=0):
         font = ImageFont.truetype('/usr/share/fonts/truetype/freefont/FreeSans.ttf', fontsize)
     except OSError:
         font = ImageFont.truetype('/usr/share/fonts/TTF/DejaVuSans.ttf', fontsize)
+
+    img_width, img_height = img.size
+    text_width = font.getlength(text)
+    text_height = fontsize
+
+    draw_x = 100+x_offset
+    draw_y = 100+y_offset
+
+    draw.text((draw_x, draw_y), text, font=font)
+
+def set_font_size(fontsize):
+    try:
+        font = ImageFont.truetype('/usr/share/fonts/truetype/freefont/FreeSans.ttf', fontsize)
+    except OSError:
+        font = ImageFont.truetype('/usr/share/fonts/TTF/DejaVuSans.ttf', fontsize)
+    return font
+
+def _place_text(img, text, x_offset=0, y_offset=0):
+    global font
+    global fontsize
+    draw = ImageDraw.Draw(img)
 
     img_width, img_height = img.size
     text_width = font.getlength(text)
