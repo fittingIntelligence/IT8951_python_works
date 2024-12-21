@@ -99,7 +99,7 @@ try:
         if ui.needs_display_update and not ui.display_updating:
             text = ui.input_content
             update_display(text)
-            needs_diplay_update=False
+            ui.needs_diplay_update=False
             ui.typing_last_time = time.time()
             
         elif (time.time()- ui.typing_last_time)<(.5): #if not doing a full refresh, do partials
