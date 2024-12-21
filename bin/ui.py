@@ -180,6 +180,6 @@ def handle_interrupt(signal, frame):
     exit(0)
 
 #Startup Stuff ---
-keyboard.on_press(handle_key_down, suppress=False) #handles modifiers and shortcuts
+# keyboard.on_press(handle_key_down, suppress=False) #handles modifiers and shortcuts
 keyboard.on_release(handle_key_press, suppress=True)
 signal.signal(signal.SIGINT, handle_interrupt)
