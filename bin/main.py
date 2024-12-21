@@ -76,6 +76,8 @@ display_image_8bpp(display,'images/poetpre.png')
 
 
 keyboard.on_release(ui.handle_key_press, suppress=False)
+keyboard.on_press(ui.handle_key_down, suppress=False) #handles modifiers and shortcuts
+
 signal.signal(signal.SIGINT, ui.handle_interrupt)
 
 

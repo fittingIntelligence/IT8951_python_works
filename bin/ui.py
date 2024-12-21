@@ -1,6 +1,7 @@
 # functions defined in this file
 __all__ = [
     'handle_key_press',
+    'handle_key_down',
     'handle_interrupt',
     'insert_character',
     'input_content',
@@ -73,6 +74,29 @@ def insert_character(character):
         cursor_position += 1  # Move the cursor forward
     
     needs_input_update = True
+
+def delete_character():
+    global cursor_position
+    global input_content
+    global needs_display_update
+    
+    cursor_index = cursor_position
+    
+    if cursor_index > 0:
+        # Remove the character at the cursor position
+        input_content = input_content[:cursor_index - 1] + input_content[cursor_index:]
+        cursor_position -= 1  # Move the cursor back
+        needs_input_update = True
+
+    
+def handle_key_down(e): #keys being held, ie modifier keys
+    global shift_active
+    global control_active
+    
+    if e.name == 'shift': #if shift is released
+        shift_active = True
+    if e.name == 'ctrl': #if shift is released
+        control_active = True
 
 
 def handle_key_press(e):
