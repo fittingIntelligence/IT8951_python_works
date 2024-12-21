@@ -1,7 +1,6 @@
 #
 # Poet Writer
 # Based on ZeroWriter, but overhauled almost completely
-
 import time
 import keyboard
 import keymaps
@@ -12,10 +11,9 @@ import subprocess
 import signal
 import os
 from pathlib import Path
-
 import argparse
-
 from writer_functions import *
+from ui import *
 
 def parse_args():
     p = argparse.ArgumentParser(description='Test EPD functionality')
@@ -29,50 +27,45 @@ def parse_args():
                    help='Mirror the display (use this if text appears backwards)')
     return p.parse_args()
 
+# def main():
+args = parse_args()
+args.rotate='flip'
+fontsize=36
 
-def main():
-    args = parse_args()
-    args.rotate='flip'
-    fontsize=36
-    
-    
-    font = set_font_size(fontsize)
+font = set_font_size(fontsize)
 
-    from IT8951.display import AutoEPDDisplay
-    print('Initializing EPD...')
+from IT8951.display import AutoEPDDisplay
+print('Initializing EPD...')
 
-    # here, spi_hz controls the rate of data transfer to the device, so a higher
-    # value means faster display refreshes. the documentation for the IT8951 device
-    # says the max is 24 MHz (24000000), but my device seems to still work as high as
-    # 80 MHz (80000000)
-    display = AutoEPDDisplay(vcom=-2.15, rotate=args.rotate, mirror=args.mirror, spi_hz=24000000)
-    epd = display.epd
-    print('VCOM set to', epd.get_vcom())
+# here, spi_hz controls the rate of data transfer to the device, so a higher
+# value means faster display refreshes. the documentation for the IT8951 device
+# says the max is 24 MHz (24000000), but my device seems to still work as high as
+# 80 MHz (80000000)
+display = AutoEPDDisplay(vcom=-2.15, rotate=args.rotate, mirror=args.mirror, spi_hz=24000000)
+epd = display.epd
+print('VCOM set to', epd.get_vcom())
 
-    text = '''
-    To my Kitten,
+text = '''
+To my Kitten,
 
-    To your authoring adventures and beyond!
+To your authoring adventures and beyond!
 
-    Love and kisses, 
+Love and kisses, 
 
-    Byron
-    
-    2024-12-21
-    '''
+Byron
 
-    clear_display(display)
-    # partial_update(display)
-    display_image_8bpp(display,'images/poetpre.png')
-    partial_update_msg(display, text, font)
+2024-12-21
+'''
 
+clear_display(display)
+# partial_update(display)
+display_image_8bpp(display,'images/poetpre.png')
+partial_update_msg(display, text, font)
 
+text = []
+for i in range(10):
+    text.append(str(i))
+    partial_update_msg(display, ' '.join(text), font)
 
-    text = []
-    for i in range(10):
-        text.append(str(i))
-        partial_update_msg(display, ' '.join(text), font)
-    
-
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()
