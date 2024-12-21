@@ -33,7 +33,7 @@ def parse_args():
 def main():
     args = parse_args()
     args.rotate='flip'
-    fontsize=30
+    fontsize=36
     
     
     font = set_font_size(fontsize)

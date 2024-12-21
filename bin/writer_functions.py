@@ -96,11 +96,6 @@ def set_font_size(fontsize):
 def _place_text(img, text, font, fontsize, x_offset=0, y_offset=0):
     draw = ImageDraw.Draw(img)
     
-    try:
-        font = ImageFont.truetype('/usr/share/fonts/truetype/freefont/FreeSans.ttf', fontsize)
-    except OSError:
-        font = ImageFont.truetype('/usr/share/fonts/TTF/DejaVuSans.ttf', fontsize)
-
 
     img_width, img_height = img.size
     text_width = font.getlength(text)
