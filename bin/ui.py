@@ -3,7 +3,13 @@ __all__ = [
     'handle_key_press',
     'handle_interrupt',
     'insert_character',
-    'input_content'
+    'input_content',
+    'needs_display_update',
+    'display_updating',
+    'updating_input_area',
+    'scrollindex',
+    'typing_last_time',
+
 ]
 
 import keyboard
@@ -12,9 +18,6 @@ import time
 import os
 import keymaps
 from writer_functions import *
-
-global text
-global display
 
 
 
@@ -239,8 +242,6 @@ def handle_key_press(e):
     
     print(e)
     print(input_content)
-    text += input_content
-    partial_update_msg(display, text, font)
         
 def handle_interrupt(signal, frame):
     keyboard.unhook_all()

@@ -11,6 +11,7 @@ import os
 from pathlib import Path
 import argparse
 from writer_functions import *
+import ui 
 
 def parse_args():
     p = argparse.ArgumentParser(description='Test EPD functionality')
@@ -45,8 +46,6 @@ print('Initializing EPD...')
 # says the max is 24 MHz (24000000), but my device seems to still work as high as
 # 80 MHz (80000000)
 display = AutoEPDDisplay(vcom=-2.15, rotate=args.rotate, mirror=args.mirror, spi_hz=24000000)
-import ui 
-
 epd = display.epd
 print('VCOM set to', epd.get_vcom())
 
@@ -87,3 +86,29 @@ def local_key_press(e):
 
 keyboard.on_release(ui.handle_key_press, suppress=False)
 signal.signal(signal.SIGINT, ui.handle_interrupt)
+
+
+exit_cleanup = False
+
+try:
+    while True:
+        
+        if exit_cleanup:
+            break
+                
+        if ui.needs_display_update and not ui.display_updating:
+            update_display()
+            needs_diplay_update=False
+            ui.typing_last_time = time.time()
+            
+        elif (time.time()- ui.typing_last_time)<(.5): #if not doing a full refresh, do partials
+            #the screen enters a high refresh mode when there has been keyboard input
+            if not ui.updating_input_area and ui.scrollindex==1:
+                text += ui.input_content
+                update_display(text)
+        #time.sleep(0.05) #the sleep here seems to help the processor handle things, especially on 64-bit installs
+        
+except KeyboardInterrupt:
+    pass
+
+
