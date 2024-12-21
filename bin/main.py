@@ -118,7 +118,9 @@ try:
             print(input_content)
             
         if v_clear_display or content_smaller:
-            clear_display(display)
+            # clear_display(display)
+            display_image_8bpp(display,'images/poetpre.png')
+
             partial_update_msg(display, input_content, '', font) 
             ui.v_clear_display = False
             
