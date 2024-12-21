@@ -428,7 +428,7 @@ except KeyboardInterrupt:
 
 finally:
     keyboard.unhook_all()
-    display.epd.init()
+    # display.epd.init()
     time.sleep(1)
-    display.epd.Clear()
-    display.epd.sleep()
+    # display.epd.Clear()
+    # display.epd.sleep()
