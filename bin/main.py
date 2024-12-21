@@ -397,10 +397,11 @@ signal.signal(signal.SIGINT, handle_interrupt)
 
 #init_display routine
 # epd.init()
-epd.Clear
+# epd.Clear 
+clear_display(display)
 previous_lines = load_previous_lines(file_path)#('previous_lines.txt')
-epd.init_Partial()
-epd.Clear
+# epd.init_Partial()
+# epd.Clear
 needs_display_update = True
 needs_input_update = False
 
