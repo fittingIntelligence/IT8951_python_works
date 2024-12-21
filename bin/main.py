@@ -11,7 +11,6 @@ import os
 from pathlib import Path
 import argparse
 from writer_functions import *
-import ui 
 
 def parse_args():
     p = argparse.ArgumentParser(description='Test EPD functionality')
@@ -46,6 +45,8 @@ print('Initializing EPD...')
 # says the max is 24 MHz (24000000), but my device seems to still work as high as
 # 80 MHz (80000000)
 display = AutoEPDDisplay(vcom=-2.15, rotate=args.rotate, mirror=args.mirror, spi_hz=24000000)
+import ui 
+
 epd = display.epd
 print('VCOM set to', epd.get_vcom())
 
