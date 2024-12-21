@@ -3,6 +3,9 @@ __all__ = [
     'handle_key_press',
 ]
 
+import keyboard
+import signal
+
 def handle_key_press(e):
     global cursor_position
     global typing_last_time
@@ -169,3 +172,14 @@ def handle_key_press(e):
     typing_last_time = time.time()
     input_catchup==True
     needs_input_update = True
+    
+def handle_interrupt(signal, frame):
+    keyboard.unhook_all()
+    # epd.init()
+    # epd.Clear()
+    exit(0)
+
+#Startup Stuff ---
+keyboard.on_press(handle_key_down, suppress=False) #handles modifiers and shortcuts
+keyboard.on_release(handle_key_press, suppress=True)
+signal.signal(signal.SIGINT, handle_interrupt)
