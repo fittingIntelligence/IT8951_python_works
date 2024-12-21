@@ -56,7 +56,7 @@ display_updating  = False
 input_catchup  = False
 control_active  = False
 console_message  = False
-scrollindex  = 0
+scrollindex  = 1
 
 def insert_character(character):
     global cursor_position
@@ -240,8 +240,8 @@ def handle_key_press(e):
     input_catchup==True
     needs_input_update = True
     
-    print(e)
-    print(input_content)
+    # print(e)
+    # print(input_content)
         
 def handle_interrupt(signal, frame):
     keyboard.unhook_all()
