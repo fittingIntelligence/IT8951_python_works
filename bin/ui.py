@@ -9,6 +9,28 @@ import signal
 import time
 import os
 
+#Display settings like font size, spacing, etc.
+display_start_line = 0
+# font24 = ImageFont.truetype('Courier Prime.ttf', 18) #24
+textWidth=16
+linespacing = 22
+chars_per_line = 32 #28
+lines_on_screen = 12
+last_display_update = time.time()
+
+#display related
+needs_display_update = True
+needs_input_update = True
+updating_input_area = False
+input_catchup = False
+display_catchup = False
+display_updating = False
+shift_active = False
+control_active = False
+exit_cleanup = False
+console_message = ""
+scrollindex=1
+
 cursor_position  = 0
 typing_last_time = time.time()
 display_start_line  = False
