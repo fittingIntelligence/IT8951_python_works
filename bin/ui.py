@@ -13,6 +13,9 @@ import os
 import keymaps
 from writer_functions import *
 
+global text
+global display
+
 
 
 #Display settings like font size, spacing, etc.
