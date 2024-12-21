@@ -110,8 +110,6 @@ try:
                 # update_display(text)
         #time.sleep(0.05) #the sleep here seems to help the processor handle things, especially on 64-bit installs
         
-        else:
-            print (text)
         
 except KeyboardInterrupt:
     pass
