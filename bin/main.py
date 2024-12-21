@@ -71,7 +71,7 @@ def main():
     text = []
     for i in range(10):
         text.append(str(i))
-        partial_update_msg(display, ' '.join(text))
+        partial_update_msg(display, ' '.join(text), font)
     
 
 if __name__ == '__main__':
