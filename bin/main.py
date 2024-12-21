@@ -11,7 +11,7 @@ import os
 from pathlib import Path
 import argparse
 from writer_functions import *
-from ui import *
+import ui 
 
 def parse_args():
     p = argparse.ArgumentParser(description='Test EPD functionality')
