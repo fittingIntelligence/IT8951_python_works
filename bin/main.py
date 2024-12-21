@@ -110,8 +110,13 @@ try:
                 # update_display(text)
         #time.sleep(0.05) #the sleep here seems to help the processor handle things, especially on 64-bit installs
         else:
-            x = (time.time()- ui.typing_last_time)<(.5)
-            print(x)
+            ct = time.time()
+            pt = ui.typing_last_time
+            diff = ct - pt
+            
+            print([ct, pt, diff])
+            
+            time.sleep(0.05)
         
 except KeyboardInterrupt:
     pass
