@@ -61,3 +61,10 @@ clear_display(display)
 display_image_8bpp(display)
 partial_update_msg(display, text)
 
+
+for i in range(10):
+    text = []
+    text.append(i)
+    partial_update_msg(display, ' '.join(text))
+    
+
