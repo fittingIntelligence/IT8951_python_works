@@ -29,7 +29,7 @@ def parse_args():
                    help='Mirror the display (use this if text appears backwards)')
     return p.parse_args()
 
-
+args = parse_args()
 
 from IT8951.display import AutoEPDDisplay
 
