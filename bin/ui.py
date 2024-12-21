@@ -130,7 +130,7 @@ def handle_key_press(e):
         console_message = ""
         update_display()
 
-    if e.name== "-" and control_active:
+    if e.name== "q" and control_active:
         global v_clear_display
         v_clear_display=True
 
