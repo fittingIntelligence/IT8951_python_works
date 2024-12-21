@@ -97,7 +97,8 @@ try:
             break
                 
         if ui.needs_display_update and not ui.display_updating:
-            update_display()
+            text += ui.input_content
+            update_display(text)
             needs_diplay_update=False
             ui.typing_last_time = time.time()
             
