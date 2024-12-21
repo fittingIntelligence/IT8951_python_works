@@ -109,6 +109,11 @@ try:
             ui.needs_display_update=False
             ui.typing_last_time = time.time()
             
+        elif ui.keypressed:
+            text = ui.input_content
+            update_display(text)
+            ui.keypressed = False
+            
         elif within_threshold: #if not doing a full refresh, do partials
             #the screen enters a high refresh mode when there has been keyboard input
             if ui.keypressed: 
