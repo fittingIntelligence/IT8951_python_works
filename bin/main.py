@@ -75,11 +75,6 @@ clear_display(display)
 #     main()
 
 
-def local_key_press(e):
-    ui.handle_key_press(e)
-    input_content = ui.input_content
-    update_display(input_content)
-
 keyboard.on_release(ui.handle_key_press, suppress=False)
 signal.signal(signal.SIGINT, ui.handle_interrupt)
 
@@ -89,9 +84,13 @@ exit_cleanup = False
 try:
     while True:
         needs_display_update = ui.needs_display_update
-        input_content = ui.input_content
+        prev_content, input_content = input_content, ui.input_content
         display_updating = ui.display_updating
         keypressed = ui.keypressed
+        
+        content_changed = prev_content != input_content
+        
+        
         
         threshold = 1
         ct = time.time()
@@ -110,7 +109,7 @@ try:
             ui.needs_display_update=False
             ui.typing_last_time = time.time()
             
-        if keypressed:
+        if content_changed:
             print('path2')
             partial_update_msg(display, input_content, font) 
             ui.keypressed = False
