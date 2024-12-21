@@ -110,17 +110,14 @@ try:
                 
         if needs_display_update and not display_updating:
             print('path1')
-            text = input_content
-            update_display(text)
+            update_display(input_content)
             ui.needs_display_update=False
             ui.typing_last_time = time.time()
             
         if keypressed:
             print('path2')
-            text = input_content
-            update_display(text)
+            update_display(input_content)
             ui.keypressed = False
-            print(text)
             print(input_content)
 
         #time.sleep(0.05) #the sleep here seems to help the processor handle things, especially on 64-bit installs
