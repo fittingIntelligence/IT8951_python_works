@@ -63,8 +63,8 @@ Byron
 
 clear_display(display)
 # partial_update(display)
-display_image_8bpp(display,'images/poetpre.png')
-partial_update_msg(display, text, font)
+# display_image_8bpp(display,'images/poetpre.png')
+# partial_update_msg(display, text, font)
 
 # text = []
 # for i in range(10):
@@ -102,8 +102,8 @@ try:
         pt = ui.typing_last_time
         diff = ct - pt
         within_threshold = diff <= threshold
-        print([ct, pt, diff, within_threshold, input_content, keypressed])
-        time.sleep(1)
+        # print([ct, pt, diff, within_threshold, input_content, keypressed])
+        time.sleep(0.05)
         
         if exit_cleanup:
             break
