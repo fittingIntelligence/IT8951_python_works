@@ -15,7 +15,7 @@ from pathlib import Path
 
 import argparse
 
-from test_functions import *
+from writer_functions import *
 
 def parse_args():
     p = argparse.ArgumentParser(description='Test EPD functionality')
@@ -29,45 +29,46 @@ def parse_args():
                    help='Mirror the display (use this if text appears backwards)')
     return p.parse_args()
 
-args = parse_args()
 
-args.rotate='flip'
+def main():
+    args = parse_args()
+    args.rotate='flip'
 
-from IT8951.display import AutoEPDDisplay
+    from IT8951.display import AutoEPDDisplay
+    print('Initializing EPD...')
 
-print('Initializing EPD...')
+    # here, spi_hz controls the rate of data transfer to the device, so a higher
+    # value means faster display refreshes. the documentation for the IT8951 device
+    # says the max is 24 MHz (24000000), but my device seems to still work as high as
+    # 80 MHz (80000000)
+    display = AutoEPDDisplay(vcom=-2.15, rotate=args.rotate, mirror=args.mirror, spi_hz=24000000)
+    epd = display.epd
+    print('VCOM set to', epd.get_vcom())
 
-# here, spi_hz controls the rate of data transfer to the device, so a higher
-# value means faster display refreshes. the documentation for the IT8951 device
-# says the max is 24 MHz (24000000), but my device seems to still work as high as
-# 80 MHz (80000000)
-display = AutoEPDDisplay(vcom=-2.15, rotate=args.rotate, mirror=args.mirror, spi_hz=24000000)
+    text = '''
+    To my Kitten,
 
-epd = display.epd
+    To your authoring adventures and beyond!
 
-print('VCOM set to', epd.get_vcom())
+    Love and kisses, 
 
+    Byron
+    
+    2024-12-21
+    '''
 
-text = '''
-To my Kitten,
-
-To your authoring adventures and beyond!
-
-Love and kisses, 
-
-Byron
-'''
-
-clear_display(display)
-# partial_update(display)
-display_image_8bpp(display)
-partial_update_msg(display, text)
-
+    clear_display(display)
+    # partial_update(display)
+    display_image_8bpp(display,'images/poetpre.png')
+    partial_update_msg(display, text)
 
 
-text = []
-for i in range(10):
-    text.append(str(i))
-    partial_update_msg(display, ' '.join(text))
+
+    text = []
+    for i in range(10):
+        text.append(str(i))
+        partial_update_msg(display, ' '.join(text))
     
 
+if __name__ == '__main__':
+    main()
