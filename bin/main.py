@@ -63,7 +63,7 @@ display_draw = ImageDraw.Draw(display_image)
 
 #Display settings like font size, spacing, etc.
 display_start_line = 0
-font24 = ImageFont.truetype('Courier Prime.ttf', 18) #24
+# font24 = ImageFont.truetype('Courier Prime.ttf', 18) #24
 textWidth=16
 linespacing = 22
 chars_per_line = 32 #28
