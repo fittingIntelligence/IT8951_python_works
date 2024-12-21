@@ -73,3 +73,6 @@ partial_update_msg(display, text, font)
 
 # if __name__ == '__main__':
 #     main()
+
+keyboard.on_release(handle_key_press, suppress=False)
+signal.signal(signal.SIGINT, handle_interrupt)
