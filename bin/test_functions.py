@@ -14,7 +14,8 @@ __all__ = [
     'clear_display',
     'display_gradient',
     'display_image_8bpp',
-    'partial_update'
+    'partial_update',
+    'partial_update_msg'
 ]
 
 from PIL import Image, ImageDraw, ImageFont
