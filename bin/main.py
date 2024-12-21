@@ -109,12 +109,7 @@ try:
             partial_update_msg(display, input_content, prev_content, font) 
             ui.needs_display_update=False
             ui.typing_last_time = time.time()
-            
-        if content_changed:
-            print('path2')
-            partial_update_msg(display, input_content, prev_content, font) 
-            ui.keypressed = False
-            print(input_content)
+        
             
         if v_clear_display or content_smaller:
             # clear_display(display)
@@ -122,6 +117,12 @@ try:
 
             partial_update_msg(display, input_content, '', font) 
             ui.v_clear_display = False
+            
+        elif content_changed:
+            print('path2')
+            partial_update_msg(display, input_content, prev_content, font) 
+            ui.keypressed = False
+            print(input_content)
             
         
 
