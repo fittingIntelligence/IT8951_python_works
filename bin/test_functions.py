@@ -98,12 +98,7 @@ def partial_update(display):
     _place_text(display.frame_buf, 'update', x_offset=+display.width//4)
     display.draw_partial(constants.DisplayModes.DU)
     
-def partial_update_msg(display, text, updatetext):
-    print('Starting partial update...')
-    print('  writing full...')
-    _place_text(display.frame_buf, text, x_offset=0, y_offset=0)
-    display.draw_full(constants.DisplayModes.GC16)
-
+def partial_update_msg(display, updatetext):
     # TODO: should use 1bpp for partial text update
     print('  writing partial...')
     _place_text(display.frame_buf, updatetext, x_offset=0, y_offset=10)
