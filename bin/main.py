@@ -117,6 +117,7 @@ try:
             
         if v_clear_display:
             clear_display(display)
+            ui.v_clear_display = False
             
         
 
