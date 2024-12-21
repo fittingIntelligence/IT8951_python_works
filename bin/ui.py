@@ -236,7 +236,8 @@ def handle_key_press(e):
     
     print(e)
     print(input_content)
-    return input_content
+    text += input_content
+    partial_update_msg(display, text, font)
         
 def handle_interrupt(signal, frame):
     keyboard.unhook_all()
