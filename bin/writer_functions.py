@@ -5,6 +5,7 @@ __all__ = [
     'display_image_8bpp',
     'partial_update',
     'partial_update_msg',
+    'full_update_msg',
     'set_font_size',
     'fontsize'
 ]
@@ -58,6 +59,12 @@ def partial_update(display):
     print('  writing partial...')
     _place_text(display.frame_buf, 'update', x_offset=+display.width//4)
     display.draw_partial(constants.DisplayModes.DU)
+    
+def full_update_msg(display, updatetext, oldtext, font):
+    # TODO: should use 1bpp for partial text update
+    print('  writing partial...')
+    _place_text(display.frame_buf, updatetext, oldtext, font, x_offset=0, y_offset=10)
+    display.draw_full(constants.DisplayModes.DU)
     
 def partial_update_msg(display, updatetext, oldtext, font):
     # TODO: should use 1bpp for partial text update

@@ -111,16 +111,19 @@ try:
             ui.typing_last_time = time.time()
         
             
-        if v_clear_display or content_smaller:
-            # clear_display(display)
-            display_image_8bpp(display,'images/poetpre.png')
+        # if v_clear_display or content_smaller:
+        #     # clear_display(display)
+        #     display_image_8bpp(display,'images/poetpre.png')
 
-            partial_update_msg(display, input_content, '', font) 
-            ui.v_clear_display = False
+        #     partial_update_msg(display, input_content, '', font) 
+        #     ui.v_clear_display = False
             
         elif content_changed:
             print('path2')
-            partial_update_msg(display, input_content, prev_content, font) 
+            if content_smaller:
+                full_update_msg(display, input_content, '', font) 
+            else: 
+                partial_update_msg(display, input_content, prev_content, font) 
             ui.keypressed = False
             print(input_content)
             
