@@ -2,7 +2,8 @@
 __all__ = [
     'handle_key_press',
     'handle_interrupt',
-    'insert_character'
+    'insert_character',
+    input_content
 ]
 
 import keyboard
