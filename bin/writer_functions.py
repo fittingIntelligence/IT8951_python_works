@@ -59,7 +59,7 @@ def partial_update(display):
 def partial_update_msg(display, updatetext, font, fontsize):
     # TODO: should use 1bpp for partial text update
     print('  writing partial...')
-    _place_text(display.frame_buf, updatetext, x_offset=0, y_offset=10, font, fontsize)
+    _place_text(display.frame_buf, updatetext, x_offset=0, y_offset=10, font=font, fontsize=fontsize)
     display.draw_partial(constants.DisplayModes.DU)
     
 
