@@ -110,7 +110,7 @@ def _place_text(img, text, x_offset=0, y_offset=0):
     '''
     Put some centered text at a location on the image.
     '''
-    fontsize = 10
+    fontsize = 40
 
     draw = ImageDraw.Draw(img)
 
