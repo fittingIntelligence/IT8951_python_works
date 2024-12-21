@@ -123,7 +123,7 @@ def _place_text(img, text, x_offset=0, y_offset=0):
     text_width = font.getlength(text)
     text_height = fontsize
 
-    draw_x = x_offset
-    draw_y = y_offset
+    draw_x = 100+x_offset
+    draw_y = 100+y_offset
 
     draw.text((draw_x, draw_y), text, font=font)
