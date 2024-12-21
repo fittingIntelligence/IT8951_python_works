@@ -10,6 +10,8 @@ import signal
 import time
 import os
 import keymaps
+from writer_functions import *
+
 
 
 #Display settings like font size, spacing, etc.
@@ -233,7 +235,8 @@ def handle_key_press(e):
     
     print(e)
     print(input_content)
-    
+    return input_content
+        
 def handle_interrupt(signal, frame):
     keyboard.unhook_all()
     # epd.init()

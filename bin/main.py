@@ -4,7 +4,6 @@
 import time
 import keyboard
 from PIL import Image, ImageDraw, ImageFont
-# from waveshare_epd import new4in2part
 import textwrap
 import subprocess
 import signal
@@ -30,6 +29,8 @@ def parse_args():
 args = parse_args()
 args.rotate='flip'
 fontsize=36
+
+input_content =''
 
 
 
