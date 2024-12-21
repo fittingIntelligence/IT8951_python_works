@@ -92,6 +92,12 @@ exit_cleanup = False
 
 try:
     while True:
+        threshold = 5
+        ct = time.time()
+        pt = ui.typing_last_time
+        diff = ct - pt
+        within_threshold = diff <= threshold
+        
         
         if exit_cleanup:
             break
@@ -102,20 +108,15 @@ try:
             ui.needs_display_update=False
             ui.typing_last_time = time.time()
             
-        elif (time.time()- ui.typing_last_time)<(5): #if not doing a full refresh, do partials
+        elif within_threshold: #if not doing a full refresh, do partials
             #the screen enters a high refresh mode when there has been keyboard input
             if not ui.updating_input_area and ui.scrollindex==1:
                 text = ui.input_content
                 print(text)
-                # update_display(text)
+                update_display(text)
         #time.sleep(0.05) #the sleep here seems to help the processor handle things, especially on 64-bit installs
         else:
-            ct = time.time()
-            pt = ui.typing_last_time
-            diff = ct - pt
-            
-            print([ct, pt, diff, diff < .5])
-            
+            print([ct, pt, diff, within_threshold])
             time.sleep(0.05)
         
 except KeyboardInterrupt:
