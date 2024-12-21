@@ -55,6 +55,7 @@ print('VCOM set to', display.epd.get_vcom())
 # epd.Clear()
 clear_display(display)
 partial_update(display)
+display_image_8bpp(display)
 
 #Initialize display-related variables)
 display_image = Image.new('1', (display.epd.width,display.epd.height), 255)
