@@ -91,6 +91,7 @@ try:
         v_clear_display = ui.v_clear_display
         
         content_changed = prev_content != input_content
+        content_smaller = len(input_content) - len(prev_content)
         
         threshold = 1
         ct = time.time()
@@ -115,8 +116,9 @@ try:
             ui.keypressed = False
             print(input_content)
             
-        if v_clear_display:
+        if v_clear_display or content_smaller:
             clear_display(display)
+            partial_update_msg(display, input_content, '', font) 
             ui.v_clear_display = False
             
         
