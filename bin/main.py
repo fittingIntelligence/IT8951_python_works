@@ -64,7 +64,7 @@ def main():
     clear_display(display)
     # partial_update(display)
     display_image_8bpp(display,'images/poetpre.png')
-    partial_update_msg(display, text, font, fontsize)
+    partial_update_msg(display, text, font)
 
 
 
