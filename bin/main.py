@@ -92,7 +92,6 @@ try:
         
         content_changed = prev_content != input_content
         content_smaller = len(input_content) < len(prev_content)
-        print (content_smaller)
         
         threshold = 1
         ct = time.time()
