@@ -8,6 +8,8 @@ import keyboard
 import signal
 import time
 import os
+import keymaps
+
 
 #Display settings like font size, spacing, etc.
 display_start_line = 0

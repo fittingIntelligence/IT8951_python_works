@@ -3,7 +3,6 @@
 # Based on ZeroWriter, but overhauled almost completely
 import time
 import keyboard
-import keymaps
 from PIL import Image, ImageDraw, ImageFont
 # from waveshare_epd import new4in2part
 import textwrap
