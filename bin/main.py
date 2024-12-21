@@ -74,5 +74,12 @@ partial_update_msg(display, text, font)
 # if __name__ == '__main__':
 #     main()
 
+def update_display():
+    global text
+    text += ui.input_content
+    partial_update_msg(display, text, font)
+
+
 keyboard.on_release(ui.handle_key_press, suppress=False)
+keyboard.on_release(update_display, suppress=False)
 signal.signal(signal.SIGINT, ui.handle_interrupt)
