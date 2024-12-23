@@ -39,17 +39,35 @@ class Stack:
     def __str__(self):
         return f"Stack: {self.current_screen} - {self.current_file}"
 
-metadata = Stack('home', None)
+class ObjectSelector:
+    def __init__(self, itemlist):
+        self.itemlist = itemlist
+        self.position = 0
+    def display_items(self):
+        for index, item in enumerate(self.itemlist):
+            if index == self.position:
+                print(f"> {item}")
+            else:
+                print(f"  {item}")
+    def move_up(self):
+        if self.position > 0:
+            self.position -= 1
+    def move_down(self):
+        if self.position < len(self.itemlist) - 1:
+            self.position += 1
 
+
+metadata = Stack('home', None)
 loadWindow = Window(800,600,'Load a file', 0, 0)
 
-fileList = ['file1.txt','file2.txt','file3.txt']
+file_list = ['file1.txt','file2.txt','file3.txt']
 
-def fileSelection(fileList, position):
-    for idx, f in enumerate(fileList):
-        if idx == position:
-            print(f' >  {f}')
-        else:
-            print (f'    {f}')
+load_selector = ObjectSelector(file_list)
 
-fileSelection(fileList, 1)
+load_selector.display_items()
+load_selector.move_down()
+load_selector.display_items()
+load_selector.move_down()
+load_selector.display_items()
+load_selector.move_up()
+load_selector.display_items()
