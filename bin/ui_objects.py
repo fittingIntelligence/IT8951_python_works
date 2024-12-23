@@ -31,6 +31,15 @@ class Window:
         self.bg_image = image_path
     def __str__(self):
         return f"Window: {self.title} ({self.width}x{self.height}) at ({self.x_position}, {self.y_position})"
+    
+class Stack:
+    def __init__(self, current_screen = '', current_file =None):
+        self.current_screen = current_screen,
+        self.current_file = current_file,
+    def __str__(self):
+        return f"Stack: {self.current_screen} - {self.current_file}"
+
+metadata = Stack('home', None)
 
 loadWindow = Window(800,600,'Load a file', 0, 0)
 
