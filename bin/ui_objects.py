@@ -32,6 +32,8 @@ class Window:
     def __str__(self):
         return f"Window: {self.title} ({self.width}x{self.height}) at ({self.x_position}, {self.y_position})"
 
+loadWindow = Window(800,600,'Load a file', 0, 0)
+
 fileList = ['file1.txt','file2.txt','file3.txt']
 
 def fileSelection(fileList, position):
@@ -40,6 +42,5 @@ def fileSelection(fileList, position):
             print(f' - {f} -')
         else:
             print (f)
-
 
 fileSelection(fileList, 1)
