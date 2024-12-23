@@ -48,8 +48,8 @@ fileList = ['file1.txt','file2.txt','file3.txt']
 def fileSelection(fileList, position):
     for idx, f in enumerate(fileList):
         if idx == position:
-            print(f' - {f} -')
+            print(f' >  {f}')
         else:
-            print (f)
+            print (f'    {f}')
 
 fileSelection(fileList, 1)
