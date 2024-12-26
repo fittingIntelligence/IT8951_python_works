@@ -34,8 +34,8 @@ class Window:
     
 class Stack:
     def __init__(self, current_screen = '', current_file =None):
-        self.current_screen = current_screen,
-        self.current_file = current_file,
+        self.current_screen = current_screen
+        self.current_file = current_file
     def __str__(self):
         return f"Stack: {self.current_screen} - {self.current_file}"
 
@@ -55,6 +55,19 @@ class ObjectSelector:
     def move_down(self):
         if self.position < len(self.itemlist) - 1:
             self.position += 1
+
+
+class Content:
+    def __init__(self, width, height, x_position, y_position):
+        self.width = width
+        self.height=height
+        self.x_position = x_position
+        self.y_position = y_position
+        
+    def __str__(self):
+        return f"Content"
+
+
 
 
 metadata = Stack('home', None)
