@@ -70,6 +70,8 @@ class Content:
         self.content = ''
         self.prev_content = ''
         self.full_content_array = []
+        self.cursor_x = 0
+        self.cursor_y = 0
         
     def update_content(self, new_content):
         self.prev_content = self.content
