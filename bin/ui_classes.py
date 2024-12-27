@@ -63,6 +63,23 @@ class Content:
         self.height=height
         self.x_position = x_position
         self.y_position = y_position
+        self.v_scroll_idx = 0
+        self.v_scroll_max = 20
+        self.v_jump_at_rows_on_screen = 17
+        self.v_rows_on_screen = 0
+        self.content = ''
+        self.prev_content = ''
+        self.full_content_array = []
+        
+    def update_content(self, new_content):
+        self.prev_content = self.content
+        self.content = new_content
+        self.full_content_array = new_content.split('\n')
+        self.word_count = len(new_content.split())
+        self.last_updated = datetime.now()
+        
+        
+
         
     def __str__(self):
         return f"Content"
