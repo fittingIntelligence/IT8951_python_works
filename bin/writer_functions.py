@@ -7,7 +7,8 @@ __all__ = [
     'partial_update_msg',
     'full_update_msg',
     'set_font_size',
-    'fontsize'
+    'fontsize',
+    'backspace'
 ]
 
 from PIL import Image, ImageDraw, ImageFont
@@ -118,3 +119,11 @@ def _place_text(img, text, oldtext, font, x_offset=0, y_offset=0):
     newtext = text.replace(oldtext, '')
     
     draw.text((draw_x, draw_y), newtext, font=font)
+
+def backspace(draw_x, draw_y, text, oldtext, font, display):
+    global fontsize
+    text_width_to_blank = font.getlength(oldtext)
+    text_width = font.getlength(text)
+    blank_width = text_width_to_blank - text_width
+    display.frame_buf.paste(0xFF, box=(text_width, 0, blank_width, fontsize))
+    

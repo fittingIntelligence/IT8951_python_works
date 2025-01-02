@@ -120,9 +120,9 @@ try:
             
         elif content_changed:
             print('path2')
-            # if content_smaller:
-            #     full_update_msg(display, input_content, '', font) 
-            # else: 
+            if content_smaller:
+                backspace(0, 0, input_content, prev_content, font, display)
+            
             partial_update_msg(display, input_content, prev_content, font) 
             ui.keypressed = False
             print(input_content)
