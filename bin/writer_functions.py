@@ -124,7 +124,7 @@ def backspace(draw_x, draw_y, text, oldtext, font, display):
     global fontsize
     
     
-    text_width_to_blank = font.getlength(oldtext)
+    text_width_to_blank = int(font.getlength(oldtext))
     text_width = font.getlength(text)
     blank_width = text_width_to_blank - text_width
     
