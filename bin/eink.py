@@ -15,7 +15,7 @@ def set_font_size(fontsize):
 class eink:
     def __init__(self, current_screen, current_file, args):
         self.display = AutoEPDDisplay(vcom=-2.15, rotate=args.rotate, mirror=args.mirror, spi_hz=24000000)
-        self.epd = display.epd        
+        self.epd = self.display.epd        
         self.current_screen = current_screen
         self.current_file = current_file
         args.rotate='flip'
