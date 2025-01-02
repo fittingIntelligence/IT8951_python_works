@@ -13,7 +13,7 @@ class eink:
         self.current_file = current_file
         args.rotate='flip'
         self.fontsize=36
-        self.font = ImageFont.truetype('/usr/share/fonts/TTF/DejaVuSans.ttf', fontsize)
+        self.font = ImageFont.truetype('/usr/share/fonts/TTF/DejaVuSans.ttf', self.fontsize)
         
     def print_system_info(self):
         epd = self.display.epd
