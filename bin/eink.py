@@ -45,19 +45,19 @@ class eink:
         display.frame_buf.paste(img, paste_coords)
         display.draw_full(constants.DisplayModes.GC16)
         
-    def partial_update_msg(self, updatetext, oldtext, font):
+    def partial_update_msg(self, updatetext, oldtext):
         # TODO: should use 1bpp for partial text update
         print('  writing partial...')
-        self._place_text(display.frame_buf, updatetext, oldtext, font, x_offset=0, y_offset=10)
+        self._place_text(self.display.frame_buf, updatetext, oldtext, self.font, x_offset=0, y_offset=10)
         self.display.draw_partial(constants.DisplayModes.DU)
 
-    def _place_text(self, img, text, oldtext, font, x_offset=0, y_offset=0):
+    def _place_text(self, img, text, oldtext, x_offset=0, y_offset=0):
         draw = ImageDraw.Draw(img)
         text_width = font.getlength(oldtext)
         draw_x = 100+x_offset + text_width
         draw_y = 100+y_offset + self.fontsize
         newtext = text.replace(oldtext, '')
-        draw.text((draw_x, draw_y), newtext, font=font)
+        draw.text((draw_x, draw_y), newtext, font=self.font)
 
     def backspace(self, draw_x, draw_y, text, oldtext, font, display):
         text_width_to_blank = int(font.getlength(oldtext))
