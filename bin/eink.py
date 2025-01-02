@@ -2,15 +2,8 @@ from PIL import Image, ImageDraw, ImageFont
 from sys import path
 path += ['../../']
 from IT8951 import constants
+from IT8951.display import AutoEPDDisplay
 
-fontsize = 100
-
-def set_font_size(fontsize):
-    try:
-        font = ImageFont.truetype('/usr/share/fonts/truetype/freefont/FreeSans.ttf', fontsize)
-    except OSError:
-        font = ImageFont.truetype('/usr/share/fonts/TTF/DejaVuSans.ttf', fontsize)
-    return font
 
 class eink:
     def __init__(self, current_screen, current_file, args):
