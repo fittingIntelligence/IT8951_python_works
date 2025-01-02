@@ -131,7 +131,7 @@ def backspace(draw_x, draw_y, text, oldtext, font, display):
     print ([text_width_to_blank,text_width,blank_width,fontsize])
     
     display.frame_buf.paste(0xFF, box=(0, 0, display.width, display.height))
-    display.draw_full(constants.DisplayModes.DU)
+    display.draw_full(constants.DisplayModes.GC16)
 
 
     
