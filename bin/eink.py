@@ -50,7 +50,7 @@ class eink:
         self._place_text( updatetext, oldtext, x_offset=0, y_offset=10)
         self.display.draw_partial(constants.DisplayModes.DU)
 
-    def _place_text(self, img, text, oldtext, x_offset=0, y_offset=0):
+    def _place_text(self, text, oldtext, x_offset=0, y_offset=0):
         img = self.display.frame_buf
         draw = ImageDraw.Draw(img)
         text_width = self.font.getlength(oldtext)
