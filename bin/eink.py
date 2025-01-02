@@ -53,7 +53,7 @@ class eink:
 
     def _place_text(self, img, text, oldtext, x_offset=0, y_offset=0):
         draw = ImageDraw.Draw(img)
-        text_width = font.getlength(oldtext)
+        text_width = self.font.getlength(oldtext)
         draw_x = 100+x_offset + text_width
         draw_y = 100+y_offset + self.fontsize
         newtext = text.replace(oldtext, '')
