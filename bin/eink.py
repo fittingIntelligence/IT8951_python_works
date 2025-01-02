@@ -25,6 +25,22 @@ class eink:
         paste_coords = [dims[i] - img.size[i] for i in (0,1)]  # align image with bottom of display
         display.frame_buf.paste(img, paste_coords)
         display.draw_full(constants.DisplayModes.GC16)
+        
+    def print_system_info(self):
+        epd = self.display.epd
+        
+        print('System info:')
+        print('  display size: {}x{}'.format(epd.width, epd.height))
+        print('  img buffer address: {:X}'.format(epd.img_buf_address))
+        print('  firmware version: {}'.format(epd.firmware_version))
+        print('  LUT version: {}'.format(epd.lut_version))
+        print()
+
+    def clear_display(self):
+        print('Clearing display...')
+        self.display.clear()
+
+        
 
     def __str__(self):
         return f"Stack: {self.current_screen} - {self.current_file}"       
