@@ -113,17 +113,15 @@ try:
             
         if v_clear_display or content_smaller:
             # clear_display(display)
-            display_image_8bpp(display,'images/poetpre.png')
+            # display_image_8bpp(display,'images/poetpre.png')
+            print ('content smaller')
+            backspace(0, 0, input_content, prev_content, font, display)
 
-            partial_update_msg(display, input_content, '', font) 
+            # partial_update_msg(display, input_content, '', font) 
             ui.v_clear_display = False
             
         elif content_changed:
             print('path2')
-            if content_smaller:
-                print ('content smaller')
-                backspace(0, 0, input_content, prev_content, font, display)
-            
             partial_update_msg(display, input_content, prev_content, font) 
             ui.keypressed = False
             print(input_content)
