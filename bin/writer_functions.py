@@ -128,10 +128,12 @@ def backspace(draw_x, draw_y, text, oldtext, font, display):
     text_width = font.getlength(text)
     blank_width = text_width_to_blank - text_width
     
-    print ([text_width_to_blank,text_width,blank_width,fontsize])
+    box=(int(text_width), 0, int(blank_width), int(fontsize))
+    
+    print (box)
     
     # display.frame_buf.paste(0xFF, box=(0, 0, display.width, display.height))
-    display.frame_buf.paste(0xCF, box=(int(text_width), 0, int(blank_width), int(fontsize)))
+    display.frame_buf.paste(0xFF, box=(int(text_width), 0, int(blank_width), int(fontsize)))
     display.draw_full(constants.DisplayModes.GC16)    
     # _place_text(display.frame_buf, text, oldtext, font, x_offset=0, y_offset=10)
     
