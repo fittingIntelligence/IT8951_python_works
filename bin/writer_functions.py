@@ -142,5 +142,7 @@ def backspace(draw_x, draw_y, text, oldtext, font, display):
     # _place_text(display.frame_buf, text, oldtext, font, x_offset=0, y_offset=10)
     
     display.frame_buf.paste(0xFF, box=(0, 0, display.width, display.height))
+    display.draw_partial(constants.DisplayModes.DU)
+    
 
     
