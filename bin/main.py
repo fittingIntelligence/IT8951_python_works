@@ -121,6 +121,7 @@ try:
         elif content_changed:
             print('path2')
             if content_smaller:
+                print ('content smaller')
                 backspace(0, 0, input_content, prev_content, font, display)
             
             partial_update_msg(display, input_content, prev_content, font) 
