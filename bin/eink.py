@@ -46,7 +46,6 @@ class eink:
         display.draw_full(constants.DisplayModes.GC16)
         
     def partial_update_msg(self, updatetext, oldtext):
-        # TODO: should use 1bpp for partial text update
         print('  writing partial...')
         self._place_text(self.display.frame_buf, updatetext, oldtext, self.font, x_offset=0, y_offset=10)
         self.display.draw_partial(constants.DisplayModes.DU)
@@ -59,15 +58,15 @@ class eink:
         newtext = text.replace(oldtext, '')
         draw.text((draw_x, draw_y), newtext, font=self.font)
 
-    def backspace(self, draw_x, draw_y, text, oldtext, font, display):
-        text_width_to_blank = int(font.getlength(oldtext))
-        text_width = font.getlength(text)
+    def backspace(self, draw_x, draw_y, text, oldtext):
+        text_width_to_blank = int(self.font.getlength(oldtext))
+        text_width = self.font.getlength(text)
         draw_x = int(100 + text_width)
         draw_y = int(100 + self.fontsize)
         box=(draw_x, draw_y, draw_x + text_width_to_blank, draw_y + (self.fontsize *2))
         print (box)
-        display.frame_buf.paste(0xFF, box=box)
-        display.draw_partial(constants.DisplayModes.DU)
+        self.display.frame_buf.paste(0xFF, box=box)
+        self.display.draw_partial(constants.DisplayModes.DU)
 
     def __str__(self):
         return f"Stack: {self.current_screen} - {self.current_file}"       
