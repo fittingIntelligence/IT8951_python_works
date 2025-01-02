@@ -122,7 +122,7 @@ try:
             
         elif content_changed:
             print('path2')
-            update_dtl = (display, input_content, prev_content, font)
+            update_dtl = display, input_content, prev_content, font
             
             partial_update_msg(update_dtl) 
             ui.keypressed = False
