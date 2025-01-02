@@ -4,7 +4,7 @@
 
 from pathlib import Path
 import argparse
-import eink
+import eink as eink
 
 def parse_args():
     p = argparse.ArgumentParser(description='Test EPD functionality')
