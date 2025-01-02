@@ -89,7 +89,7 @@ class Content:
 
 
 
-metadata = Stack('home', None)
+# metadata = Stack('home', None)
 loadWindow = Window(800,600,'Load a file', 0, 0)
 
 file_list = ['file1.txt','file2.txt','file3.txt']
