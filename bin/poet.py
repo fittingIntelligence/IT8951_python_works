@@ -30,3 +30,6 @@ epd = ui_control.display.epd
 print('VCOM set to', epd.get_vcom())
 
 ui_control.display_image_8bpp()
+
+
+ui_control.clear_display()
