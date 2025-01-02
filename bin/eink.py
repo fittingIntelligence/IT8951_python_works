@@ -15,8 +15,9 @@ class eink:
         fontsize=36
         self.font = ImageFont.truetype('/usr/share/fonts/TTF/DejaVuSans.ttf', fontsize)
         
-    def display_image_8bpp(display, img_path='images/poetpre.png'):
+    def display_image_8bpp(self, img_path='images/poetpre.png'):
         print('Displaying "{}"...'.format(img_path))
+        display = self.display
         display.frame_buf.paste(0xFF, box=(0, 0, display.width, display.height))
         img = Image.open(img_path)
         dims = (display.width, display.height)
