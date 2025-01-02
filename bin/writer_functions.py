@@ -123,10 +123,12 @@ def _place_text(img, text, oldtext, font, x_offset=0, y_offset=0):
 def backspace(draw_x, draw_y, text, oldtext, font, display):
     global fontsize
     
-    print (locals)
     
     text_width_to_blank = font.getlength(oldtext)
     text_width = font.getlength(text)
     blank_width = text_width_to_blank - text_width
+    
+    print ([text_width_to_blank,text_width,blank_width,fontsize])
+    
     display.frame_buf.paste(0xFF, box=(text_width, 0, blank_width, fontsize))
     
