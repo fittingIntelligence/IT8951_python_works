@@ -132,7 +132,7 @@ def backspace(draw_x, draw_y, text, oldtext, font, display):
     draw_y = int(100 + fontsize)
 
     
-    box=(draw_x, draw_y, draw_x + text_width_to_blank, 200)
+    box=(draw_x, draw_y, draw_x + text_width_to_blank, draw_x + fontsize)
     
     print (box)
     
