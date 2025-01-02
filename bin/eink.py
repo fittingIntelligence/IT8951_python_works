@@ -47,10 +47,11 @@ class eink:
         
     def partial_update_msg(self, updatetext, oldtext):
         print('  writing partial...')
-        self._place_text(self.display.frame_buf, updatetext, oldtext, self.font, x_offset=0, y_offset=10)
+        self._place_text( updatetext, oldtext, x_offset=0, y_offset=10)
         self.display.draw_partial(constants.DisplayModes.DU)
 
     def _place_text(self, img, text, oldtext, x_offset=0, y_offset=0):
+        img = self.display.frame_buf
         draw = ImageDraw.Draw(img)
         text_width = self.font.getlength(oldtext)
         draw_x = 100+x_offset + text_width
