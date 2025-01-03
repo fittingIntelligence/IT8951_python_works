@@ -42,7 +42,7 @@ ui_control.backspace(0, 0, 'XXXxx', 'XXXxxXXX')
 ui_control.backspace(0, 0, 'XXX', 'XXXxxXXX')
 ui_control.sys_msg(ui_control.system_info,'')
 
-ko = key_overrides()
+ko = keyboard_overrides()
 
 keyboard.on_press(ko.handle_key_down, suppress=False) #handles modifiers and shortcuts
 keyboard.on_release(ko.handle_key_press, suppress=True)
