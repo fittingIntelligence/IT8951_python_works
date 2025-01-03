@@ -87,9 +87,9 @@ class keyboard_overrides:
             
             if self.shift_active:
                 char = keymaps.shift_mapping.get(e.name)
-                input_content += char
+                self.input_content += char
             else:
-                input_content += e.name
+                self.input_content += e.name
                 
             cursor_position += 1
             self.needs_input_update = True
