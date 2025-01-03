@@ -26,10 +26,10 @@ class loadscreen:
     def display_items(self):
         self.selectedItemList = []
         for index, item in enumerate(self.itemlist):
-            if index == self.position:
-                self.selectedItemList.append(f"> {item}")
-            else:
-                self.selectedItemList.append(f"  {item}")
+            # if index == self.position:
+            self.selectedItemList.append(f"> {item}")
+            # else:
+            self.selectedItemList.append(f"  {item}")
                 
     def move_up(self):
         if self.position > 0:
