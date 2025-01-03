@@ -22,7 +22,6 @@ class keyboard_overrides:
         self.cursor_index = 0
         self.window = ['write','ready']
         
-        
     def insert_character(self, character):        
         if self.cursor_index <= len(self.input_content):
             self.input_content = self.input_content[:self.cursor_index] + character + self.input_content[self.cursor_index:]
