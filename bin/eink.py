@@ -23,6 +23,7 @@ class eink:
             img buffer address: {epd.img_buf_address}
             firmware version: {epd.firmware_version}
             LUT version: {epd.lut_version}
+            
         """
         self.system_info = system_info
         print(self.system_info)
