@@ -84,6 +84,8 @@ try:
             ls.move_down()
             ls.display_items()
             ui_control.partial_update_msg( '\n' + '\n'.join(ls.selectedItemList)  ,'')
+            ui_control.partial_update_msg( '\n' + '\n' * ls.position +  '|'  ,'')
+            
             ko.window = ['loadscreen','wait']
 
         if current_window == ['loadscreen','down'] :
@@ -91,7 +93,7 @@ try:
             ls.move_down()
             ls.display_items()
             ui_control.partial_update_msg( '\n' + '\n' * ls.position +  '|'  ,'')
-            ui_control.backspace(0, ls.position * ui_control.fontsize, '', ' ')
+            ui_control.backspace(0, 0, '\n', ' ')
             ko.window = ['loadscreen','wait']
             
         if current_window == ['loadscreen','up']:
@@ -99,7 +101,7 @@ try:
             ls.move_up()
             ls.display_items()
             ui_control.partial_update_msg( '\n' + '\n' * ls.position +  '|'  ,'')
-            ui_control.backspace(0, ls.position * ui_control.fontsize, '', ' ')
+            ui_control.backspace(0, 0, '', ' ')
             ko.window = ['loadscreen','wait']
                 
         if needs_display_update and not display_updating:
