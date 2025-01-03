@@ -52,10 +52,10 @@ class keyboard_overrides:
             
             if self.window == ['loadscreen','wait']:
                 if e.name == 'down':
-                    self.window == ['loadscreen','down']
+                    self.window = ['loadscreen','down']
                     print('ls down')
                 elif e.name == 'up': 
-                    self.window == ['loadscreen','up']
+                    self.window = ['loadscreen','up']
                     print('ls up')
                     
                 
