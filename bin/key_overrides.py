@@ -16,6 +16,7 @@ class keyboard_overrides:
         self.display_updating = False
         self.keypressed = False
         self.v_clear_display = False
+        self.input_catchup = False
         
         
     def insert_character(self, character):
