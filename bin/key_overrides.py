@@ -12,6 +12,7 @@ class keyboard_overrides:
         self.needs_input_update = False
         self.chars_per_line = 100
         self.needs_display_update = False
+        self.input_content =''
         
         
     def insert_character(self, character):

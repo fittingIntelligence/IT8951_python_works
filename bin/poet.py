@@ -34,13 +34,13 @@ epd = ui_control.display.epd
 print('VCOM set to', epd.get_vcom())
 
 ui_control.clear_display()
-ui_control.display_image_8bpp()
-ui_control.print_system_info()
+# ui_control.display_image_8bpp()
+# ui_control.print_system_info()
 
 ui_control.partial_update_msg('XXXxxXXX','')
 ui_control.backspace(0, 0, 'XXXxx', 'XXXxxXXX')
 ui_control.backspace(0, 0, 'XXX', 'XXXxxXXX')
-ui_control.sys_msg(ui_control.system_info,'')
+# ui_control.sys_msg(ui_control.system_info,'')
 
 ko = keyboard_overrides()
 
@@ -54,7 +54,7 @@ exit_cleanup = False
 try:
     while True:
         needs_display_update = ko.needs_display_update
-        prev_content, input_content = input_content, ko.input_content
+        prev_content, input_content = ko.input_content, ko.input_content
         display_updating = ko.display_updating
         keypressed = ko.keypressed
         v_clear_display = ko.v_clear_display
