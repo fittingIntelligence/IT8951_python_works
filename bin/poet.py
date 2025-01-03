@@ -48,9 +48,7 @@ keyboard.on_press(ko.handle_key_down, suppress=False) #handles modifiers and sho
 keyboard.on_release(ko.handle_key_press, suppress=True)
 signal.signal(signal.SIGINT, ko.handle_interrupt)
 
-
 exit_cleanup = False
-
 input_content = ''
 
 try:

@@ -43,7 +43,7 @@ class keyboard_overrides:
             self.control_active = True
 
     def handle_key_press(self, e):
-        print(f'key pressed {e}')
+        print(f'key pressed {e} - line chars: {self.input_content.len()}')
         try:
             if e.name == "backspace":
                 self.delete_character()
