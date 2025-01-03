@@ -78,7 +78,7 @@ class eink:
     def sys_msg(self, updatetext, oldtext):
         print('  writing sys_msg...')
         try:
-            self._place_text( updatetext, oldtext, x_offset=0, y_offset=100)
+            self._place_text( updatetext, oldtext, x_offset=0, y_offset=900)
             self.display.draw_partial(constants.DisplayModes.DU)
         except:
             print('failed sys_msg')
