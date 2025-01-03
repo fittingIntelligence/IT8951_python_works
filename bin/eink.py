@@ -20,7 +20,7 @@ class eink:
         system_info = f"""
         System info:
             display size: {epd.width}x{epd.height}
-            img buffer address: {epd.img_buf_address:X}
+            img buffer address: {epd.img_buf_address}
             firmware version: {epd.firmware_version}
             LUT version: {epd.lut_version}
         """
@@ -78,7 +78,7 @@ class eink:
     def sys_msg(self, updatetext, oldtext):
         print('  writing sys_msg...')
         try:
-            self._place_text( updatetext, oldtext, x_offset=0, y_offset=900)
+            self._place_text( updatetext, oldtext, x_offset=500, y_offset=900)
             self.display.draw_partial(constants.DisplayModes.DU)
         except:
             print('failed sys_msg')
