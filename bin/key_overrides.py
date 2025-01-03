@@ -11,7 +11,7 @@ class keyboard_overrides:
         self.capslock_active = False
         self.cursor_position = 0
         self.needs_input_update = False
-        self.chars_per_line = 100
+        self.chars_per_line = 71
         self.needs_display_update = False
         self.input_content = ''
         self.prev_content  = ''
