@@ -53,6 +53,7 @@ signal.signal(signal.SIGINT, ko.handle_interrupt)
 
 exit_cleanup = False
 input_content = ''
+current_window = ''
 
 try:
     while True:
