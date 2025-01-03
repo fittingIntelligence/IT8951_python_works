@@ -11,7 +11,7 @@ class loadscreen:
         self.selectedItemList = []
         
     def list_files(self):
-        self.itemlist = os.listdir(self.selected_path).sort()
+        self.itemlist = sorted(os.listdir(self.selected_path))
         
     def open(self):
         print('open load screen')
