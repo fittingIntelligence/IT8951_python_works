@@ -110,9 +110,9 @@ try:
             font_height = ui_control.font_height_per_line -2
             
             left   = 100
-            top    = 100 + (line * font_height)
+            top    = 110 + (line * font_height)
             right  = 110
-            bottom = 100 + (line + 1 )* font_height
+            bottom = 110 + (line + 1 )* font_height
             print ([left, top, right, bottom])
             
             ui_control.clear_coords(100, 100, 110, 600)
@@ -126,9 +126,9 @@ try:
             line = ls.position + 1
             font_height = ui_control.font_height_per_line -2
             left   = 100
-            top    = 100 + (line * font_height)
+            top    = 110 + (line * font_height)
             right  = 110
-            bottom = 100 + (line + 1 )* font_height
+            bottom = 110 + (line + 1 )* font_height
             print ([left, top, right, bottom])
             
             ui_control.clear_coords(100, 100, 110, 600)
