@@ -40,5 +40,3 @@ class loadscreen:
             self.position += 1
         
         
-ls = loadscreen()
-

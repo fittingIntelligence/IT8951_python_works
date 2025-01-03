@@ -71,13 +71,13 @@ try:
         if exit_cleanup:
             break
         
-        if current_window == 'loadscreen':
+        if current_window == ['loadscreen','open']:
             ui_control.clear_display()
             ui_control.partial_update_msg('load screen activated','')
             ls.list_files()
             ls.display_items()
             ui_control.partial_update_msg( '\n' + '\n'.join(ls.selectedItemList)  ,'')
-            ko.window ='wait'
+            ko.window = ['loadscreen','wait']
 
                 
         if needs_display_update and not display_updating:

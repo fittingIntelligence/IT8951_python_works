@@ -20,7 +20,7 @@ class keyboard_overrides:
         self.v_clear_display = False
         self.input_catchup = False
         self.cursor_index = 0
-        self.window = 'write'
+        self.window = ['write','ready']
         
         
     def insert_character(self, character):        
@@ -48,7 +48,7 @@ class keyboard_overrides:
         try:
             
             if e.name== "l" and self.control_active: #ctrl+s
-                self.window = 'loadscreen'
+                self.window = ['loadscreen','open']
                 
             
             elif e.name == "backspace":
