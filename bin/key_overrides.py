@@ -91,7 +91,7 @@ class keyboard_overrides:
             else:
                 self.input_content += e.name
                 
-            cursor_position += 1
+            self.cursor_position += 1
             self.needs_input_update = True
 
             # Check if adding the character exceeds the line length limit
@@ -107,7 +107,7 @@ class keyboard_overrides:
                 needs_display_update=True
                 
             # Update cursor_position to the length of the remaining input_content
-            cursor_position = len(input_content)                
+            self.cursor_position = len(input_content)                
 
         self.typing_last_time = time.time()
         self.input_catchup==True
