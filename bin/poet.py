@@ -89,19 +89,15 @@ try:
             ko.window = ['loadscreen','wait']
 
         if current_window == ['loadscreen','down'] :
-            ui_control.partial_update_msg('load screen activated','')
             ls.move_down()
-            ls.display_items()
+            ui_control.backspace(0, 0, '\n', '')
             ui_control.partial_update_msg( '\n' + '\n' * ls.position +  '|'  ,'')
-            ui_control.backspace(0, 0, '\n', ' ')
             ko.window = ['loadscreen','wait']
             
         if current_window == ['loadscreen','up']:
-            ui_control.partial_update_msg('load screen activated','')
             ls.move_up()
-            ls.display_items()
+            ui_control.backspace(0, 0, '', '')
             ui_control.partial_update_msg( '\n' + '\n' * ls.position +  '|'  ,'')
-            ui_control.backspace(0, 0, '', ' ')
             ko.window = ['loadscreen','wait']
                 
         if needs_display_update and not display_updating:
