@@ -89,13 +89,13 @@ try:
 
         if current_window == ['loadscreen','down'] :
             ls.move_down()
-            ui_control.clear_coords(100, 100, 120, 600)
+            ui_control.clear_coords(100, 120, 120, 600)
             ui_control.partial_update_msg( '\n' + '\n' * ls.position +  '|'  ,'')
             ko.window = ['loadscreen','wait']
             
         if current_window == ['loadscreen','up']:
             ls.move_up()
-            ui_control.clear_coords(100, 100, 120, 600)
+            ui_control.clear_coords(100, 120, 120, 600)
             ui_control.partial_update_msg( '\n' + '\n' * ls.position +  '|'  ,'')
             ko.window = ['loadscreen','wait']
                 
