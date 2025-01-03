@@ -108,9 +108,9 @@ try:
             ls.move_down()
             
             left   = 100
-            top    = 100 + ((ls.position -1) * ui_control.font_height_per_line)
+            top    = 100 + (ls.position * ui_control.font_height_per_line)
             right  = 110
-            bottom = 100 + (ls.position * ui_control.font_height_per_line)
+            bottom = 100 + (ls.position + 1 )* ui_control.font_height_per_line
             
             print ([left, top, right, bottom])
             
