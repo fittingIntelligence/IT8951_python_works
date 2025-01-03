@@ -41,8 +41,6 @@ class keyboard_overrides:
             self.shift_active = True
         if e.name == 'ctrl': 
             self.control_active = True
-        if e.name == 'caps lock': 
-            self.capslock_active = True
 
     def handle_key_press(self, e):
         print(f'key pressed {e}')
@@ -50,6 +48,10 @@ class keyboard_overrides:
             self.delete_character()
             needs_input_update = True
             input_catchup = True
+
+        elif e.name == 'caps lock': 
+            self.capslock_active = True
+            
                 
         elif e.name == "space": #space bar
             self.insert_character(" ")
