@@ -77,8 +77,7 @@ try:
             ls.list_files()
             ls.display_items()
             ui_control.partial_update_msg( '\n'.join(ls.selectedItemList)  ,'')
-            
-            
+            ko.window ='wait'
 
                 
         if needs_display_update and not display_updating:
