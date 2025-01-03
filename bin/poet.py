@@ -61,8 +61,10 @@ try:
         display_updating = ko.display_updating
         keypressed = ko.keypressed
         v_clear_display = ko.v_clear_display
-        current_window = ko.window
         
+        
+        prev_window, current_window = current_window, ko.window
+                
         content_changed = prev_content != input_content
         content_smaller = len(input_content) < len(prev_content)
         
@@ -71,7 +73,8 @@ try:
         if exit_cleanup:
             break
         
-        print(current_window)
+        if prev_window != current_window:
+            print(current_window)
         
         if current_window == ['loadscreen','open']:
             ui_control.clear_display()
