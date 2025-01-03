@@ -107,13 +107,15 @@ try:
         if current_window == ['loadscreen','down'] :
             ls.move_down()
             ui_control.clear_coords(100, 100 + (ls.prev_position * ui_control.font_height_per_line), 110, 600)
-            ui_control.partial_update_msg( '\n' * ls.position +  '|'  ,'')
+            ui_control.fill_coords( 100, 100 + (ls.prev_position * ui_control.font_height_per_line), 110,100 + (ls.position * ui_control.font_height_per_line))
+            
+            # ui_control.partial_update_msg( '\n' * ls.position +  '|'  ,'')
             ko.window = ['loadscreen','wait']
             
         if current_window == ['loadscreen','up']:
             ls.move_up()
             ui_control.clear_coords(100, 100 + (ls.prev_position * ui_control.font_height_per_line), 110, 600)
-            ui_control.partial_update_msg(  '\n' * ls.position +  '|'  ,'')
+            ui_control.fill_coords( 100, 100 + (ls.prev_position * ui_control.font_height_per_line), 110,100 + (ls.position * ui_control.font_height_per_line))
             ko.window = ['loadscreen','wait']
                 
         if needs_display_update and not display_updating:

@@ -73,6 +73,12 @@ class eink:
             box=(left, top, right, bottom)
             self.display.frame_buf.paste(0xFF, box=box)
             self.display.draw_partial(constants.DisplayModes.DU)
+            
+    def fill_coords(self, left, top, right, bottom):
+            box=(left, top, right, bottom)
+            self.display.frame_buf.paste(0x00, box=box)
+            self.display.draw_partial(constants.DisplayModes.DU)            
+            
         
     def partial_update_msg(self, updatetext, oldtext):
         print('  writing partial...')
