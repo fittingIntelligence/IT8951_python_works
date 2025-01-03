@@ -45,14 +45,6 @@ class eink:
         display.frame_buf.paste(img, paste_coords)
         display.draw_full(constants.DisplayModes.GC16)
         
-    def partial_update_msg(self, updatetext, oldtext):
-        print('  writing partial...')
-        try:
-            self._place_text( updatetext, oldtext, x_offset=0, y_offset=10)
-            self.display.draw_partial(constants.DisplayModes.DU)
-        except:
-            print('failed Partial update msg')
-
     def _place_text(self, text, oldtext, x_offset=0, y_offset=0):
         img = self.display.frame_buf
         draw = ImageDraw.Draw(img)
@@ -71,6 +63,24 @@ class eink:
         print (box)
         self.display.frame_buf.paste(0xFF, box=box)
         self.display.draw_partial(constants.DisplayModes.DU)
+        
+        
+    def partial_update_msg(self, updatetext, oldtext):
+        print('  writing partial...')
+        try:
+            self._place_text( updatetext, oldtext, x_offset=0, y_offset=10)
+            self.display.draw_partial(constants.DisplayModes.DU)
+        except:
+            print('failed Partial update msg')
+        
+        
+    def sys_msg(self, updatetext, oldtext):
+        print('  writing sys_msg...')
+        try:
+            self._place_text( updatetext, oldtext, x_offset=0, y_offset=100)
+            self.display.draw_partial(constants.DisplayModes.DU)
+        except:
+            print('failed sys_msg')
 
     def __str__(self):
         return f"Stack: {self.current_screen} - {self.current_file}"       
