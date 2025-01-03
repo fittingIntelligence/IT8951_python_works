@@ -17,12 +17,15 @@ class eink:
         
     def print_system_info(self):
         epd = self.display.epd
-        print('System info:')
-        print('  display size: {}x{}'.format(epd.width, epd.height))
-        print('  img buffer address: {:X}'.format(epd.img_buf_address))
-        print('  firmware version: {}'.format(epd.firmware_version))
-        print('  LUT version: {}'.format(epd.lut_version))
-        print()
+        system_info = f"""
+        System info:')
+            display size: {epd.width}x{epd.height}
+            img buffer address: {epd.img_buf_address:X}
+            firmware version: {epd.firmware_version}
+            LUT version: {epd.lut_version}
+        """
+        self.system_info = system_info
+        print(self.system_info)
 
     def clear_display(self):
         print('Clearing display...')
@@ -64,7 +67,6 @@ class eink:
         self.display.frame_buf.paste(0xFF, box=box)
         self.display.draw_partial(constants.DisplayModes.DU)
         
-        
     def partial_update_msg(self, updatetext, oldtext):
         print('  writing partial...')
         try:
@@ -72,7 +74,6 @@ class eink:
             self.display.draw_partial(constants.DisplayModes.DU)
         except:
             print('failed Partial update msg')
-        
         
     def sys_msg(self, updatetext, oldtext):
         print('  writing sys_msg...')
@@ -83,4 +84,5 @@ class eink:
             print('failed sys_msg')
 
     def __str__(self):
-        return f"Stack: {self.current_screen} - {self.current_file}"       
+        return f"Stack: {self.current_screen} - {self.current_file}"
+    
