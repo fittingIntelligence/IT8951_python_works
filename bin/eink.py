@@ -22,7 +22,7 @@ class eink:
             display size: {epd.width}x{epd.height}
             img buffer address: {epd.img_buf_address}
             firmware version: {epd.firmware_version.strip()}
-            LUT version: {epd.lut_versio.strip()}
+            LUT version: {epd.lut_version.strip()}
             
         """
         self.system_info = system_info
