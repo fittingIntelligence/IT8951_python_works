@@ -21,11 +21,9 @@ class keyboard_overrides:
         self.cursor_index = 0
         
         
-    def insert_character(self, character):
-        cursor_index = self.cursor_position
-        
+    def insert_character(self, character):        
         if self.cursor_index <= len(self.input_content):
-            input_content = input_content[:cursor_index] + character + input_content[cursor_index:]
+            input_content = input_content[:self.cursor_index] + character + input_content[self.cursor_index:]
             self.cursor_position += 1  
         self.needs_input_update = True
 
