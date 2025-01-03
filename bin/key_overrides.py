@@ -50,7 +50,7 @@ class keyboard_overrides:
             if e.name== "l" and self.control_active: #ctrl+s
                 self.window = ['loadscreen','open']
             
-            if self.window == ['loadscreen','open']:
+            if self.window == ['loadscreen','wait']:
                 if e.name == 'down': #if control is released
                     self.window == ['loadscreen','down']
                 elif e.name == 'up': #if control is released
