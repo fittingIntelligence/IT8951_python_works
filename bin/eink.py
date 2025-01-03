@@ -90,6 +90,10 @@ class eink:
         except:
             print('failed sys_msg')
 
+    def paint_coords(self, color, top, left, bottom, right):
+            box=(top, left, bottom, right)
+            self.display.frame_buf.paste(color, box=box)
+            self.display.draw_partial(constants.DisplayModes.DU)
 
     def display_gradient(self):
         print('Displaying gradient...')
