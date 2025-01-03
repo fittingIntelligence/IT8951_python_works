@@ -101,7 +101,7 @@ try:
             print(current_window)
         
         if current_window == ['loadscreen','open']:
-            ui_control.clear_display()
+            # ui_control.clear_display()
             ui_control.display_image_8bpp(ui_backgrounds['ls'])
             ls.list_files()
             ls.display_items()
