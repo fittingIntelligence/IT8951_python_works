@@ -47,8 +47,11 @@ class eink:
         
     def partial_update_msg(self, updatetext, oldtext):
         print('  writing partial...')
-        self._place_text( updatetext, oldtext, x_offset=0, y_offset=10)
-        self.display.draw_partial(constants.DisplayModes.DU)
+        try:
+            self._place_text( updatetext, oldtext, x_offset=0, y_offset=10)
+            self.display.draw_partial(constants.DisplayModes.DU)
+        except:
+            print('failed Partial update msg')
 
     def _place_text(self, text, oldtext, x_offset=0, y_offset=0):
         img = self.display.frame_buf

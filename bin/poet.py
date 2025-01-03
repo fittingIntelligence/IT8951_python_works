@@ -29,7 +29,10 @@ ui_control = eink(current_screen, current_file, args)
 epd = ui_control.display.epd
 print('VCOM set to', epd.get_vcom())
 
-# ui_control.display_image_8bpp()
 # ui_control.clear_display()
+# ui_control.display_image_8bpp()
 
-ui_control.partial_update_msg('Hello','')
+ui_control.partial_update_msg('XXXxxXXX','')
+ui_control.backspace(0, 0, 'XXXxx', 'XXXxxXXX')
+
+
