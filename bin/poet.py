@@ -56,23 +56,23 @@ input_content = ''
 current_window = ''
 
 
-def split_string(text, chars_per_row=80):
-    return '\n'.join(text[i:i+chars_per_row] for i in range(0, len(text), chars_per_row))
+# def split_string(text, chars_per_row=80):
+#     return '\n'.join(text[i:i+chars_per_row] for i in range(0, len(text), chars_per_row))
 
 
-def sampletext():
-    lipsum = '''
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque malesuada mauris a leo fringilla,  eu tristique justo porttitor. Donec rutrum mattis mauris a molestie. Proin condimentum rutrum accumsan. 
+# def sampletext():
+#     lipsum = '''
+# Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque malesuada mauris a leo fringilla,  eu tristique justo porttitor. Donec rutrum mattis mauris a molestie. Proin condimentum rutrum accumsan. 
 
-Etiam condimentum tellus magna, nec interdum nunc pellentesque ac. Sed sit amet massa ipsum. In a semper lectus. Vestibulum vitae sodales tellus, sit amet aliquam diam. Suspendisse sit amet ipsum vel tortor auctor dictum. Donec ipsum dui, sodales vitae luctus vitae, varius quis purus. Cras pulvinar orci sit met neque volutpat pharetra. 
+# Etiam condimentum tellus magna, nec interdum nunc pellentesque ac. Sed sit amet massa ipsum. In a semper lectus. Vestibulum vitae sodales tellus, sit amet aliquam diam. Suspendisse sit amet ipsum vel tortor auctor dictum. Donec ipsum dui, sodales vitae luctus vitae, varius quis purus. Cras pulvinar orci sit met neque volutpat pharetra. 
 
-Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-    '''
-    result = split_string(lipsum)
-    ui_control.clear_display()
-    ui_control.partial_update_msg( result  ,'')
+# Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+#     '''
+#     result = split_string(lipsum)
+#     ui_control.clear_display()
+#     ui_control.partial_update_msg( result  ,'')
 
-sampletext()
+# sampletext()
 
 
 ui_control.clear_coords(100, 100, 120, 100 + ui_control.font_height_per_line)
