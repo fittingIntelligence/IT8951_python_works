@@ -103,11 +103,11 @@ class keyboard_overrides:
                 self.previous_lines.append(sentence)                
 
                 # Update input_content to contain the remaining characters
-                input_content = input_content[last_space + 1:]
+                self.input_content = self.input_content[last_space + 1:]
                 needs_display_update=True
                 
             # Update cursor_position to the length of the remaining input_content
-            self.cursor_position = len(input_content)                
+            self.cursor_position = len(self.input_content)                
 
         self.typing_last_time = time.time()
         self.input_catchup==True
