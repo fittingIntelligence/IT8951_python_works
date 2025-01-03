@@ -124,8 +124,8 @@ class keyboard_overrides:
             self.input_catchup==True
             self.needs_input_update = True
             self.keypressed=True
-        except (e):
-            print(e)
+        except Exception as error:
+            print(error)
 
             
     def handle_interrupt(signal, frame):
