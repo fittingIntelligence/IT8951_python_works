@@ -79,6 +79,23 @@ try:
             ui_control.partial_update_msg( '\n' + '\n'.join(ls.selectedItemList)  ,'')
             ko.window = ['loadscreen','wait']
 
+        if current_window == ['loadscreen','down']:
+            ui_control.clear_display()
+            ui_control.partial_update_msg('load screen activated','')
+            ls.list_files()
+            ls.move_down()
+            ls.display_items()
+            ui_control.partial_update_msg( '\n' + '\n'.join(ls.selectedItemList)  ,'')
+            ko.window = ['loadscreen','wait']
+            
+        if current_window == ['loadscreen','up']:
+            ui_control.clear_display()
+            ui_control.partial_update_msg('load screen activated','')
+            ls.list_files()
+            ls.move_up()
+            ls.display_items()
+            ui_control.partial_update_msg( '\n' + '\n'.join(ls.selectedItemList)  ,'')
+            ko.window = ['loadscreen','wait']
                 
         if needs_display_update and not display_updating:
             print('path1')
