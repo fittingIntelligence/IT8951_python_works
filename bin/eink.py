@@ -24,6 +24,7 @@ class eink:
             img buffer address: {epd.img_buf_address}
             firmware version: {epd.firmware_version}
             LUT version: {epd.lut_version}
+            Font Metrics: {self.font.getmetrics()}
             
         """
         self.system_info = system_info
