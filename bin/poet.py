@@ -91,7 +91,6 @@ try:
             ls.move_down()
             ls.display_items()
             ui_control.partial_update_msg( '\n' + '\n' * ls.position +  '|'  ,'')
-            ui_control.backspace( '\n' + '\n' * ls.position +  ''  ,' ')
             ui_control.backspace(0, ls.position * ui_control.fontsize, '', ' ')
             ko.window = ['loadscreen','wait']
             
