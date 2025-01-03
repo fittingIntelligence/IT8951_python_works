@@ -90,8 +90,8 @@ try:
             ui_control.partial_update_msg('load screen activated','')
             ls.move_down()
             ls.display_items()
-            ui_control.partial_update_msg( '\n' + '\n'.join(ls.selectedItemList)  ,'')
             ui_control.partial_update_msg( '\n' + '\n' * ls.position +  '|'  ,'')
+            ui_control.backspace( '\n' + '\n' * ls.position +  ''  ,' ')
 
             ko.window = ['loadscreen','wait']
             
@@ -99,8 +99,9 @@ try:
             ui_control.partial_update_msg('load screen activated','')
             ls.move_up()
             ls.display_items()
-            ui_control.partial_update_msg( '\n' + '\n' + '\n'.join(ls.selectedItemList)  ,'')
-            ui_control.partial_update_msg( '\n' * ls.position +  '|'  ,'')
+            ui_control.partial_update_msg( '\n' + '\n' * ls.position +  '|'  ,'')
+            ui_control.backspace( '\n' + '\n' * ls.position +  ''  ,' ')
+            
             ko.window = ['loadscreen','wait']
                 
         if needs_display_update and not display_updating:

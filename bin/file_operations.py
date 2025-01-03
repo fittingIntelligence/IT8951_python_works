@@ -7,6 +7,7 @@ class loadscreen:
         self.selected_file = ''
         self.itemlist = []
         self.position = 0
+        self.prev_position = 0
         self.selectedItemList = []
         
     def list_files(self):
@@ -33,10 +34,12 @@ class loadscreen:
                 
     def move_up(self):
         if self.position > 0:
+            self.prev_position = self.position
             self.position -= 1
             
     def move_down(self):
         if self.position < len(self.itemlist) - 1:
+            self.prev_position = self.position            
             self.position += 1
         
         
