@@ -51,10 +51,12 @@ signal.signal(signal.SIGINT, ko.handle_interrupt)
 
 exit_cleanup = False
 
+input_content = ''
+
 try:
     while True:
         needs_display_update = ko.needs_display_update
-        prev_content, input_content = ko.input_content, ko.input_content
+        prev_content, input_content = input_content, ko.input_content
         display_updating = ko.display_updating
         keypressed = ko.keypressed
         v_clear_display = ko.v_clear_display

@@ -44,6 +44,7 @@ class keyboard_overrides:
             self.capslock_active = True
 
     def handle_key_press(self, e):
+        print(f'key pressed {e}')
         if e.name == "backspace":
             self.delete_character()
             needs_input_update = True
