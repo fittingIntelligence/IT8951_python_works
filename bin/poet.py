@@ -5,6 +5,7 @@
 from pathlib import Path
 import argparse
 from eink import eink
+import key_overrides 
 import keyboard
 import signal
 
@@ -41,52 +42,49 @@ ui_control.backspace(0, 0, 'XXXxx', 'XXXxxXXX')
 ui_control.backspace(0, 0, 'XXX', 'XXXxxXXX')
 ui_control.sys_msg(ui_control.system_info,'')
 
-# keyboard.on_press(ui.handle_key_down, suppress=False) #handles modifiers and shortcuts
-# keyboard.on_release(ui.handle_key_press, suppress=True)
-# signal.signal(signal.SIGINT, ui.handle_interrupt)
+ko = key_overrides()
+
+keyboard.on_press(ko.handle_key_down, suppress=False) #handles modifiers and shortcuts
+keyboard.on_release(ko.handle_key_press, suppress=True)
+signal.signal(signal.SIGINT, ko.handle_interrupt)
 
 
-# exit_cleanup = False
+exit_cleanup = False
 
-# try:
-#     while True:
-#         needs_display_update = ui.needs_display_update
-#         prev_content, input_content = input_content, ui.input_content
-#         display_updating = ui.display_updating
-#         keypressed = ui.keypressed
-#         v_clear_display = ui.v_clear_display
+try:
+    while True:
+        needs_display_update = ko.needs_display_update
+        prev_content, input_content = input_content, ko.input_content
+        display_updating = ko.display_updating
+        keypressed = ko.keypressed
+        v_clear_display = ko.v_clear_display
         
-#         content_changed = prev_content != input_content
-#         content_smaller = len(input_content) < len(prev_content)
+        content_changed = prev_content != input_content
+        content_smaller = len(input_content) < len(prev_content)
         
-#         threshold = 1
+        threshold = 1
         
-#         if exit_cleanup:
-#             break
+        if exit_cleanup:
+            break
                 
-#         if needs_display_update and not display_updating:
-#             print('path1')
-#             ui_control.partial_update_msg(input_content, prev_content)         
+        if needs_display_update and not display_updating:
+            print('path1')
+            ui_control.partial_update_msg(input_content, prev_content)         
             
-#         if v_clear_display or content_smaller:
-#             print ('content smaller')
-#             ui_control.backspace(0, 0, input_content, prev_content)
+        if v_clear_display or content_smaller:
+            print ('content smaller')
+            ui_control.backspace(0, 0, input_content, prev_content)
 
-#             # partial_update_msg(display, input_content, '', font) 
-#             ui.v_clear_display = False
+        elif content_changed:
+            print('path2')
+            update_dtl = (display, input_content, prev_content)
             
-#         elif content_changed:
-#             print('path2')
-#             update_dtl = (display, input_content, prev_content)
-            
-#             ui_control.partial_update_msg(input_content, prev_content)
-#             ui.keypressed = False
-#             print(update_dtl)
-            
-        
+            ui_control.partial_update_msg(input_content, prev_content)
+            ko.keypressed = False
+            print(update_dtl)
 
-#         #time.sleep(0.05) #the sleep here seems to help the processor handle things, especially on 64-bit installs
+        #time.sleep(0.05) #the sleep here seems to help the processor handle things, especially on 64-bit installs
 
         
-# except KeyboardInterrupt:
-#     pass
+except KeyboardInterrupt:
+    pass
