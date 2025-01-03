@@ -31,7 +31,7 @@ class keyboard_overrides:
         cursor_index = self.cursor_position
         
         if cursor_index > 0:
-            input_content = input_content[:cursor_index - 1] + input_content[cursor_index:]
+            input_content = self.input_content[:cursor_index - 1] + self.input_content[cursor_index:]
             self.cursor_position -= 1  
             self.needs_input_update = True
 
