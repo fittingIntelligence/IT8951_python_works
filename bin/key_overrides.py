@@ -12,7 +12,8 @@ class keyboard_overrides:
         self.needs_input_update = False
         self.chars_per_line = 100
         self.needs_display_update = False
-        self.input_content =''
+        self.input_content = ''
+        self.prev_content  = ''
         self.display_updating = False
         self.keypressed = False
         self.v_clear_display = False
@@ -31,7 +32,7 @@ class keyboard_overrides:
         cursor_index = self.cursor_position
         
         if cursor_index > 0:
-            input_content = self.input_content[:cursor_index - 1] + self.input_content[cursor_index:]
+            self.input_content = self.input_content[:cursor_index - 1] + self.input_content[cursor_index:]
             self.cursor_position -= 1  
             self.needs_input_update = True
 
@@ -40,7 +41,7 @@ class keyboard_overrides:
             self.shift_active = True
         if e.name == 'ctrl': 
             self.control_active = True
-        if e.name == 'caps': 
+        if e.name == 'caps lock': 
             self.capslock_active = True
 
     def handle_key_press(self, e):
@@ -84,12 +85,19 @@ class keyboard_overrides:
 
         if e.name == 'shift': #if shift is released
             self.shift_active = False
+            
+        if e.name == 'caps lock': #if caps lock is released
+            self.capslock_active = False
 
         elif len(e.name) == 1 and self.control_active == False:  # letter and number input
             
             if self.shift_active:
                 char = keymaps.shift_mapping.get(e.name)
                 self.input_content += char
+            elif self.capslock_active:
+                char = keymaps.shift_mapping.get(e.name)
+                self.input_content += char
+                
             else:
                 self.input_content += e.name
                 
