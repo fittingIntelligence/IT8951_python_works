@@ -90,6 +90,31 @@ class eink:
         except:
             print('failed sys_msg')
 
+
+    def display_gradient(self):
+        print('Displaying gradient...')
+        for i in range(16):
+            color = i*0x10
+            box = (
+                i*self.display.width//16,      # xmin
+                0,                        # ymin
+                (i+1)*self.display.width//16,  # xmax
+                self.display.height            # ymax
+            )
+
+            self.display.frame_buf.paste(color, box=box)
+        self.display.draw_full(constants.DisplayModes.GC16)
+
+        # then add some black and white bars on top of it, to test updating with DU on top of GC16
+        box = (0, self.display.height//5, self.display.width, 2*self.display.height//5)
+        self.display.frame_buf.paste(0x00, box=box)
+
+        box = (0, 3*self.display.height//5, self.display.width, 4*self.display.height//5)
+        self.display.frame_buf.paste(0xF0, box=box)
+
+        self.display.draw_partial(constants.DisplayModes.DU)
+
+
     def __str__(self):
         return f"Stack: {self.current_screen} - {self.current_file}"
     
