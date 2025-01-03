@@ -86,7 +86,7 @@ class keyboard_overrides:
         if e.name == 'shift': #if shift is released
             self.shift_active = False
             
-        if e.name == 'caps lock': #if caps lock is released
+        if e.name == 'caps lock' and self.capslock_active: #if caps lock is released
             self.capslock_active = False
 
         elif len(e.name) == 1 and self.control_active == False:  # letter and number input
