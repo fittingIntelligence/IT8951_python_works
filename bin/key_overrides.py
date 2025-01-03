@@ -44,7 +44,7 @@ class keyboard_overrides:
             self.control_active = True
 
     def handle_key_press(self, e):
-        print(f'key pressed {e} - line chars: {len(self.input_content)}')
+        print(f'key pressed {e} - line chars: {len(self.input_content)} - screen {self.window}')
         try:
             
             if e.name== "l" and self.control_active: #ctrl+s
