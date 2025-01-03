@@ -44,6 +44,7 @@ class keyboard_overrides:
 
     def handle_key_press(self, e):
         print(f'key pressed {e}')
+        print(e.name)
         if e.name == "backspace":
             self.delete_character()
             needs_input_update = True
