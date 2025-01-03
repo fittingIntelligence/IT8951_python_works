@@ -2,8 +2,8 @@ import os
 
 class loadscreen:
     def __init__(self):
-        self.bookdir = '/home/zero/git/books'
-        self.selected_path = self.bookdir
+        self.booksroot = '/home/zero/git/books'
+        self.selected_path = self.booksroot
         self.selected_file = ''
         self.itemlist = []
         self.position = 0
