@@ -35,8 +35,8 @@ epd = ui_control.display.epd
 print('VCOM set to', epd.get_vcom())
 
 ui_control.clear_display()
-# ui_control.display_image_8bpp()
-# ui_control.print_system_info()
+ui_control.display_image_8bpp()
+ui_control.print_system_info()
 
 ui_control.partial_update_msg('...','')
 # ui_control.backspace(0, 0, 'XXXxx', 'XXXxxXXX')
