@@ -51,9 +51,9 @@ class keyboard_overrides:
             input_catchup = True
 
         elif e.name == 'caps lock': 
-            self.capslock_active = True
+            self.capslock_active = True if self.capslock_active == False else False
             print('caps lock')
-            
+
                 
         elif e.name == "space": #space bar
             self.insert_character(" ")
@@ -90,8 +90,6 @@ class keyboard_overrides:
         if e.name == 'shift': #if shift is released
             self.shift_active = False
             
-        if e.name == 'caps lock' and self.capslock_active: #if caps lock is released
-            self.capslock_active = False
 
         elif len(e.name) == 1 and self.control_active == False:  # letter and number input
             
