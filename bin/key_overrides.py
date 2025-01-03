@@ -18,12 +18,13 @@ class keyboard_overrides:
         self.keypressed = False
         self.v_clear_display = False
         self.input_catchup = False
+        self.cursor_index = 0
         
         
     def insert_character(self, character):
         cursor_index = self.cursor_position
         
-        if self.cursor_index <= len(input_content):
+        if self.cursor_index <= len(self.input_content):
             input_content = input_content[:cursor_index] + character + input_content[cursor_index:]
             self.cursor_position += 1  
         self.needs_input_update = True
