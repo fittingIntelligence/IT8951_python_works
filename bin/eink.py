@@ -93,7 +93,7 @@ class eink:
     def paint_coords(self, color, left, top, right, bottom):
             box=(left, top, right, bottom)
             self.display.frame_buf.paste(color, box=box)
-            self.display.draw_partial(constants.DisplayModes.DU)
+            self.display.draw_partial(constants.DisplayModes.GC16)
 
     def display_gradient(self):
         print('Displaying gradient...')

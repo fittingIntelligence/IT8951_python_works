@@ -43,6 +43,7 @@ ui_control.partial_update_msg('...','')
 # ui_control.backspace(0, 0, 'XXX', 'XXXxxXXX')
 # ui_control.sys_msg(ui_control.system_info,'')
 
+ui_control.paint_coords(1*0x10, 100, 100, 120, 600)
 
 ls = file_operations.loadscreen()
 ko = keyboard_overrides()
