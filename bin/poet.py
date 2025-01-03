@@ -10,6 +10,10 @@ import file_operations
 import keyboard
 import signal
 
+ui_backgrounds = {
+    'splash' : 'images/poetpre.png',
+    'ls'     : 'images/load_screen.png'
+}
 
 def parse_args():
     p = argparse.ArgumentParser(description='Test EPD functionality')
@@ -98,6 +102,7 @@ try:
         
         if current_window == ['loadscreen','open']:
             ui_control.clear_display()
+            ui_control.display_image_8bpp(ui_backgrounds['ls'])
             ls.list_files()
             ls.display_items()
             ui_control.partial_update_msg( '\n'.join(ls.selectedItemList)  ,'')
