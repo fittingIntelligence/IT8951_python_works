@@ -27,7 +27,7 @@ class loadscreen:
         self.selectedItemList = []
         for index, item in enumerate(self.itemlist):
             # if index == self.position:
-            self.selectedItemList.append(f"> {item}")
+            # self.selectedItemList.append(f"> {item}")
             # else:
             self.selectedItemList.append(f"  {item}")
                 
