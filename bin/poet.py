@@ -71,6 +71,8 @@ try:
         if exit_cleanup:
             break
         
+        print(current_window)
+        
         if current_window == ['loadscreen','open']:
             ui_control.clear_display()
             ui_control.partial_update_msg('load screen activated','')
