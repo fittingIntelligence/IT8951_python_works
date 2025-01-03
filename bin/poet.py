@@ -106,12 +106,10 @@ try:
 
         if current_window == ['loadscreen','down'] :
             ls.move_down()
-            
             left   = 100
             top    = 100 + (ls.position * ui_control.font_height_per_line)
             right  = 110
             bottom = 100 + (ls.position + 1 )* ui_control.font_height_per_line
-            
             print ([left, top, right, bottom])
             
             ui_control.clear_coords(100, 100, 110, 600)
@@ -122,8 +120,14 @@ try:
             
         if current_window == ['loadscreen','up']:
             ls.move_up()
+            left   = 100
+            top    = 100 + (ls.position * ui_control.font_height_per_line)
+            right  = 110
+            bottom = 100 + (ls.position + 1 )* ui_control.font_height_per_line
+            print ([left, top, right, bottom])
+            
             ui_control.clear_coords(100, 100, 110, 600)
-            ui_control.fill_coords( 100, 100 + ((ls.position -1 ) * ui_control.font_height_per_line), 110,100 + (ls.position * ui_control.font_height_per_line))
+            ui_control.fill_coords(left , top, right, bottom)            
             ko.window = ['loadscreen','wait']
                 
         if needs_display_update and not display_updating:
