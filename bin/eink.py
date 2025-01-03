@@ -73,7 +73,6 @@ class eink:
             self.display.frame_buf.paste(0xFF, box=box)
             self.display.draw_partial(constants.DisplayModes.DU)
         
-        
     def partial_update_msg(self, updatetext, oldtext):
         print('  writing partial...')
         try:
