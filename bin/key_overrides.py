@@ -52,6 +52,7 @@ class keyboard_overrides:
 
         elif e.name == 'caps lock': 
             self.capslock_active = True
+            print('caps lock')
             
                 
         elif e.name == "space": #space bar
