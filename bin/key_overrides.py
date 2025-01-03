@@ -51,10 +51,13 @@ class keyboard_overrides:
                 self.window = ['loadscreen','open']
             
             if self.window == ['loadscreen','wait']:
-                if e.name == 'down': #if control is released
+                if e.name == 'down':
                     self.window == ['loadscreen','down']
-                elif e.name == 'up': #if control is released
+                    print('ls down')
+                elif e.name == 'up': 
                     self.window == ['loadscreen','up']
+                    print('ls up')
+                    
                 
             
             if e.name == "backspace":
