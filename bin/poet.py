@@ -102,24 +102,23 @@ try:
         
         if current_window == ['loadscreen','open']:
             ui_control.clear_display()
-            ui_control.partial_update_msg('load screen activated','')
             ls.list_files()
             ls.move_down()
             ls.display_items()
-            ui_control.partial_update_msg( '\n' + '\n'.join(ls.selectedItemList)  ,'')
-            ui_control.partial_update_msg( '\n' + '\n' * ls.position +  '|'  ,'')
+            ui_control.partial_update_msg( '\n'.join(ls.selectedItemList)  ,'')
+            ui_control.partial_update_msg( '\n' * ls.position +  '|'  ,'')
             ko.window = ['loadscreen','wait']
 
         if current_window == ['loadscreen','down'] :
             ls.move_down()
-            ui_control.paint_coords( 5*0x10,100, 120, 120, 600)
-            ui_control.partial_update_msg( '\n' + '\n' * ls.position +  '|'  ,'')
+            ui_control.paint_coords( 5*0x10, 100, 100 + (ls.prev_position * ui_control.font_height_per_line), 100 + (ls.position * ui_control.font_height_per_line), 600)
+            ui_control.partial_update_msg( '\n' * ls.position +  '|'  ,'')
             ko.window = ['loadscreen','wait']
             
         if current_window == ['loadscreen','up']:
             ls.move_up()
-            ui_control.paint_coords( 5*0x10,100, 120, 120, 600)
-            ui_control.partial_update_msg( '\n' + '\n' * ls.position +  '|'  ,'')
+            ui_control.paint_coords( 5*0x10, 100, 100 + (ls.prev_position * ui_control.font_height_per_line), 100 + (ls.position * ui_control.font_height_per_line), 600)
+            ui_control.partial_update_msg(  '\n' * ls.position +  '|'  ,'')
             ko.window = ['loadscreen','wait']
                 
         if needs_display_update and not display_updating:
