@@ -77,6 +77,15 @@ current_window = ''
 
 # sampletext()
 
+def selection_visual():
+    line = ls.position + 1
+    font_height = ui_control.font_height_per_line -4
+    left   = 100
+    top    = 110 + (line * font_height)
+    right  = 110
+    bottom = 110 + (line + 1 )* font_height
+    return [left, top, right, bottom]
+
 
 try:
     while True:
@@ -105,20 +114,15 @@ try:
             ui_control.display_image_8bpp(ui_backgrounds['ls'])
             ls.list_files()
             ls.display_items()
+            left, top, right, bottom = selection_visual()
+            
             ui_control.partial_update_msg( '\n'.join(ls.selectedItemList)  ,'')
-            ui_control.partial_update_msg( '\n' * ls.position +  '|'  ,'')
+            ui_control.fill_coords(left , top, right, bottom)
             ko.window = ['loadscreen','wait']
 
         if current_window == ['loadscreen','down'] :
             ls.move_down()
-            line = ls.position + 1
-            font_height = ui_control.font_height_per_line -4
-            
-            left   = 100
-            top    = 110 + (line * font_height)
-            right  = 110
-            bottom = 110 + (line + 1 )* font_height
-            print ([left, top, right, bottom])
+            left, top, right, bottom = selection_visual()
             
             ui_control.clear_coords(100, 100, 110, 600)
             ui_control.fill_coords(left , top, right, bottom)
@@ -128,14 +132,8 @@ try:
             
         if current_window == ['loadscreen','up']:
             ls.move_up()
-            line = ls.position + 1
-            font_height = ui_control.font_height_per_line -4
-            left   = 100
-            top    = 110 + (line * font_height)
-            right  = 110
-            bottom = 110 + (line + 1 )* font_height
-            print ([left, top, right, bottom])
-            
+            left, top, right, bottom = selection_visual()
+
             ui_control.clear_coords(100, 100, 110, 600)
             ui_control.fill_coords(left , top, right, bottom)            
             ko.window = ['loadscreen','wait']
