@@ -69,8 +69,8 @@ class eink:
         self.display.frame_buf.paste(0xFF, box=box)
         self.display.draw_partial(constants.DisplayModes.DU)
         
-    def clear_coords(self, top, left, bottom, right):
-            box=(top, left, bottom, right)
+    def clear_coords(self, left, top, right, bottom):
+            box=(left, top, right, bottom)
             self.display.frame_buf.paste(0xFF, box=box)
             self.display.draw_partial(constants.DisplayModes.DU)
         
@@ -90,8 +90,8 @@ class eink:
         except:
             print('failed sys_msg')
 
-    def paint_coords(self, color, top, left, bottom, right):
-            box=(top, left, bottom, right)
+    def paint_coords(self, color, left, top, right, bottom):
+            box=(left, top, right, bottom)
             self.display.frame_buf.paste(color, box=box)
             self.display.draw_partial(constants.DisplayModes.DU)
 
