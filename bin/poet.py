@@ -112,7 +112,8 @@ try:
             right  = 110
             bottom = 100 + (ls.position * ui_control.font_height_per_line)
             
-            print ([ls.position, ui_control.font_height_per_line,ls.position * ui_control.font_height_per_line])
+            print ([left, top, right, bottom])
+            
             ui_control.clear_coords(100, 100, 110, 600)
             ui_control.fill_coords(left , top, right, bottom)
             
