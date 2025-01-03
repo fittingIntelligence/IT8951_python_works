@@ -6,6 +6,7 @@ from pathlib import Path
 import argparse
 from eink import eink
 from key_overrides import keyboard_overrides
+import file_operations
 import keyboard
 import signal
 
@@ -42,6 +43,8 @@ ui_control.partial_update_msg('...','')
 # ui_control.backspace(0, 0, 'XXX', 'XXXxxXXX')
 # ui_control.sys_msg(ui_control.system_info,'')
 
+
+ls = file_operations.loadscreen()
 ko = keyboard_overrides()
 
 keyboard.on_press(ko.handle_key_down, suppress=False) #handles modifiers and shortcuts
@@ -58,6 +61,7 @@ try:
         display_updating = ko.display_updating
         keypressed = ko.keypressed
         v_clear_display = ko.v_clear_display
+        current_window = ko.window
         
         content_changed = prev_content != input_content
         content_smaller = len(input_content) < len(prev_content)
@@ -66,6 +70,16 @@ try:
         
         if exit_cleanup:
             break
+        
+        if current_window == 'loadscreen':
+            ui_control.clear_display()
+            ui_control.partial_update_msg('load screen activated','')
+            ls.list_files()
+            ls.display_items()
+            ui_control.partial_update_msg( '\n'.join(ls.selectedItemList)  ,'')
+            
+            
+
                 
         if needs_display_update and not display_updating:
             print('path1')

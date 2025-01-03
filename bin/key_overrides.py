@@ -20,6 +20,7 @@ class keyboard_overrides:
         self.v_clear_display = False
         self.input_catchup = False
         self.cursor_index = 0
+        self.window = 'write'
         
         
     def insert_character(self, character):        
@@ -45,7 +46,12 @@ class keyboard_overrides:
     def handle_key_press(self, e):
         print(f'key pressed {e} - line chars: {len(self.input_content)}')
         try:
-            if e.name == "backspace":
+            
+            if e.name== "l" and self.control_active: #ctrl+s
+                self.window = 'loadscreen'
+                
+            
+            elif e.name == "backspace":
                 self.delete_character()
                 needs_input_update = True
                 input_catchup = True
