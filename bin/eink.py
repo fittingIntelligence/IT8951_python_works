@@ -14,6 +14,7 @@ class eink:
         args.rotate='flip'
         self.fontsize=36
         self.font = ImageFont.truetype('/usr/share/fonts/TTF/DejaVuSans.ttf', self.fontsize)
+        self.font_height_per_line = sum(self.font.getmetrics())
         
     def print_system_info(self):
         epd = self.display.epd
