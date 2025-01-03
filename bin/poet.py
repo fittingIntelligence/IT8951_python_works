@@ -103,7 +103,6 @@ try:
         if current_window == ['loadscreen','open']:
             ui_control.clear_display()
             ls.list_files()
-            ls.move_down()
             ls.display_items()
             ui_control.partial_update_msg( '\n'.join(ls.selectedItemList)  ,'')
             ui_control.partial_update_msg( '\n' * ls.position +  '|'  ,'')
