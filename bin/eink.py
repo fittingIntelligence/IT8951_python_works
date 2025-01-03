@@ -18,7 +18,7 @@ class eink:
     def print_system_info(self):
         epd = self.display.epd
         system_info = f"""
-        System info:')
+        System info:
             display size: {epd.width}x{epd.height}
             img buffer address: {epd.img_buf_address:X}
             firmware version: {epd.firmware_version}
