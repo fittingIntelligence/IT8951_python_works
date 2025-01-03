@@ -107,7 +107,7 @@ try:
         if current_window == ['loadscreen','down'] :
             ls.move_down()
             line = ls.position + 1
-            font_height = ui_control.font_height_per_line -2
+            font_height = 34 # ui_control.font_height_per_line -2
             
             left   = 100
             top    = 110 + (line * font_height)
@@ -124,7 +124,7 @@ try:
         if current_window == ['loadscreen','up']:
             ls.move_up()
             line = ls.position + 1
-            font_height = ui_control.font_height_per_line -2
+            font_height = 34
             left   = 100
             top    = 110 + (line * font_height)
             right  = 110
