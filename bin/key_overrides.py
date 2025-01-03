@@ -95,10 +95,10 @@ class keyboard_overrides:
             self.needs_input_update = True
 
             # Check if adding the character exceeds the line length limit
-            if cursor_position > self.chars_per_line:
+            if self.cursor_position > self.chars_per_line:
                 # Find the last space character before the line length limit
-                last_space = input_content.rfind(' ', 0, self.chars_per_line)
-                sentence = input_content[:last_space]
+                last_space = self.input_content.rfind(' ', 0, self.chars_per_line)
+                sentence = self.input_content[:last_space]
                 # Append the sentence to the previous lines
                 self.previous_lines.append(sentence)                
 
