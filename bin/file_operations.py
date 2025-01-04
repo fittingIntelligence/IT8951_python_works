@@ -38,7 +38,7 @@ class loadscreen:
             self.position -= 1
             
     def move_down(self):
-        if self.position < len(self.itemlist) - 1:
+        if self.position < len(self.selectedItemList) - 1:
             self.prev_position = self.position            
             self.position += 1
             
