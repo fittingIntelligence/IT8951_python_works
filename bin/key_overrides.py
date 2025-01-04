@@ -57,7 +57,7 @@ class keyboard_overrides:
                     self.window = ['loadscreen','up']
                     print('ls up')
                 elif e.name == "enter":
-                    self.window = ['loadscreen','open']
+                    self.window = ['loadscreen','selectItem']
                     print('ls selection')
                     
             if e.name== "h" and self.control_active: 
@@ -72,7 +72,7 @@ class keyboard_overrides:
                     print('write up')
                
             
-            if e.name == "backspace":
+            elif e.name == "backspace":
                 self.delete_character()
                 needs_input_update = True
                 input_catchup = True
