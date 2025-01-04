@@ -41,5 +41,9 @@ class loadscreen:
         if self.position < len(self.itemlist) - 1:
             self.prev_position = self.position            
             self.position += 1
+            
+    def select_item(self):
+        selection = self.selectedItemList[self.position]
+        self.selected_path= f'{self.selected_path}/{selection}'
         
         

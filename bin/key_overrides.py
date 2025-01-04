@@ -46,7 +46,7 @@ class keyboard_overrides:
         print(f'key pressed {e} - line chars: {len(self.input_content)} - screen {self.window}')
         try:
             
-            if e.name== "l" and self.control_active: #ctrl+s
+            if e.name== "l" and self.control_active: 
                 self.window = ['loadscreen','open']
             
             if self.window == ['loadscreen','wait']:
@@ -57,7 +57,17 @@ class keyboard_overrides:
                     self.window = ['loadscreen','up']
                     print('ls up')
                     
-                
+            if e.name== "h" and self.control_active: 
+                self.window = ['write','open']
+            
+            if self.window == ['write','wait']:
+                if e.name == 'down':
+                    self.window = ['loadscreen','down']
+                    print('ls down')
+                elif e.name == 'up': 
+                    self.window = ['loadscreen','up']
+                    print('ls up')
+               
             
             if e.name == "backspace":
                 self.delete_character()
