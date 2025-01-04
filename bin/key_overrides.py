@@ -57,7 +57,7 @@ class keyboard_overrides:
                     self.window = ['loadscreen','up']
                     print('ls up')
                 elif e.name == "enter":
-                    self.window = ['loadscreen','selectItem']
+                    self.window = ['loadscreen','open']
                     print('ls selection')
                     
             if e.name== "h" and self.control_active: 
