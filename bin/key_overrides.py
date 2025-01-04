@@ -62,11 +62,11 @@ class keyboard_overrides:
             
             if self.window == ['write','wait']:
                 if e.name == 'down':
-                    self.window = ['loadscreen','down']
-                    print('ls down')
+                    self.window = ['write','down']
+                    print('write down')
                 elif e.name == 'up': 
-                    self.window = ['loadscreen','up']
-                    print('ls up')
+                    self.window = ['write','up']
+                    print('write up')
                
             
             if e.name == "backspace":
