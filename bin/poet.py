@@ -145,7 +145,7 @@ try:
             ui_control.display_image_8bpp()
             ui_control.partial_update_msg('Onwards to your writing adventures','')
             ui_control.sys_msg(ui_control.system_info,'')
-            ko.window = ['write','wait']
+            ko.window = ['write','ready']
                 
         if needs_display_update and not display_updating:
             print('path1')
