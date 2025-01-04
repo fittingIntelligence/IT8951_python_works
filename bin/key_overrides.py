@@ -44,6 +44,18 @@ class keyboard_overrides:
 
     def handle_key_press(self, e):
         print(f'key pressed {e} - line chars: {len(self.input_content)} - screen {self.window}')
+        
+        if self.shift_active:
+            char = keymaps.shift_mapping.get(e.name)
+            self.input_content += char
+        elif self.capslock_active:
+            char = keymaps.shift_mapping.get(e.name)
+            self.input_content += char
+            
+        else:
+            self.input_content += e.name
+                    
+        return
         try:
             
             if e.name== "l" and self.control_active: 

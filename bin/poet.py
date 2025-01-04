@@ -98,6 +98,9 @@ try:
         content_changed = prev_content != input_content
         content_smaller = len(input_content) < len(prev_content)
         
+        if content_changed:
+            print (input_content)       
+        
         threshold = 1
         
         if exit_cleanup:
@@ -131,6 +134,7 @@ try:
                 ko.window = ['loadscreen','wait']
                 
             elif current_window[1] == 'selectItem':
+                ls.position = 0
                 left, top, right, bottom = selection_visual()
                 ui_control.partial_update_msg( '\n'.join(ls.selectedItemList)  ,'')
                 ui_control.fill_coords(left , top, right, bottom)
