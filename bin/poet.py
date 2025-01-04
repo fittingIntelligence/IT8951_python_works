@@ -129,6 +129,12 @@ try:
                 ui_control.clear_coords(100, 100, 110, 600)
                 ui_control.fill_coords(left , top, right, bottom)            
                 ko.window = ['loadscreen','wait']
+                
+            elif current_window[1] == 'selectItem':
+                left, top, right, bottom = selection_visual()
+                ui_control.partial_update_msg( '\n'.join(ls.selectedItemList)  ,'')
+                ui_control.fill_coords(left , top, right, bottom)
+                ko.window = ['loadscreen','wait']
             
         if current_window == ['write','open']:
             # ui_control.clear_display()
