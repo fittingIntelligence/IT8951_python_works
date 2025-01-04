@@ -137,7 +137,7 @@ try:
                 print('Selecting item')
                 ls.select_item()
                 ls.position = 0
-                ui_control.clear_coords(80, 100, 90, 600)
+                ui_control.clear_coords(80, 100, 600, 600)
                 left, top, right, bottom = selection_visual()
                 ui_control.partial_update_msg( '\n'.join(ls.selectedItemList)  ,'')
                 ui_control.fill_coords(left , top, right, bottom)
