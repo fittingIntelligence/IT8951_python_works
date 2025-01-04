@@ -44,6 +44,12 @@ class loadscreen:
             
     def select_item(self):
         selection = self.selectedItemList[self.position]
-        self.selected_path= f'{self.selected_path}/{selection}'
+        self.selected_item= f'{self.selected_path}/{selection}'
+        is_directory = os.path.isdir(self.selected_item)
+        is_file = os.path.isfile(self.selected_item)
         
-        
+        if is_directory:
+            self.selected_path = self.selected_item
+            self.list_files()
+            self.display_items()
+
