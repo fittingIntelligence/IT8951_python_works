@@ -48,28 +48,28 @@ class keyboard_overrides:
         try:
             
             if e.name== "l" and self.control_active: 
-                self.shortcut = ['loadscreen','open']
+                self.window = ['loadscreen','open']
             
-            if self.shortcut == ['loadscreen','wait']:
+            if self.window == ['loadscreen','wait']:
                 if e.name == 'down':
-                    self.shortcut = ['loadscreen','down']
+                    self.window = ['loadscreen','down']
                     print('ls down')
                 elif e.name == 'up': 
-                    self.shortcut = ['loadscreen','up']
+                    self.window = ['loadscreen','up']
                     print('ls up')
                 elif e.name == "enter":
-                    self.shortcut = ['loadscreen','selectItem']
+                    self.window = ['loadscreen','selectItem']
                     print('ls selection')
                     
             if e.name== "h" and self.control_active: 
-                self.shortcut = ['write','open']
+                self.window = ['write','open']
             
-            if self.shortcut == ['write','wait']:
+            if self.window == ['write','wait']:
                 if e.name == 'down':
-                    self.shortcut = ['write','down']
+                    self.window = ['write','down']
                     print('write down')
                 elif e.name == 'up': 
-                    self.shortcut = ['write','up']
+                    self.window = ['write','up']
                     print('write up')
                
             
