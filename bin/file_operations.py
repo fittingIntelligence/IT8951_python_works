@@ -44,11 +44,14 @@ class loadscreen:
             
     def select_item(self):
         print('Attempting selction')
-        if self.selectedItemList[self.position] == '..':
+        if self.selectedItemList[self.position] == '..' and self.selected_path != self.booksroot:
             selection = f'{ "/".join( self.selected_path.split("/")[:-1] ) }'
             
-        else:
+        elif self.selectedItemList[self.position] != '..':
             selection = f'{self.selected_path}/{self.selectedItemList[self.position].strip()}'
+        
+        else:
+            selection = self.selected_path
         
         is_directory = os.path.isdir(selection)
         is_file = os.path.isfile(selection)
