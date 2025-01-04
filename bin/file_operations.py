@@ -30,7 +30,7 @@ class loadscreen:
             # if index == self.position:
             # self.selectedItemList.append(f"> {item}")
             # else:
-            self.selectedItemList.append(f"  {item}")
+            self.selectedItemList.append(item)
                 
     def move_up(self):
         if self.position > 0:
