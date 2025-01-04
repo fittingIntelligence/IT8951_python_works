@@ -42,7 +42,7 @@ ui_control.clear_display()
 ui_control.display_image_8bpp()
 ui_control.print_system_info()
 
-ui_control.partial_update_msg('Onwards to your writing adventures','')
+ui_control.partial_update_msg('...','..')
 ui_control.sys_msg(ui_control.system_info,'')
 
 ls = file_operations.loadscreen()
@@ -134,10 +134,10 @@ try:
                 ko.window = ['loadscreen','wait']
                 
             elif current_window[1] == 'selectItem':
-                print(' Selecting item')
+                print('Selecting item')
+                ls.select_item()
                 ls.position = 0
                 ui_control.clear_coords(100, 100, 600, 600)
-                ls.select_item()
                 left, top, right, bottom = selection_visual()
                 ui_control.partial_update_msg( '\n'.join(ls.selectedItemList)  ,'')
                 ui_control.fill_coords(left , top, right, bottom)
@@ -146,7 +146,7 @@ try:
         elif current_window == ['write','open']:
             # ui_control.clear_display()
             ui_control.display_image_8bpp()
-            ui_control.partial_update_msg('Onwards to your writing adventures','')
+            ui_control.partial_update_msg('...','..')
             ui_control.sys_msg(ui_control.system_info,'')
             ko.window = ['write','ready']
                 
