@@ -45,7 +45,7 @@ class loadscreen:
     def select_item(self):
         print('Attempting selction')
         if self.selectedItemList[self.position] == '..':
-            selection = f'{'/'.join( self.selected_path.split('/')[:-1] )}'
+            selection = f'{ "/".join( self.selected_path.split("/")[:-1] ) }'
             
         else:
             selection = f'{self.selected_path}/{self.selectedItemList[self.position].strip()}'
