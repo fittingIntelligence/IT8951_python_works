@@ -21,6 +21,7 @@ class keyboard_overrides:
         self.input_catchup = False
         self.cursor_index = 0
         self.window = ['write','ready']
+        self.shortcut = []
         
     def insert_character(self, character):        
         if self.cursor_index <= len(self.input_content):
@@ -44,46 +45,31 @@ class keyboard_overrides:
 
     def handle_key_press(self, e):
         print(f'key pressed {e} - line chars: {len(self.input_content)} - screen {self.window}')
-        
-        try:
-            if self.shift_active:
-                char = keymaps.shift_mapping.get(e.name)
-                self.input_content += char
-            elif self.capslock_active:
-                char = keymaps.shift_mapping.get(e.name)
-                self.input_content += char
-                
-            else:
-                self.input_content += e.name
-        except Exception as error:
-            print(error)
-            
-        return
         try:
             
             if e.name== "l" and self.control_active: 
-                self.window = ['loadscreen','open']
+                self.shortcut = ['loadscreen','open']
             
-            if self.window == ['loadscreen','wait']:
+            if self.shortcut == ['loadscreen','wait']:
                 if e.name == 'down':
-                    self.window = ['loadscreen','down']
+                    self.shortcut = ['loadscreen','down']
                     print('ls down')
                 elif e.name == 'up': 
-                    self.window = ['loadscreen','up']
+                    self.shortcut = ['loadscreen','up']
                     print('ls up')
                 elif e.name == "enter":
-                    self.window = ['loadscreen','selectItem']
+                    self.shortcut = ['loadscreen','selectItem']
                     print('ls selection')
                     
             if e.name== "h" and self.control_active: 
-                self.window = ['write','open']
+                self.shortcut = ['write','open']
             
-            if self.window == ['write','wait']:
+            if self.shortcut == ['write','wait']:
                 if e.name == 'down':
-                    self.window = ['write','down']
+                    self.shortcut = ['write','down']
                     print('write down')
                 elif e.name == 'up': 
-                    self.window = ['write','up']
+                    self.shortcut = ['write','up']
                     print('write up')
                
             
