@@ -106,16 +106,29 @@ try:
         if prev_window != current_window:
             print(current_window)
         
-        if current_window == ['loadscreen','open']:
-            # ui_control.clear_display()
-            ui_control.display_image_8bpp(ui_backgrounds['ls'])
-            ls.list_files()
-            ls.display_items()
-            left, top, right, bottom = selection_visual()
-            
-            ui_control.partial_update_msg( '\n'.join(ls.selectedItemList)  ,'')
-            ui_control.fill_coords(left , top, right, bottom)
-            ko.window = ['loadscreen','wait']
+        if current_window[0] == 'loadscreen':
+            if current_window[1] == 'open':
+                ui_control.display_image_8bpp(ui_backgrounds['ls'])
+                ls.list_files()
+                ls.display_items()
+                left, top, right, bottom = selection_visual()
+                ui_control.partial_update_msg( '\n'.join(ls.selectedItemList)  ,'')
+                ui_control.fill_coords(left , top, right, bottom)
+                ko.window = ['loadscreen','wait']
+                
+            elif current_window[1] == 'down' :
+                ls.move_down()
+                left, top, right, bottom = selection_visual()
+                ui_control.clear_coords(100, 100, 110, 600)
+                ui_control.fill_coords(left , top, right, bottom)
+                ko.window = ['loadscreen','wait']
+                
+            elif current_window[1] == 'up':
+                ls.move_up()
+                left, top, right, bottom = selection_visual()
+                ui_control.clear_coords(100, 100, 110, 600)
+                ui_control.fill_coords(left , top, right, bottom)            
+                ko.window = ['loadscreen','wait']
             
         if current_window == ['write','open']:
             # ui_control.clear_display()
@@ -124,21 +137,6 @@ try:
             ui_control.partial_update_msg('Onwards to your writing adventures','Onwards to your writing adventures')
             ui_control.sys_msg(ui_control.system_info,'')
             ko.window = ['write','wait']
-            
-
-        if current_window == ['loadscreen','down'] :
-            ls.move_down()
-            left, top, right, bottom = selection_visual()
-            ui_control.clear_coords(100, 100, 110, 600)
-            ui_control.fill_coords(left , top, right, bottom)
-            ko.window = ['loadscreen','wait']
-            
-        if current_window == ['loadscreen','up']:
-            ls.move_up()
-            left, top, right, bottom = selection_visual()
-            ui_control.clear_coords(100, 100, 110, 600)
-            ui_control.fill_coords(left , top, right, bottom)            
-            ko.window = ['loadscreen','wait']
                 
         if needs_display_update and not display_updating:
             print('path1')
