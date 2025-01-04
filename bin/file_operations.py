@@ -25,7 +25,7 @@ class loadscreen:
         print('select file')
            
     def display_items(self):
-        self.selectedItemList = []
+        self.selectedItemList = ['..']
         for index, item in enumerate(self.itemlist):
             # if index == self.position:
             # self.selectedItemList.append(f"> {item}")
@@ -44,7 +44,11 @@ class loadscreen:
             
     def select_item(self):
         print('Attempting selction')
-        selection = f'{self.selected_path}/{self.selectedItemList[self.position]}'
+        if self.selectedItemList[self.position] == '..':
+            selection = f'{self.selected_path[:-1]}'
+            
+        else:
+            selection = f'{self.selected_path}/{self.selectedItemList[self.position]}'
         
         is_directory = os.path.isdir(selection)
         is_file = os.path.isfile(selection)
