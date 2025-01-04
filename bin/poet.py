@@ -134,7 +134,9 @@ try:
                 ko.window = ['loadscreen','wait']
                 
             elif current_window[1] == 'selectItem':
+                print(' Selecting item')
                 ls.position = 0
+                ui_control.clear_coords(100, 100, 600, 600)
                 left, top, right, bottom = selection_visual()
                 ui_control.partial_update_msg( '\n'.join(ls.selectedItemList)  ,'')
                 ui_control.fill_coords(left , top, right, bottom)
