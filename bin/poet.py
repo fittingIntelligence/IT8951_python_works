@@ -140,11 +140,10 @@ try:
                 ui_control.fill_coords(left , top, right, bottom)
                 ko.window = ['loadscreen','wait']
             
-        if current_window == ['write','open']:
+        elif current_window == ['write','open']:
             # ui_control.clear_display()
             ui_control.display_image_8bpp()
-            ui_control.print_system_info()
-            ui_control.partial_update_msg('Onwards to your writing adventures','Onwards to your writing adventures')
+            ui_control.partial_update_msg('Onwards to your writing adventures','')
             ui_control.sys_msg(ui_control.system_info,'')
             ko.window = ['write','wait']
                 
