@@ -11,7 +11,8 @@ class loadscreen:
         self.selectedItemList = []
         
     def list_files(self):
-        self.itemlist = sorted(os.listdir(self.selected_path))
+        self.itemlist = ['..']
+        self.itemlist.append( sorted(os.listdir(self.selected_path)) )
         
     def open(self):
         print('open load screen')
@@ -25,7 +26,7 @@ class loadscreen:
         print('select file')
            
     def display_items(self):
-        self.selectedItemList = ['..']
+        self.selectedItemList = []
         for index, item in enumerate(self.itemlist):
             # if index == self.position:
             # self.selectedItemList.append(f"> {item}")
