@@ -25,11 +25,8 @@ class loadscreen:
         print('select file')
            
     def display_items(self):
-        self.selectedItemList = ['..']
+        self.selectedItemList = [f'.. ({ self.selected_path.replace(self.booksroot,"") })']
         for index, item in enumerate(self.itemlist):
-            # if index == self.position:
-            # self.selectedItemList.append(f"> {item}")
-            # else:
             self.selectedItemList.append(f'  {item}')
                 
     def move_up(self):
@@ -44,7 +41,7 @@ class loadscreen:
             
     def select_item(self):
         print('Attempting selction')
-        if self.selectedItemList[self.position] == '..' and self.selected_path != self.booksroot:
+        if self.position == 0 and self.selected_path != self.booksroot:
             selection = f'{ "/".join( self.selected_path.split("/")[:-1] ) }'
             
         elif self.selectedItemList[self.position] != '..':
