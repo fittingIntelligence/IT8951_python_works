@@ -43,11 +43,11 @@ class loadscreen:
             self.position += 1
             
     def select_item(self):
-        print(f'Attempting selction {self.selected_item}')
-        selection = self.selectedItemList[self.position]
-        self.selected_item= f'{self.selected_path}/{selection}'
-        is_directory = os.path.isdir(self.selected_item)
-        is_file = os.path.isfile(self.selected_item)
+        print('Attempting selction')
+        selection = f'{self.selected_path}/{self.selectedItemList[self.position]}'
+        
+        is_directory = os.path.isdir(selection)
+        is_file = os.path.isfile(selection)
         
         print(f'''
               is_directory {is_directory}
@@ -55,9 +55,9 @@ class loadscreen:
               ''')
         
         if is_directory:
-            print(f'Changing path to {self.selected_item}')
+            print(f'Changing path to {selection}')
 
-            self.selected_path = self.selected_item
+            self.selected_path = selection
             self.list_files()
             self.display_items()
 
