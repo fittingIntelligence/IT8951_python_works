@@ -25,7 +25,11 @@ class loadscreen:
         print('select file')
            
     def display_items(self):
-        self.selectedItemList = [f'.. ({ self.selected_path.replace(self.booksroot,"") })']
+        pwd = self.selected_path.replace(self.booksroot,"")
+        if len(pwd) == 0:
+            self.selectedItemList = [f'-']
+        else:
+            self.selectedItemList = [f'.. ({ self.selected_path.replace(self.booksroot,"") })']
         for index, item in enumerate(self.itemlist):
             self.selectedItemList.append(f'  {item}')
                 
