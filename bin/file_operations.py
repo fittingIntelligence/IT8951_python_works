@@ -30,7 +30,7 @@ class loadscreen:
             # if index == self.position:
             # self.selectedItemList.append(f"> {item}")
             # else:
-            self.selectedItemList.append(item)
+            self.selectedItemList.append(f'  item')
                 
     def move_up(self):
         if self.position > 0:
@@ -45,10 +45,10 @@ class loadscreen:
     def select_item(self):
         print('Attempting selction')
         if self.selectedItemList[self.position] == '..':
-            selection = f'{self.selected_path[:-1]}'
+            selection = f'{'/'.join( self.selected_path.split('/')[:-1] )}'
             
         else:
-            selection = f'{self.selected_path}/{self.selectedItemList[self.position]}'
+            selection = f'{self.selected_path}/{self.selectedItemList[self.position].strip()}'
         
         is_directory = os.path.isdir(selection)
         is_file = os.path.isfile(selection)
