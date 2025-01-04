@@ -50,6 +50,7 @@ class loadscreen:
         is_file = os.path.isfile(selection)
         
         print(f'''
+              selection {selection}
               is_directory {is_directory}
               is_file {is_file}
               ''')
