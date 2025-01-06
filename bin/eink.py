@@ -25,6 +25,7 @@ class eink:
             firmware version: {epd.firmware_version}
             LUT version: {epd.lut_version}
             Font Metrics: {self.font.getmetrics()}
+            Font Name: {self.font.getname()}
             
         """
         self.system_info = system_info
