@@ -11,6 +11,9 @@ class loadscreen:
         self.selectedItemList = []
         self.current_file_contents = ''
         self.selected = False
+        self.cleanPath = '/'
+        
+        
         
     def list_files(self):
         self.itemlist =  sorted(os.listdir(self.selected_path))
@@ -83,8 +86,8 @@ class loadscreen:
         
         if is_directory:
             print(f'Changing path to {selection}')
-
             self.selected_path = selection
+            self.cleanPath = selection.replace(self.booksroot,'')
             self.list_files()
             self.display_items()
             
