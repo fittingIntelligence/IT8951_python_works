@@ -87,10 +87,10 @@ class loadscreen:
         if is_directory:
             print(f'Changing path to {selection}')
             self.selected_path = selection
-            self.cleanPath = selection.replace(self.booksroot,'')
             self.list_files()
             self.display_items()
             
         elif is_file:
             self.select_file(selection)
+            self.cleanPath = selection.replace(self.booksroot,'')
 
