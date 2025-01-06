@@ -111,7 +111,8 @@ try:
         
         if current_window[0] == 'loadscreen':
             if current_window[1] == 'open':
-                ui_control.display_image_8bpp(ui_backgrounds['ls'])
+                ui_control.display_image_8bpp(ui_backgrounds['gs'])
+                ui_control.write_text(80, 40, 'Load a file', 30, 0, 0, 1800, 1400)
                 ls.list_files()
                 ls.display_items()
                 left, top, right, bottom = selection_visual()
