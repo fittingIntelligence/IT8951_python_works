@@ -43,6 +43,7 @@ class loadscreen:
         
            
     def display_items(self):
+        self.open()
         pwd = self.selected_path.replace(self.booksroot,"")
         if len(pwd) == 0:
             self.selectedItemList = [f'-']
