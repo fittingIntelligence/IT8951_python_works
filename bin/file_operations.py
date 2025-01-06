@@ -9,6 +9,7 @@ class loadscreen:
         self.position = 0
         self.prev_position = 0
         self.selectedItemList = []
+        self.current_file_contents = ''
         
     def list_files(self):
         self.itemlist =  sorted(os.listdir(self.selected_path))
@@ -21,8 +22,23 @@ class loadscreen:
         print('close load screen')
         self.selected = False
         
-    def select_file(self):
-        print('select file')
+    def select_file(self, selection):
+        self.selected_file = selection
+        print (f'use {self.selected_file} for writing to')
+        self.read_file_whole(self.selected_file)
+        
+
+    def read_file_whole(self, filename):
+        try:
+            with open(filename, 'r') as file:
+                content = file.read()
+                print(content)
+                self.current_file_contents = content
+        except FileNotFoundError:
+            print(f"Error: The file '{filename}' was not found.")
+        except IOError:
+            print(f"Error: There was an issue reading the file '{filename}'.")
+        
            
     def display_items(self):
         pwd = self.selected_path.replace(self.booksroot,"")
@@ -71,6 +87,5 @@ class loadscreen:
             self.display_items()
             
         elif is_file:
-            self.select_file = selection
-            print (f'use {selection} for writing to')
+            self.select_file(selection)
 
