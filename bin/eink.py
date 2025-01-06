@@ -37,7 +37,7 @@ class eink:
         
     def set_font_size(self, fontsize):
         try:
-            font = ImageFont.truetype('/usr/share/fonts/truetype/jetbrains-mono/JetBrainsMono-Regular.ttf', fontsize)
+            font = ImageFont.truetype('/usr/share/fonts/truetype/jetbrains-mono/JetBrainsMono-Medium.ttf', fontsize)
             return font
         except OSError:
             print ('Font error, falling back')
