@@ -69,4 +69,8 @@ class loadscreen:
             self.selected_path = selection
             self.list_files()
             self.display_items()
+            
+        elif is_file:
+            self.select_file = selection
+            print (f'use {selection} for writing to')
 
