@@ -146,9 +146,9 @@ try:
             elif ls.selected==False and current_window[1] == 'selectItem':
                 input_content = ls.current_file_contents
                 ui_control.display_image_8bpp(ui_backgrounds['gs'])
-                ui_control.write_text(80, 40, ls.cleanPath, 24, 0, 0, 1800, 1400)
+                ui_control.write_text(80, 40, ls.cleanPath, 30, 0, 0, 1800, 1400)
                 
-                ui_control.write_text(100, 100, input_content, 36, 0, 0, 1800, 1400)
+                ui_control.write_text(100, 100, input_content, 30, 0, 0, 1800, 1400)
                 ko.window = ['write','ready']
                 
             

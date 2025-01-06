@@ -12,7 +12,7 @@ class eink:
         self.current_screen = current_screen
         self.current_file = current_file
         args.rotate='flip'
-        self.fontsize=36
+        self.fontsize=30
         self.font = self.set_font_size(self.fontsize)
         self.font_height_per_line = sum(self.font.getmetrics())
         
