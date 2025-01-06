@@ -9,6 +9,10 @@ from key_overrides import keyboard_overrides
 import file_operations
 import keyboard
 import signal
+from datetime import datetime
+
+# Get current datetime in ISO 8601 format
+startup_datetime = datetime.now().isoformat()
 
 ui_backgrounds = {
     'splash' : 'images/poetpre.png',
@@ -46,6 +50,8 @@ ui_control.print_system_info()
 ui_control.partial_update_msg('...','..')
 ui_control.sys_msg(ui_control.system_info,'')
 
+ui_control.write_text(100, 1340, startup_datetime, 0, 0, 1800, 1400)
+
 ls = file_operations.loadscreen()
 ko = keyboard_overrides()
 
@@ -57,24 +63,6 @@ exit_cleanup = False
 input_content = ''
 current_window = ''
 
-
-# def split_string(text, chars_per_row=80):
-#     return '\n'.join(text[i:i+chars_per_row] for i in range(0, len(text), chars_per_row))
-
-
-# def sampletext():
-#     lipsum = '''
-# Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque malesuada mauris a leo fringilla,  eu tristique justo porttitor. Donec rutrum mattis mauris a molestie. Proin condimentum rutrum accumsan. 
-
-# Etiam condimentum tellus magna, nec interdum nunc pellentesque ac. Sed sit amet massa ipsum. In a semper lectus. Vestibulum vitae sodales tellus, sit amet aliquam diam. Suspendisse sit amet ipsum vel tortor auctor dictum. Donec ipsum dui, sodales vitae luctus vitae, varius quis purus. Cras pulvinar orci sit met neque volutpat pharetra. 
-
-# Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-#     '''
-#     result = split_string(lipsum)
-#     ui_control.clear_display()
-#     ui_control.partial_update_msg( result  ,'')
-
-# sampletext()
 
 def selection_visual():
     line = ls.position + 1

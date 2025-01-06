@@ -37,7 +37,6 @@ class eink:
         
     def set_font_size(self, fontsize):
         try:
-            # self.font = ImageFont.truetype('/usr/share/fonts/truetype/freefont/FreeSans.ttf', fontsize)
             font = ImageFont.truetype('/usr/share/fonts/truetype/jetbrains-mono/JetBrainsMono-Regular.ttf', fontsize)
             return font
         except OSError:
@@ -65,8 +64,13 @@ class eink:
         newtext = text.replace(oldtext, '')
         draw.text((draw_x, draw_y), newtext, font=self.font)
         
-        
-        print(draw.getfont())
+    def _place_text_coords(self, text, x, y):
+        img = self.display.frame_buf
+        draw = ImageDraw.Draw(img)
+        draw_x = x
+        draw_y = y
+        draw.text((draw_x, draw_y), text, font=self.font)
+
 
     def backspace(self, draw_x, draw_y, text, oldtext):
         text_width_to_blank = int(self.font.getlength(oldtext))
@@ -86,13 +90,24 @@ class eink:
     def fill_coords(self, left, top, right, bottom):
             box=(left, top, right, bottom)
             self.display.frame_buf.paste(0x00, box=box)
-            self.display.draw_partial(constants.DisplayModes.DU)            
+            self.display.draw_partial(constants.DisplayModes.DU)
             
+    def write_text(self, x, y, text, left, top, right, bottom):
+        try:
+            self._place_text_coords(text, x, y)
+            self.display.draw_partial(constants.DisplayModes.DU)
+        except:
+            print(f'''failed _place_text_coords
+                    {text}
+                    {x}
+                    {y}
+                  ''')
+        
         
     def partial_update_msg(self, updatetext, oldtext):
         print('  writing partial...')
         try:
-            self._place_text( updatetext, oldtext, x_offset=0, y_offset=10)
+            self._place_text(updatetext, oldtext, x_offset=0, y_offset=10)
             self.display.draw_partial(constants.DisplayModes.DU)
         except:
             print('failed Partial update msg')
