@@ -61,6 +61,9 @@ class eink:
         draw_y = 100+y_offset + self.fontsize
         newtext = text.replace(oldtext, '')
         draw.text((draw_x, draw_y), newtext, font=self.font)
+        
+        
+        print(draw.getfont())
 
     def backspace(self, draw_x, draw_y, text, oldtext):
         text_width_to_blank = int(self.font.getlength(oldtext))
