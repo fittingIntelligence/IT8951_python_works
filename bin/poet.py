@@ -149,7 +149,7 @@ try:
         elif current_window == ['write','open']:
             # ui_control.clear_display()
             ui_control.display_image_8bpp(ui_backgrounds['gs'])
-            ui_control.write_text(100, 1340, startup_datetime, 0, 0, 1800, 1400)
+            ui_control.write_text(100, 1340, startup_datetime, 12, 0, 0, 1800, 1400)
             ui_control.partial_update_msg('...','..')
             ko.window = ['write','ready']
                 

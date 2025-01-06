@@ -92,10 +92,14 @@ class eink:
             self.display.frame_buf.paste(0x00, box=box)
             self.display.draw_partial(constants.DisplayModes.DU)
             
-    def write_text(self, x, y, text, left, top, right, bottom):
+    def write_text(self, x, y, text, fontsize, left, top, right, bottom):
         try:
+            prev_fontsize = self.fontsize
+            self.font = self.set_font_size(fontsize)
             self._place_text_coords(text, x, y)
             self.display.draw_partial(constants.DisplayModes.DU)
+            self.font = self.set_font_size(prev_fontsize)
+            
         except:
             print(f'''failed _place_text_coords
                     {text}
