@@ -117,7 +117,7 @@ try:
         if prev_window != current_window:
             print(current_window)
         
-        if current_window[0] == 'loadscreen':
+        if current_window[0] == 'loadscreen' and ls.selected==True:
             if current_window[1] == 'open':
                 ui_control.display_image_8bpp(ui_backgrounds['ls'])
                 ls.list_files()
@@ -149,10 +149,14 @@ try:
                 left, top, right, bottom = selection_visual()
                 ui_control.partial_update_msg( '\n'.join(ls.selectedItemList)  ,'')
                 ui_control.fill_coords(left , top, right, bottom)
+                ko.window = ['loadscreen','wait']
+                
+        elif current_window[0] == 'loadscreen' and ls.selected==False and current_window[1] == 'selectItem':
                 input_content = ls.current_file_contents
                 ui_control.clear_display()
                 ui_control.partial_update_msg(input_content,'')
                 ko.window = ['write','ready']
+                
             
         elif current_window == ['write','open']:
             # ui_control.clear_display()

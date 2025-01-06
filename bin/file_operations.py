@@ -26,6 +26,7 @@ class loadscreen:
         self.selected_file = selection
         print (f'use {self.selected_file} for writing to')
         self.read_file_whole(self.selected_file)
+        self.close()
         
 
     def read_file_whole(self, filename):
