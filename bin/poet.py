@@ -51,7 +51,9 @@ ui_control.partial_update_msg('...','..')
 ui_control.sys_msg(ui_control.system_info,'')
 ui_control.write_text(1000, 1360, f'System started {startup_datetime}', 24, 0, 0, 1800, 1400)
 
-
+# ui_control.clear_display()
+# ui_control.display_image_8bpp(ui_backgrounds['gs'])
+# ui_control.write_text(110, 60, f'filename goes here', 24, 0, 0, 1800, 1400)
 
 ls = file_operations.loadscreen()
 ko = keyboard_overrides()
