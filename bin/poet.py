@@ -150,7 +150,7 @@ try:
                 ui_control.partial_update_msg( '\n'.join(ls.selectedItemList)  ,'')
                 ui_control.fill_coords(left , top, right, bottom)
                 input_content = ls.current_file_contents
-                ui_control.display_image_8bpp()
+                ui_control.clear_display()
                 ui_control.partial_update_msg(input_content,'')
                 ko.window = ['write','ready']
             
