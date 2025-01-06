@@ -15,9 +15,10 @@ from datetime import datetime
 startup_datetime = datetime.now().isoformat()
 
 ui_backgrounds = {
-    'splash' : 'images/poetpre.png',
-    'ls'     : 'images/load_screen.png',
-    'gs'     : 'images/generic_window.png',
+    'splash'    : 'images/poetpre.png',
+    'ls'        : 'images/load_screen.png',
+    'gs'        : 'images/generic_window.png',
+    'shutdown'  : 'images/shutdown.png',
 }
 
 def parse_args():
@@ -110,7 +111,7 @@ try:
             print(current_window)
             
         if current_window[0] == 'shutdown':
-            ls.shutdown(ui_control)
+            ls.shutdown(ui_control, ui_backgrounds['shutdown'],datetime.now().isoformat())
         
         if current_window[0] == 'loadscreen':
             if current_window[1] == 'open':

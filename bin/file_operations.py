@@ -94,9 +94,16 @@ class loadscreen:
             self.select_file(selection)
             self.cleanPath = selection.replace(self.booksroot,'')
             
-    def shutdown(self, ui_control):
-        ui_control.display_image_8bpp()
-        ui_control.write_text(80, 40, 'Shutting down', 30, 0, 0, 1800, 1400)
+    def shutdown(self, ui_control, bg, sdtime):
+        ui_control.display_image_8bpp(bg)
+        ui_control.write_text(80, 40, f'Shutting down  - {sdtime}', 30, 0, 0, 1800, 1400)
+
+        ui_control.write_text(120, 120, """
+                              Custom built for @poetpre (Instagram)
+                              2025
+                              
+                              """, 30, 0, 0, 1800, 1400)
+        
         os.system("sudo shutdown now")
         
 
