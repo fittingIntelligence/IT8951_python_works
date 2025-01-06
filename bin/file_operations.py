@@ -10,6 +10,7 @@ class loadscreen:
         self.prev_position = 0
         self.selectedItemList = []
         self.current_file_contents = ''
+        self.selected = False
         
     def list_files(self):
         self.itemlist =  sorted(os.listdir(self.selected_path))
