@@ -49,6 +49,10 @@ class keyboard_overrides:
             
             if e.name== "l" and self.control_active: 
                 self.window = ['loadscreen','open']
+                
+            if e.name== "q" and self.control_active: 
+                self.window = ['shutdown','now']
+                
             
             if self.window == ['loadscreen','wait']:
                 if e.name == 'down':

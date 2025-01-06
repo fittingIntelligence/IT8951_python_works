@@ -108,6 +108,9 @@ try:
         
         if prev_window != current_window:
             print(current_window)
+            
+        if current_window[0] == 'shutdown':
+            ls.shutdown(ui_control)
         
         if current_window[0] == 'loadscreen':
             if current_window[1] == 'open':

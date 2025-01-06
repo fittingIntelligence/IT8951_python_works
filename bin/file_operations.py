@@ -93,4 +93,10 @@ class loadscreen:
         elif is_file:
             self.select_file(selection)
             self.cleanPath = selection.replace(self.booksroot,'')
+            
+    def shutdown(self, ui_control):
+        ui_control.display_image_8bpp()
+        ui_control.write_text(80, 40, 'Shutting down', 30, 0, 0, 1800, 1400)
+        os.system("sudo shutdown now")
+        
 
