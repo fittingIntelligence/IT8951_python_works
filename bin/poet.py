@@ -12,7 +12,8 @@ import signal
 
 ui_backgrounds = {
     'splash' : 'images/poetpre.png',
-    'ls'     : 'images/load_screen.png'
+    'ls'     : 'images/load_screen.png',
+    'gs'     : 'images/generic_window.png',
 }
 
 def parse_args():
@@ -160,7 +161,7 @@ try:
             
         elif current_window == ['write','open']:
             # ui_control.clear_display()
-            ui_control.display_image_8bpp()
+            ui_control.display_image_8bpp(ui_backgrounds['gs'])
             ui_control.partial_update_msg('...','..')
             ui_control.sys_msg(ui_control.system_info,'')
             ko.window = ['write','ready']

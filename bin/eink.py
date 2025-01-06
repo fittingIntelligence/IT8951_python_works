@@ -36,8 +36,10 @@ class eink:
         
     def set_font_size(self, fontsize):
         try:
-            self.font = ImageFont.truetype('/usr/share/fonts/truetype/freefont/FreeSans.ttf', fontsize)
+            # self.font = ImageFont.truetype('/usr/share/fonts/truetype/freefont/FreeSans.ttf', fontsize)
+            self.font = ImageFont.truetype('/usr/share/fonts/truetype/jetbrains-mono/JetBrainsMono-Regular.ttf', fontsize)
         except OSError:
+            print ('Font error, falling back')
             self.font = ImageFont.truetype('/usr/share/fonts/TTF/DejaVuSans.ttf', fontsize)
         
     def display_image_8bpp(self, img_path='images/poetpre.png'):
