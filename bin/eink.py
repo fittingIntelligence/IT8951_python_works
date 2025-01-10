@@ -4,6 +4,16 @@ path += ['../../']
 from IT8951 import constants
 from IT8951.display import AutoEPDDisplay
 
+class screens:
+    def __init__(self, top, left, bottom, right, background):
+        
+        self.cursor_x = 0
+        self.cursor_y = 0
+        self.top = top
+        self.left = left
+        self.bottom = bottom
+        self.right = right
+        self.background = background
 
 class eink:
     def __init__(self, current_screen, current_file, args):
@@ -15,6 +25,13 @@ class eink:
         self.fontsize=30
         self.font = self.set_font_size(self.fontsize)
         self.font_height_per_line = sum(self.font.getmetrics())
+        screens = {
+            'splash': screens(0,0,100,100,'images/poetpre.png'),
+            'write': screens(0,0,100,100,'images/generic_window.png'),
+            'load': screens(0,0,100,100,'images/generic_window.png'),
+            'save': screens(0,0,100,100,'images/generic_window.png'),
+            'off': screens(0,0,100,100,'images/shutdown.png'),
+        }
         
     def print_system_info(self):
         epd = self.display.epd
