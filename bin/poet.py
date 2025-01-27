@@ -174,11 +174,11 @@ try:
 
         elif content_changed:
             print('path2')
-            update_dtl = (input_content, prev_content)
+            # update_dtl = (input_content, prev_content)
             
             # ui_control.partial_update_msg(input_content, prev_content)
             ko.keypressed = False
-            print(update_dtl)
+            # print(update_dtl)
 
         #time.sleep(0.05) #the sleep here seems to help the processor handle things, especially on 64-bit installs
 
