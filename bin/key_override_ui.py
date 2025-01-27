@@ -182,7 +182,7 @@ class keyboard_overrides:
                 self.cursor_position = len(self.input_content)                
 
             
-            self.ui_ctrl.partial_update_msg(input_content, self.prev_content)
+            self.ui_ctrl.partial_update_msg(self.input_content, self.prev_content)
             self.typing_last_time = time.time()
             self.input_catchup==True
             self.needs_input_update = True

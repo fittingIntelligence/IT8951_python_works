@@ -166,7 +166,7 @@ try:
                 
         if needs_display_update and not display_updating:
             print('path1')
-            ui_control.partial_update_msg(input_content, prev_content)         
+            # ui_control.partial_update_msg(input_content, prev_content)         
             
         if v_clear_display or content_smaller:
             print ('content smaller')
@@ -176,7 +176,7 @@ try:
             print('path2')
             update_dtl = (input_content, prev_content)
             
-            ui_control.partial_update_msg(input_content, prev_content)
+            # ui_control.partial_update_msg(input_content, prev_content)
             ko.keypressed = False
             print(update_dtl)
 
