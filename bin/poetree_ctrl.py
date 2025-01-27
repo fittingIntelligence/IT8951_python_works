@@ -8,4 +8,6 @@ class poetree:
         self.cur_screen = None
         self.content = ''
         
-        
+    def partial_update_msg(self, a,b):
+        self.ui.partial_update_msg(a,b)
+        self.content = a

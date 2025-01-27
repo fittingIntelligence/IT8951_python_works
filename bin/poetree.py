@@ -81,8 +81,7 @@ try:
         kb, scrn = check_content_change()
         if kb != scrn:
             print ([kb,scrn])
-            p.ui.partial_update_msg(kb,scrn)
-            p.content = kb[:]
+            p.partial_update_msg(kb,scrn)
 
         pass
 except KeyboardInterrupt:
