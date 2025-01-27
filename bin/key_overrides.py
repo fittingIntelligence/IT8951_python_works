@@ -5,7 +5,7 @@ import keymaps
 
 
 class keyboard_overrides:
-    def __init__(self, ui_ctrl):
+    def __init__(self):
         self.shift_active = False
         self.control_active = False
         self.capslock_active = False
