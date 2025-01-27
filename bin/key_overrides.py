@@ -22,6 +22,7 @@ class keyboard_overrides:
         self.cursor_index = 0
         self.window = ['write','ready']
         self.shortcut = []
+        self.instructions = []
         
     def insert_character(self, character):        
         if self.cursor_index <= len(self.input_content):
@@ -40,7 +41,7 @@ class keyboard_overrides:
     def handle_key_down(self, e): #keys being held, ie modifier keys
         if e.name == 'shift':
             self.shift_active = True
-        if e.name == 'ctrl': 
+        elif e.name == 'ctrl': 
             self.control_active = True
 
     def handle_key_press(self, e):
@@ -48,6 +49,7 @@ class keyboard_overrides:
         try:
             
             if e.name== "l" and self.control_active: 
+                self.instructions.append('open_loadscreen')
                 self.window = ['loadscreen','open']
                 
             if e.name== "q" and self.control_active: 

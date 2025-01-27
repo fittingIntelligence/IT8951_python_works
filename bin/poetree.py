@@ -69,6 +69,13 @@ if kb != scrn:
     print ([kb,scrn])
     p.ui.partial_update_msg(kb,scrn)
     p.content = kb[:]
+    
+def do_instructions():
+    for i in p.kb.instructions:
+        p[i]()
+        print(i)
+        
+    pass
 
 keyboard.on_press(p.kb.handle_key_down, suppress=False) #handles modifiers and shortcuts
 keyboard.on_release(p.kb.handle_key_press, suppress=True)
