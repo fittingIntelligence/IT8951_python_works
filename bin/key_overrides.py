@@ -22,7 +22,6 @@ class keyboard_overrides:
         self.cursor_index = 0
         self.window = ['write','ready']
         self.shortcut = []
-        self.ui_ctrl = ui_ctrl
         
     def insert_character(self, character):        
         if self.cursor_index <= len(self.input_content):
