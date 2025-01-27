@@ -36,13 +36,29 @@ args.rotate='flip'
 
 
 p = poetree(
-    ui = eink(args),
-    io = file_operations.loadscreen(),
+    ui  = eink(args),
+    io  = file_operations.loadscreen(),
     win = file_operations.loadscreen(),
-    kb = keyboard_overrides(),
+    kb  = keyboard_overrides(),
 )
-
 
 p.ui.clear_display()
 p.ui.display_image_8bpp()
 p.ui.print_system_info()
+
+def press_key():
+    kp = 'welcome '.split('|')
+    for i in kp:
+        p.kb.input_content += i
+        
+def check_content_change():
+    kb = p.kb.input_content
+    scrn = p.content
+    yield (kb,scrn)
+
+for i in range(10):
+    press_key()
+    kb,scrn = check_content_change()
+    print(kb=scrn )
+    if kb != scrn:
+        p.ui.partial_update_msg(kb,scrn) 

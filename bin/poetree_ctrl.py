@@ -6,4 +6,6 @@ class poetree:
         self.io  = io
         
         self.cur_screen = None
+        self.content = ''
+        
         
