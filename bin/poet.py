@@ -5,7 +5,7 @@
 from pathlib import Path
 import argparse
 from eink import eink
-from key_overrides import keyboard_overrides
+from key_override_ui import keyboard_overrides
 import file_operations
 import keyboard
 import signal
