@@ -41,23 +41,23 @@ current_file='file_001.txt'
 
 print('Initializing EPD...')
 ui_control = eink(current_screen, current_file, args)
-epd = ui_control.display.epd
+ls = file_operations.loadscreen()
+ko = keyboard_overrides(ui_control)
+
+epd = ko.ui_ctrl.display.epd
 print('VCOM set to', epd.get_vcom())
 
-ui_control.clear_display()
-ui_control.display_image_8bpp()
-ui_control.print_system_info()
+ko.ui_ctrl.clear_display()
+ko.ui_ctrl.display_image_8bpp()
+ko.ui_ctrl.print_system_info()
 
-ui_control.partial_update_msg('...','..')
-ui_control.sys_msg(ui_control.system_info,'')
-ui_control.write_text(1000, 1360, f'System started {startup_datetime}', 24, 0, 0, 1800, 1400)
+ko.ui_ctrl.partial_update_msg('...','..')
+ko.ui_ctrl.sys_msg(ko.ui_ctrl.system_info,'')
+ko.ui_ctrl.write_text(1000, 1360, f'System started {startup_datetime}', 24, 0, 0, 1800, 1400)
 
 # ui_control.clear_display()
 # ui_control.display_image_8bpp(ui_backgrounds['gs'])
 # ui_control.write_text(110, 60, f'filename goes here', 24, 0, 0, 1800, 1400)
-
-ls = file_operations.loadscreen()
-ko = keyboard_overrides(ui_control)
 
 keyboard.on_press(ko.handle_key_down, suppress=False) #handles modifiers and shortcuts
 keyboard.on_release(ko.handle_key_press, suppress=True)
