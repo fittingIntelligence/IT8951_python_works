@@ -47,18 +47,21 @@ p.ui.display_image_8bpp()
 p.ui.print_system_info()
 
 def press_key():
-    kp = 'welcome '.split('|')
+    kp = 'and '.split('|')
     for i in kp:
         p.kb.input_content += i
-        
+
 def check_content_change():
     kb = p.kb.input_content
     scrn = p.content
-    yield (kb,scrn)
+    return [kb,scrn]
+
+p.ui.clear_display()
 
 for i in range(10):
     press_key()
-    kb,scrn = check_content_change()
-    print(kb=scrn )
+    kb, scrn = check_content_change()
     if kb != scrn:
-        p.ui.partial_update_msg(kb,scrn) 
+        print ([kb,scrn])
+        p.ui.partial_update_msg(kb,scrn)
+        p.content = kb
