@@ -57,7 +57,7 @@ ui_control.write_text(1000, 1360, f'System started {startup_datetime}', 24, 0, 0
 # ui_control.write_text(110, 60, f'filename goes here', 24, 0, 0, 1800, 1400)
 
 ls = file_operations.loadscreen()
-ko = keyboard_overrides()
+ko = keyboard_overrides(ui_control)
 
 keyboard.on_press(ko.handle_key_down, suppress=False) #handles modifiers and shortcuts
 keyboard.on_release(ko.handle_key_press, suppress=True)

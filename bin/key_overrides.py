@@ -5,7 +5,7 @@ import keymaps
 
 
 class keyboard_overrides:
-    def __init__(self):
+    def __init__(self, ui_ctrl):
         self.shift_active = False
         self.control_active = False
         self.capslock_active = False
@@ -22,6 +22,7 @@ class keyboard_overrides:
         self.cursor_index = 0
         self.window = ['write','ready']
         self.shortcut = []
+        self.ui_ctrl = ui_ctrl
         
     def insert_character(self, character):        
         if self.cursor_index <= len(self.input_content):
