@@ -76,25 +76,18 @@ class keyboard_overrides:
             
             if self.window == ['loadscreen','wait']:
                 if e.name == 'down':
-                    
-                    
-                    self.ls.move_down()
                     left, top, right, bottom = self.selection_visual()
                     self.ui_ctrl.clear_coords(80, 100, 90, 600)
                     self.ui_ctrl.fill_coords(left , top, right, bottom)
-                    self.window = ['loadscreen','wait']
-                    print('ls down')
-                    
+                    self.window = ['loadscreen','wait']     
+                                   
                 elif e.name == 'up': 
-                    self.window = ['loadscreen','up']
                     print('ls up')
                     self.ls.move_up()
                     left, top, right, bottom = self.selection_visual()
                     self.ui_ctrl.clear_coords(80, 100, 90, 600)
                     self.ui_ctrl.fill_coords(left , top, right, bottom)            
-                    self.window = ['loadscreen','wait']
-                        
-                    
+                    self.window = ['loadscreen','wait']                    
                     
                 elif e.name == "enter":
                     self.window = ['loadscreen','selectItem']
@@ -188,6 +181,8 @@ class keyboard_overrides:
                 # Update cursor_position to the length of the remaining input_content
                 self.cursor_position = len(self.input_content)                
 
+            
+            self.ui_ctrl.partial_update_msg(input_content, self.prev_content)
             self.typing_last_time = time.time()
             self.input_catchup==True
             self.needs_input_update = True
