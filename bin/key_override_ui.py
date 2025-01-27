@@ -76,6 +76,7 @@ class keyboard_overrides:
             
             if self.window == ['loadscreen','wait']:
                 if e.name == 'down':
+                    self.ls.move_down()
                     left, top, right, bottom = self.selection_visual()
                     self.ui_ctrl.clear_coords(80, 100, 90, 600)
                     self.ui_ctrl.fill_coords(left , top, right, bottom)
