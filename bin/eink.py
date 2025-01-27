@@ -27,11 +27,9 @@ from IT8951.display import AutoEPDDisplay
     
 
 class eink:
-    def __init__(self, current_screen, current_file, args):
+    def __init__(self, args):
         self.display = AutoEPDDisplay(vcom=-2.15, rotate=args.rotate, mirror=args.mirror, spi_hz=24000000)
         self.epd = self.display.epd        
-        self.current_screen = current_screen
-        self.current_file = current_file
         args.rotate='flip'
         self.fontsize=30
         self.font = self.set_font_size(self.fontsize)
