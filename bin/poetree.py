@@ -7,6 +7,7 @@ import keyboard
 import signal
 from datetime import datetime
 from poetree_ctrl import poetree
+import time
 
 # Get current datetime in ISO 8601 format
 startup_datetime = datetime.now().isoformat()
@@ -46,22 +47,37 @@ p.ui.clear_display()
 p.ui.display_image_8bpp()
 p.ui.print_system_info()
 
-def press_key():
-    kp = 'and '.split('|')
-    for i in kp:
+def sim_keypress(t):
+    for i in t:
+        yield i
+
+def press_key(t):
+    sk = sim_keypress(t)
+    for i in sk:
         p.kb.input_content += i
+
 
 def check_content_change():
     kb = p.kb.input_content
     scrn = p.content
     return [kb,scrn]
 
-p.ui.clear_display()
 
-for i in range(10):
-    press_key()
-    kb, scrn = check_content_change()
-    if kb != scrn:
-        print ([kb,scrn])
-        p.ui.partial_update_msg(kb,scrn)
-        p.content = kb
+press_key('Hello there my friend')
+kb, scrn = check_content_change()
+if kb != scrn:
+    print ([kb,scrn])
+    p.ui.partial_update_msg(kb,scrn)
+    p.content = kb[:]
+
+keyboard.on_press(p.kb.handle_key_down, suppress=False) #handles modifiers and shortcuts
+keyboard.on_release(p.kb.handle_key_press, suppress=True)
+signal.signal(signal.SIGINT, p.kb.handle_interrupt)
+
+try:
+    while True:
+        time.sleep(0.05) #the sleep here seems to help the processor handle things, especially on 64-bit installs
+
+        pass
+except KeyboardInterrupt:
+    pass
