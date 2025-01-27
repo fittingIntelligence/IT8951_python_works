@@ -42,7 +42,7 @@ current_file='file_001.txt'
 print('Initializing EPD...')
 ui_control = eink(current_screen, current_file, args)
 ls = file_operations.loadscreen()
-ko = keyboard_overrides(ui_control)
+ko = keyboard_overrides(ui_control, ls)
 
 epd = ko.ui_ctrl.display.epd
 print('VCOM set to', epd.get_vcom())
@@ -124,19 +124,19 @@ try:
                 ui_control.fill_coords(left , top, right, bottom)
                 ko.window = ['loadscreen','wait']
                 
-            elif current_window[1] == 'down' :
-                ls.move_down()
-                left, top, right, bottom = selection_visual()
-                ui_control.clear_coords(80, 100, 90, 600)
-                ui_control.fill_coords(left , top, right, bottom)
-                ko.window = ['loadscreen','wait']
+            # elif current_window[1] == 'down' :
+            #     ls.move_down()
+            #     left, top, right, bottom = selection_visual()
+            #     ui_control.clear_coords(80, 100, 90, 600)
+            #     ui_control.fill_coords(left , top, right, bottom)
+            #     ko.window = ['loadscreen','wait']
                 
-            elif current_window[1] == 'up':
-                ls.move_up()
-                left, top, right, bottom = selection_visual()
-                ui_control.clear_coords(80, 100, 90, 600)
-                ui_control.fill_coords(left , top, right, bottom)            
-                ko.window = ['loadscreen','wait']
+            # elif current_window[1] == 'up':
+            #     ls.move_up()
+            #     left, top, right, bottom = selection_visual()
+            #     ui_control.clear_coords(80, 100, 90, 600)
+            #     ui_control.fill_coords(left , top, right, bottom)            
+            #     ko.window = ['loadscreen','wait']
                 
             elif current_window[1] == 'selectItem' and ls.selected:
                 print('Selecting item')
