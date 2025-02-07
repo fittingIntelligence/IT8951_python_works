@@ -43,7 +43,7 @@ p = poetree(
     kb  = keyboard_overrides(),
 )
 
-p.ui.clear_display()
+# p.ui.clear_display()
 # p.ui.display_image_8bpp()
 p.ui.print_system_info()
 
