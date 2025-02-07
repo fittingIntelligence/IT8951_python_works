@@ -24,8 +24,8 @@ class poetree:
     
     def key_down_watcher(self,e):
         key_pressed = self.kb.handle_key_down(e)
-        if key_pressed:
-            print(key_pressed)
+        # if key_pressed:
+        #     print(key_pressed)
         
         
     def shutdown(self):
