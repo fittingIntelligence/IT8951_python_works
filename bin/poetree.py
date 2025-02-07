@@ -1,7 +1,7 @@
 from pathlib import Path
 import argparse
 from eink import eink
-from key_overrides import keyboard_overrides
+from modules.key_overrides_simple import keyboard_overrides
 import file_operations
 import keyboard
 import signal
@@ -77,8 +77,8 @@ def do_instructions():
         
     pass
 
-keyboard.on_press(p.kb.handle_key_down, suppress=False) #handles modifiers and shortcuts
-keyboard.on_release(p.kb.handle_key_press, suppress=True)
+keyboard.on_press(p.key_down_watcher, suppress=False) #handles modifiers and shortcuts
+keyboard.on_release(p.key_watcher, suppress=True)
 signal.signal(signal.SIGINT, p.kb.handle_interrupt)
 
 try:
