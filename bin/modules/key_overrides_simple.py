@@ -15,27 +15,21 @@ class keyboard_overrides:
         return('delete')
     
     def handle_key_down(self, e): 
-        print('key down')
         key_mod = e.name
-
         if e.name == 'shift':
             self.shift_active = True
         if e.name == 'ctrl': 
             self.control_active = True
         if self.shift_active or self.capslock_active:
             key_mod = keymaps.shift_mapping.get(e.name)
-        
         if key_mod not in (['shift','ctrl']):
-            return key_mod
-            
+            return key_mod            
 
     def handle_key_press(self,e):
-        print('key up')
         if e.name == 'shift':
             self.shift_active = False
         if e.name == 'ctrl': 
             self.control_active = False
-
 
             
     def handle_interrupt(signal, frame):
