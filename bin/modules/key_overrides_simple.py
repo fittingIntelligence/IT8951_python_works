@@ -16,10 +16,17 @@ class keyboard_overrides:
     
     def handle_key_down(self, e): 
         print('keydown')
+        key_mod = e.name
+
         if e.name == 'shift':
             self.shift_active = True
-        elif e.name == 'ctrl': 
+        if e.name == 'ctrl': 
             self.control_active = True
+        if self.shift_active or self.capslock_active:
+            key_mod = keymaps.shift_mapping.get(e.name)
+            
+        return key_mod
+            
 
     def handle_key_press(self,e):
         print('key press')
