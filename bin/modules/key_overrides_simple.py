@@ -27,7 +27,6 @@ class keyboard_overrides:
         try:
             if self.shift_active or self.capslock_active:
                 key_mod = keymaps.shift_mapping.get(e.name)
-
             return key_mod
                 
         except Exception as error:
