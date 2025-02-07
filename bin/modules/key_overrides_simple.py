@@ -25,7 +25,7 @@ class keyboard_overrides:
         if self.shift_active or self.capslock_active:
             key_mod = keymaps.shift_mapping.get(e.name)
         
-        if key_mod not in ['shift','ctrl']):
+        if key_mod not in (['shift','ctrl']):
             return key_mod
             
 
