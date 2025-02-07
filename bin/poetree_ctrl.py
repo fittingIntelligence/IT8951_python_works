@@ -17,15 +17,15 @@ class poetree:
         self.ui.clear_display()
         
     def key_up_watcher(self,e):
-        key_pressed = self.kb.handle_key_press(e)
+        key_pressed = self.kb.handle_key_up(e)
         if key_pressed:
             print(key_pressed)
         # self.partial_update_msg(''.join(self.input_content),self.content)
     
     def key_down_watcher(self,e):
         key_pressed = self.kb.handle_key_down(e)
-        # if key_pressed:
-        #     print(key_pressed)
+        if key_pressed:
+            print(key_pressed)
         
         
     def shutdown(self):

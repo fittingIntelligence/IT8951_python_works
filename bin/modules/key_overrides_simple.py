@@ -27,7 +27,7 @@ class keyboard_overrides:
         if key_mod not in (['shift','ctrl']):
             return key_mod            
 
-    def handle_key_press(self,e):
+    def handle_key_up(self,e):
         if e.name == 'shift':
             self.shift_active = False
         if e.name == 'ctrl': 
