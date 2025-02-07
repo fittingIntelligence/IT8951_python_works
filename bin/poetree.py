@@ -83,7 +83,7 @@ signal.signal(signal.SIGINT, p.kb.handle_interrupt)
 
 try:
     while True:
-        # time.sleep(0.05) #the sleep here seems to help the processor handle things, especially on 64-bit installs
+        time.sleep(0.05) #the sleep here seems to help the processor handle things, especially on 64-bit installs
         
         kb, scrn = check_content_change()
         if kb != scrn:

@@ -22,13 +22,14 @@ class keyboard_overrides:
 
     def handle_key_press(self,e):
         print(f'key pressed {e}')
+        keys_pressed = []
+        key_mod = e.name
         try:
-            if self.shift_active:
-                return keymaps.shift_mapping.get(e.name)
-            elif self.capslock_active:
-                return  keymaps.shift_mapping.get(e.name)
-            else:
-                return e.name
+            if self.shift_active or self.capslock_active:
+                key_mod = keymaps.shift_mapping.get(e.name)
+
+            return key_mod
+                
         except Exception as error:
             print(error)
 
