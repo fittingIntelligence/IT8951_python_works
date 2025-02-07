@@ -10,19 +10,10 @@ class keyboard_overrides:
         self.capslock_active = False
         
     def insert_character(self, character):        
-        if self.cursor_index <= len(self.input_content):
-            self.input_content = self.input_content[:self.cursor_index] + character + self.input_content[self.cursor_index:]
-            self.cursor_position += 1  
-        self.needs_input_update = True
-
+        return('insert')
     def delete_character(self):
-        cursor_index = self.cursor_position
-        
-        if cursor_index > 0:
-            self.input_content = self.input_content[:cursor_index - 1] + self.input_content[cursor_index:]
-            self.cursor_position -= 1  
-            self.needs_input_update = True
-
+        return('delete')
+    
     def handle_key_down(self, e): 
         if e.name == 'shift':
             self.shift_active = True
