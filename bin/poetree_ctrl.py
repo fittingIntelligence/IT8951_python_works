@@ -33,6 +33,9 @@ class poetree:
         if key_pressed:
             print(key_pressed)
             self.update_content_stream(key_pressed)
+            
+            if key_pressed == 'Q':
+                self.clear_screen()
         
         
     def shutdown(self):
