@@ -23,7 +23,10 @@ class poetree:
         # self.partial_update_msg(''.join(self.input_content),self.content)
     
     def key_down_watcher(self,e):
-        self.kb.handle_key_down(e)        
+        key_pressed = self.kb.handle_key_down(e)
+        if key_pressed:
+            print(key_pressed)
+        
         
     def shutdown(self):
         pass

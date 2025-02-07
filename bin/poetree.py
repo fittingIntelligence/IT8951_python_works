@@ -77,8 +77,8 @@ def check_content_change():
         
 #     pass
 
-keyboard.on_press(p.key_down_watcher, suppress=False) #handles modifiers and shortcuts
-keyboard.on_release(p.key_up_watcher, suppress=False)
+keyboard.on_press(p.key_down_watcher, suppress=True) #handles modifiers and shortcuts
+keyboard.on_release(p.key_up_watcher, suppress=True)
 signal.signal(signal.SIGINT, p.kb.handle_interrupt)
 
 try:
