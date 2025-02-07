@@ -15,7 +15,7 @@ class keyboard_overrides:
         return('delete')
     
     def handle_key_down(self, e): 
-        print('keydown')
+        print('key down')
         key_mod = e.name
 
         if e.name == 'shift':
