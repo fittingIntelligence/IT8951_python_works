@@ -13,6 +13,7 @@ class poetree:
     def partial_update_msg(self, a,b):
         self.ui.partial_update_msg(a,b)
         self.content = ''.join([b,a])
+        self.unwritten_content = ''
         
     def clear_screen(self):
         self.ui.clear_display()
