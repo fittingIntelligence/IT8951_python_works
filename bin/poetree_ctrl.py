@@ -17,7 +17,7 @@ class poetree:
         self.ui.clear_display()
         
     def key_watcher(self,e):
-        key_sequence = self.kb.handle_key_press(self, e)
+        key_sequence = self.kb.handle_key_press(e)
         self.partial_update_msg(''.join(key_sequence),self.content)
         self.content += key_sequence
     
