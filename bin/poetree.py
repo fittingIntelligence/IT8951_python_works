@@ -86,7 +86,7 @@ try:
         time.sleep(0.05) #the sleep here seems to help the processor handle things, especially on 64-bit installs
         
         kb, scrn = check_content_change()
-        if kb != scrn:
+        if kb != '':
             print ([kb,scrn])
             p.partial_update_msg(kb,scrn)
 
