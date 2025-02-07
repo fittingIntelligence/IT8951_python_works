@@ -20,8 +20,8 @@ class keyboard_overrides:
         elif e.name == 'ctrl': 
             self.control_active = True
 
-    def handle_key_press(self, e):
-        print(f'key pressed {e}')
+    def handle_key_press(self):
+        print(f'key pressed {self.e}')
         try:
             if self.shift_active:
                 return keymaps.shift_mapping.get(e.name)
