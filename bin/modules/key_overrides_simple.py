@@ -24,22 +24,18 @@ class keyboard_overrides:
             self.control_active = True
         if self.shift_active or self.capslock_active:
             key_mod = keymaps.shift_mapping.get(e.name)
-            
-        return key_mod
+        
+        if key_mod not in ['shift','ctrl']):
+            return key_mod
             
 
     def handle_key_press(self,e):
-        print('key press')
+        print('key up')
+        if e.name == 'shift':
+            self.shift_active = False
+        if e.name == 'ctrl': 
+            self.control_active = False
 
-        print(f'key pressed {e}')
-        key_mod = e.name
-        try:
-            if self.shift_active or self.capslock_active:
-                key_mod = keymaps.shift_mapping.get(e.name)
-            return key_mod
-                
-        except Exception as error:
-            print(error)
 
             
     def handle_interrupt(signal, frame):
