@@ -7,6 +7,7 @@ class poetree:
         
         self.cur_screen = None
         self.content = ''
+        self.input_content = ''
         
     def partial_update_msg(self, a,b):
         self.ui.partial_update_msg(a,b)

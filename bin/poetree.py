@@ -47,35 +47,35 @@ p.ui.clear_display()
 p.ui.display_image_8bpp()
 p.ui.print_system_info()
 
-def sim_keypress(t):
-    for i in t:
-        yield i
+# def sim_keypress(t):
+#     for i in t:
+#         yield i
 
-def press_key(t):
-    sk = sim_keypress(t)
-    for i in sk:
-        p.kb.input_content += i
+# def press_key(t):
+#     sk = sim_keypress(t)
+#     for i in sk:
+#         p.kb.input_content += i
 
 
 def check_content_change():
-    kb = p.kb.input_content
+    kb = p.input_content
     scrn = p.content
     return [kb,scrn]
 
 
-press_key('Hello there my friend')
-kb, scrn = check_content_change()
-if kb != scrn:
-    print ([kb,scrn])
-    p.ui.partial_update_msg(kb,scrn)
-    p.content = kb[:]
+# press_key('Hello there my friend')
+# kb, scrn = check_content_change()
+# if kb != scrn:
+#     print ([kb,scrn])
+#     p.ui.partial_update_msg(kb,scrn)
+#     p.content = kb[:]
     
-def do_instructions():
-    for i in p.kb.instructions:
-        p[i]()
-        print(i)
+# def do_instructions():
+#     for i in p.kb.instructions:
+#         p[i]()
+#         print(i)
         
-    pass
+#     pass
 
 keyboard.on_press(p.key_down_watcher, suppress=False) #handles modifiers and shortcuts
 keyboard.on_release(p.key_watcher, suppress=True)
