@@ -15,14 +15,16 @@ class keyboard_overrides:
         return('delete')
     
     def handle_key_down(self, e): 
+        print('keydown')
         if e.name == 'shift':
             self.shift_active = True
         elif e.name == 'ctrl': 
             self.control_active = True
 
     def handle_key_press(self,e):
+        print('key press')
+
         print(f'key pressed {e}')
-        keys_pressed = []
         key_mod = e.name
         try:
             if self.shift_active or self.capslock_active:
