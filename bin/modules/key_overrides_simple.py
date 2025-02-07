@@ -21,7 +21,7 @@ class keyboard_overrides:
             self.control_active = True
 
     def handle_key_press(self, e):
-        print(f'key pressed {e} - line chars: {len(self.input_content)} - screen {self.window}')
+        print(f'key pressed {e}')
         try:
             if self.shift_active:
                 return keymaps.shift_mapping.get(e.name)
