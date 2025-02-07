@@ -57,12 +57,6 @@ p.ui.print_system_info()
 #         p.kb.input_content += i
 
 
-def check_content_change():
-    kb = p.unwritten_content
-    scrn = p.content
-    return [kb,scrn]
-
-
 # press_key('Hello there my friend')
 # kb, scrn = check_content_change()
 # if kb != scrn:
@@ -85,10 +79,9 @@ try:
     while True:
         time.sleep(0.05) #the sleep here seems to help the processor handle things, especially on 64-bit installs
         
-        kb, scrn = check_content_change()
-        if kb != '':
-            print ([kb,scrn])
-            p.partial_update_msg(kb,scrn)
+        if p.unwritten_content != '':
+            print ([p.unwritten_content,p.content])
+            p.partial_update_msg(p.unwritten_content,p.content)
 
         pass
 except KeyboardInterrupt:
