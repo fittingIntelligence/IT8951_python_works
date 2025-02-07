@@ -11,7 +11,7 @@ class poetree:
         
     def partial_update_msg(self, a,b):
         self.ui.partial_update_msg(a,b)
-        self.content = a
+        self.content = ''.join([b,a])
         
     def clear_screen(self):
         self.ui.clear_display()
