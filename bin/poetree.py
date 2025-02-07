@@ -58,7 +58,7 @@ p.ui.print_system_info()
 
 
 def check_content_change():
-    kb = p.content + p.unwritten_content
+    kb = p.unwritten_content
     scrn = p.content
     return [kb,scrn]
 
