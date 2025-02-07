@@ -8,6 +8,7 @@ class poetree:
         self.cur_screen = None
         self.content = ''
         self.input_content = ''
+        self.unwritten_content = ''
         
     def partial_update_msg(self, a,b):
         self.ui.partial_update_msg(a,b)
@@ -21,11 +22,15 @@ class poetree:
         if key_pressed:
             print(key_pressed)
         # self.partial_update_msg(''.join(self.input_content),self.content)
+        
+    def update_content_stream(self,e):
+        self.unwritten_content += e
     
     def key_down_watcher(self,e):
         key_pressed = self.kb.handle_key_down(e)
         if key_pressed:
             print(key_pressed)
+            self.update_content_stream(key_pressed)
         
         
     def shutdown(self):
