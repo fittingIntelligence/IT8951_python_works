@@ -24,6 +24,8 @@ class keyboard_overrides:
             key_mod = keymaps.shift_mapping.get(e.name)
         if e.name == 'space':
             key_mod = ' '
+        if e.name == 'enter':
+            key_mod = ' '
         if key_mod not in (['shift','ctrl']):
             return key_mod            
 
