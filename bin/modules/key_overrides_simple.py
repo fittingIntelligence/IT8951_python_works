@@ -30,6 +30,13 @@ class keyboard_overrides:
             key_mod = '\n'
         if e.name == 'backspace':
             key_mod = '\b'
+        if e.name == 'l' and self.control_active:
+            key_mod = '<activate file load screen>'
+        if e.name == 's' and self.control_active:
+            key_mod = '<activate file save>'
+        if e.name == 'q' and self.control_active:
+            key_mod = '<activate shutdown>'
+            
         if key_mod not in (['shift','ctrl']):
             return key_mod            
 

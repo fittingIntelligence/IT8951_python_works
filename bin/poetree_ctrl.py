@@ -41,14 +41,18 @@ class poetree:
         key_pressed = self.kb.handle_key_down(e)
         if key_pressed:
             print(key_pressed)
-            if key_pressed == 'caps lock':
-                self.clear_screen()
-                self.content=''
-            elif key_pressed in ['right','down','left','up']:
-                  print(key_pressed)
+            if key_pressed in (['caps lock', 'right','down','left','up','~' ,
+                                '<activate file load screen>','<activate file save>''<activate shutdown>'
+                                ]):
+                if key_pressed == 'caps lock':
+                    self.clear_screen()
+                    self.content=''
                 
-            elif key_pressed == '~':
-                print(self.content)
+                elif key_pressed == '~':
+                    print(self.content)
+                    
+                else:
+                    print(key_pressed)
 
             else: 
                 self.update_content_stream(key_pressed)
