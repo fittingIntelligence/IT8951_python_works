@@ -91,6 +91,7 @@ class poetree:
                             self.ui.display_image_8bpp(self.backgrounds['gs'])
                             self.ui.write_text(80, 40, self.io.cleanPath, 30, 0, 0, 1800, 1400)
                             self.ui.write_text(100, 100, input_content, 30, 0, 0, 1800, 1400)
+                            self.cur_screen = 'writerscreen'
 
 
                 elif key_pressed == '~':
