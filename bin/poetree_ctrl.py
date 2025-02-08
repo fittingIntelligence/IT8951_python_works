@@ -58,6 +58,7 @@ class poetree:
                     self.shutdown()
                 
                 elif key_pressed == '<activate file load screen>':
+                    self.io.selected_file = None
                     self.loadscreen()
                     
                 elif key_pressed == '<activate writer screen>':
