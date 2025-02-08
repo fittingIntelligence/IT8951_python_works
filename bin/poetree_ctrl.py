@@ -77,9 +77,20 @@ class poetree:
                         self.ui.clear_coords(80, 100, 90, 600)
                         self.ui.fill_coords(left , top, right, bottom)            
                         
-                    elif e.name == "enter":
-                        print('ls selection')
+                    elif key_pressed == "enter":
+                        print('Selecting item')
+                        self.io.select_item()
+                        self.io.position = 0
+                        left, top, right, bottom = self.selection_visual()
+                        self.ui.partial_update_msg( '\n'.join(self.io.selectedItemList)  ,'')
+                        self.ui.fill_coords(left , top, right, bottom)                        
                         
+                        # input_content = self.io.current_file_contents
+                        # self.ui.display_image_8bpp(self.backgrounds['gs'])
+                        # self.ui.write_text(80, 40, self.io.cleanPath, 30, 0, 0, 1800, 1400)
+                        # self.ui.write_text(100, 100, input_content, 30, 0, 0, 1800, 1400)
+                        # ko.window = ['write','ready']
+
 
                 elif key_pressed == '~':
                     print(self.content)
