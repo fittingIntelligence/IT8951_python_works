@@ -84,13 +84,13 @@ class poetree:
                         self.clear_window_content()
                         left, top, right, bottom = self.selection_visual()
                         self.ui.partial_update_msg( '\n'.join(self.io.selectedItemList)  ,'')
-                        self.ui.fill_coords(left , top, right, bottom)                        
+                        self.ui.fill_coords(left , top, right, bottom)
                         
-                        # input_content = self.io.current_file_contents
-                        # self.ui.display_image_8bpp(self.backgrounds['gs'])
-                        # self.ui.write_text(80, 40, self.io.cleanPath, 30, 0, 0, 1800, 1400)
-                        # self.ui.write_text(100, 100, input_content, 30, 0, 0, 1800, 1400)
-                        # ko.window = ['write','ready']
+                        if self.io.selected_file:                   
+                            input_content = self.io.current_file_contents
+                            self.ui.display_image_8bpp(self.backgrounds['gs'])
+                            self.ui.write_text(80, 40, self.io.cleanPath, 30, 0, 0, 1800, 1400)
+                            self.ui.write_text(100, 100, input_content, 30, 0, 0, 1800, 1400)
 
 
                 elif key_pressed == '~':
