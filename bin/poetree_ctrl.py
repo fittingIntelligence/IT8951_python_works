@@ -44,10 +44,12 @@ class poetree:
         key_pressed = self.kb.handle_key_down(e)
         if key_pressed:
             print(key_pressed)
-            self.update_content_stream(key_pressed)
-            
             if key_pressed == 'caps_lock':
                 self.clear_screen()
+
+            else: 
+                self.update_content_stream(key_pressed)
+            
         
         
     def shutdown(self):
