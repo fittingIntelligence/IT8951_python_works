@@ -33,12 +33,9 @@ class poetree:
         key_pressed = self.kb.handle_key_up(e)
         if key_pressed:
             print(key_pressed)
-        # self.partial_update_msg(''.join(self.input_content),self.content)
         
     def update_content_stream(self,e):
         self.unwritten_content.append(e)
-        print(self.unwritten_content)
-
     
     def key_down_watcher(self,e):
         key_pressed = self.kb.handle_key_down(e)
