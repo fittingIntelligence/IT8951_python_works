@@ -4,14 +4,13 @@ from datetime import datetime
 
 class poetree:
     def __init__(self, ui, kb, win, io, backgrounds):
-        startuptime = datetime.now().isoformat()
         self.ui  = ui
         self.kb  = kb
         self.win = win
         self.io  = io
         self.backgrounds = backgrounds
-        self.startuptime = startuptime
         
+        self.startuptime = datetime.now().isoformat()
         self.cur_screen = None
         self.content = ''
         self.unwritten_content = []
@@ -63,6 +62,24 @@ class poetree:
                     
                 elif key_pressed == '<activate writer screen>':
                     self.writerscreen()
+                    
+                elif self.cur_screen=='loadscreen':
+                        
+                    if key_pressed == 'down':
+                        self.io.move_down()
+                        left, top, right, bottom = self.selection_visual()
+                        self.ui.clear_coords(80, 100, 90, 600)
+                        self.ui.fill_coords(left , top, right, bottom)
+                                    
+                    elif key_pressed == 'up': 
+                        self.io.move_up()
+                        left, top, right, bottom = self.selection_visual()
+                        self.ui.clear_coords(80, 100, 90, 600)
+                        self.ui.fill_coords(left , top, right, bottom)            
+                        
+                    elif e.name == "enter":
+                        print('ls selection')
+                        
 
                 elif key_pressed == '~':
                     print(self.content)
@@ -104,12 +121,14 @@ class poetree:
         left, top, right, bottom = self.selection_visual()
         self.ui.partial_update_msg( '\n'.join(self.io.selectedItemList)  ,'')
         self.ui.fill_coords(left , top, right, bottom)
+        self.cur_screen = 'loadscreen'
 
     def writerscreen(self):
         self.ui.display_image_8bpp(self.backgrounds['gs'])
         self.ui.write_text(80, 40, 'Writing Screen', 30, 0, 0, 1800, 1400)
-
         self.ui.write_text(1000, 1360, f'System started {self.startuptime}', 24, 0, 0, 1800, 1400)
         self.unwritten_content = self.content.split('|')
         self.content=''
         self.partial_update_msg_1()
+        self.cur_screen = 'writerscreen'
+        
