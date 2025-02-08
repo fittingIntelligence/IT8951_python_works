@@ -45,7 +45,7 @@ class poetree:
                 self.clear_screen()
                 self.content=''
                 
-            if key_pressed == '~':
+            elif key_pressed == '~':
                 print(self.content)
 
             else: 
