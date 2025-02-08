@@ -16,7 +16,7 @@ ui_backgrounds = {
     'splash'    : 'images/poetpre.png',
     'ls'        : 'images/load_screen.png',
     'gs'        : 'images/generic_window.png',
-    'shutdown'  : 'images/shutdown.png',
+    'sd'  : 'images/shutdown.png',
 }
 
 def parse_args():
