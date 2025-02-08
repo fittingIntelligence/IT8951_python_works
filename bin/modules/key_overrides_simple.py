@@ -37,6 +37,10 @@ class keyboard_overrides:
         if e.name == 'q' and self.control_active:
             key_mod = '<activate shutdown>'
             
+        if e.name == 'w' and self.control_active:
+            key_mod = '<activate writer screen>'
+            
+            
         if key_mod not in (['shift','ctrl']):
             return key_mod            
 

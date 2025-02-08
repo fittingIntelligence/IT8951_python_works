@@ -4,11 +4,13 @@ from datetime import datetime
 
 class poetree:
     def __init__(self, ui, kb, win, io, backgrounds):
+        startuptime = datetime.now().isoformat()
         self.ui  = ui
         self.kb  = kb
         self.win = win
         self.io  = io
         self.backgrounds = backgrounds
+        self.startuptime = startuptime
         
         self.cur_screen = None
         self.content = ''
@@ -47,6 +49,7 @@ class poetree:
             print(key_pressed)
             if key_pressed in (['caps lock', 'right','down','left','up','~',
                                 '<activate file load screen>','<activate file save>','<activate shutdown>',
+                                '<activate writer screen>',
                                 ]):
                 if key_pressed == 'caps lock':
                     self.clear_screen()
@@ -57,6 +60,9 @@ class poetree:
                 
                 elif key_pressed == '<activate file load screen>':
                     self.loadscreen()
+                    
+                elif key_pressed == '<activate writer screen>':
+                    self.writerscreen()
 
                 elif key_pressed == '~':
                     print(self.content)
@@ -98,3 +104,7 @@ class poetree:
         left, top, right, bottom = self.selection_visual()
         self.ui.partial_update_msg( '\n'.join(self.io.selectedItemList)  ,'')
         self.ui.fill_coords(left , top, right, bottom)
+
+    def writerscreen(self):
+        self.ui.display_image_8bpp(self.backgrounds['gs'])
+        self.ui.write_text(1000, 1360, f'System started {self.startuptime}', 24, 0, 0, 1800, 1400)
