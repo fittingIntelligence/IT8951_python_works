@@ -93,8 +93,8 @@ class poetree:
     def loadscreen(self):
         self.ui.display_image_8bpp(self.backgrounds['gs'])
         self.ui.write_text(80, 40, 'Load a file', 30, 0, 0, 1800, 1400)
-        self.ls.list_files()
-        self.ls.display_items()
+        self.io.list_files()
+        self.io.display_items()
         left, top, right, bottom = self.selection_visual()
-        self.ui.partial_update_msg( '\n'.join(self.ls.selectedItemList)  ,'')
+        self.ui.partial_update_msg( '\n'.join(self.io.selectedItemList)  ,'')
         self.ui.fill_coords(left , top, right, bottom)
