@@ -77,7 +77,7 @@ class poetree:
                         self.ui.clear_coords(80, 100, 90, 600)
                         self.ui.fill_coords(left , top, right, bottom)            
                         
-                    elif key_pressed == "\n":
+                    elif key_pressed == "enter":
                         print('Selecting item')
                         self.io.select_item()
                         self.io.position = 0

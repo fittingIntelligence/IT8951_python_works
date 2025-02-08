@@ -27,7 +27,7 @@ class keyboard_overrides:
         if e.name == 'space':
             key_mod = ' '
         if e.name == 'enter':
-            key_mod = '\n'
+            key_mod = 'enter'
         if e.name == 'backspace':
             key_mod = '\b'
         if e.name == 'l' and self.control_active:
