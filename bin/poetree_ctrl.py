@@ -77,4 +77,21 @@ class poetree:
                               """, 30, 0, 0, 1800, 1400)
         
         # os.system("sudo shutdown now")
+
+    def selection_visual(self):
+        line = self.ls.position + 1
+        font_height = self.ui.font_height_per_line -4
+        left   = 80
+        top    = 110 + (line * font_height)
+        right  = 90
+        bottom = 110 + (line + 1 )* font_height
+        return [left, top, right, bottom]
         
+    def loadscreen(self):
+        self.ui.display_image_8bpp(self.ui_backgrounds['gs'])
+        self.ui.write_text(80, 40, 'Load a file', 30, 0, 0, 1800, 1400)
+        self.ls.list_files()
+        self.ls.display_items()
+        left, top, right, bottom = self.selection_visual()
+        self.ui.partial_update_msg( '\n'.join(self.ls.selectedItemList)  ,'')
+        self.ui.fill_coords(left , top, right, bottom)
