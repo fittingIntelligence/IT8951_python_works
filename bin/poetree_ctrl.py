@@ -58,7 +58,6 @@ class poetree:
                     self.shutdown()
                 
                 elif key_pressed == '<activate file load screen>':
-                    self.io.selected_file = None
                     self.loadscreen()
                     
                 elif key_pressed == '<activate writer screen>':
@@ -135,6 +134,7 @@ class poetree:
         self.ui.clear_coords(left, top, right, bottom)
         
     def loadscreen(self):
+        self.io.selected_file = None
         self.ui.display_image_8bpp(self.backgrounds['gs'])
         self.ui.write_text(80, 40, 'Load a file', 30, 0, 0, 1800, 1400)
         self.io.list_files()
