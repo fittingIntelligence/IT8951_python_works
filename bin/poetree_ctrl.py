@@ -44,6 +44,9 @@ class poetree:
             if key_pressed == 'caps lock':
                 self.clear_screen()
                 self.content=''
+                
+            if key_pressed == '~':
+                print(self.content)
 
             else: 
                 self.update_content_stream(key_pressed)
