@@ -48,7 +48,7 @@ class poetree:
             print(key_pressed)
             if key_pressed in (['caps lock', 'right','down','left','up','~',
                                 '<activate file load screen>','<activate file save>','<activate shutdown>',
-                                '<activate writer screen>',
+                                '<activate writer screen>','enter',
                                 ]):
                 if key_pressed == 'caps lock':
                     self.clear_screen()
