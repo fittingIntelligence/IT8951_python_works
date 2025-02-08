@@ -110,6 +110,6 @@ class poetree:
         self.ui.write_text(80, 40, 'Writing Screen', 30, 0, 0, 1800, 1400)
 
         self.ui.write_text(1000, 1360, f'System started {self.startuptime}', 24, 0, 0, 1800, 1400)
-        self.unwritten_content = self.content
+        self.unwritten_content = self.content.split('|')
         self.content=''
         self.partial_update_msg_1()
