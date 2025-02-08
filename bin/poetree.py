@@ -41,35 +41,16 @@ p = poetree(
     io  = file_operations.loadscreen(),
     win = file_operations.loadscreen(),
     kb  = keyboard_overrides(),
+    backgrounds = ui_backgrounds
 )
 
 # p.ui.clear_display()
 # p.ui.display_image_8bpp()
 p.ui.print_system_info()
-
-# def sim_keypress(t):
-#     for i in t:
-#         yield i
-
-# def press_key(t):
-#     sk = sim_keypress(t)
-#     for i in sk:
-#         p.kb.input_content += i
+p.ui.display_image_8bpp(ui_backgrounds['gs'])
+p.ui.write_text(1000, 1360, f'System started {startup_datetime}', 24, 0, 0, 1800, 1400)
 
 
-# press_key('Hello there my friend')
-# kb, scrn = check_content_change()
-# if kb != scrn:
-#     print ([kb,scrn])
-#     p.ui.partial_update_msg(kb,scrn)
-#     p.content = kb[:]
-    
-# def do_instructions():
-#     for i in p.kb.instructions:
-#         p[i]()
-#         print(i)
-        
-#     pass
 
 keyboard.on_press(p.key_down_watcher, suppress=True) #handles modifiers and shortcuts
 keyboard.on_release(p.key_up_watcher, suppress=True)

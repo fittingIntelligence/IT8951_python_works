@@ -1,15 +1,19 @@
 # from collections import deque
+import os
+from datetime import datetime
 
 class poetree:
-    def __init__(self, ui, kb, win, io):
+    def __init__(self, ui, kb, win, io, backgrounds):
         self.ui  = ui
         self.kb  = kb
         self.win = win
         self.io  = io
+        self.backgrounds = backgrounds
         
         self.cur_screen = None
         self.content = ''
         self.unwritten_content = []
+        
         
     def partial_update_msg(self, a,b):
         self.ui.partial_update_msg(a,b)
@@ -47,6 +51,9 @@ class poetree:
                 if key_pressed == 'caps lock':
                     self.clear_screen()
                     self.content=''
+                    
+                if key_pressed == '<activate shutdown>':
+                    self.shutdown()
                 
                 elif key_pressed == '~':
                     print(self.content)
@@ -60,4 +67,14 @@ class poetree:
         
         
     def shutdown(self):
-        pass
+        self.ui.display_image_8bpp(self.backgrounds['sd'])
+        self.ui.write_text(80, 40, f'Shutting down  - {datetime.now().isoformat()}', 30, 0, 0, 1800, 1400)
+
+        self.ui.write_text(120, 120, """
+                              Custom built for @poetpre (Instagram)
+                              2025
+                              
+                              """, 30, 0, 0, 1800, 1400)
+        
+        # os.system("sudo shutdown now")
+        
