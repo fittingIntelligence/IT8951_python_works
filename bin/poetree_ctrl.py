@@ -82,7 +82,7 @@ class poetree:
         # os.system("sudo shutdown now")
 
     def selection_visual(self):
-        line = self.ls.position + 1
+        line = self.io.position + 1
         font_height = self.ui.font_height_per_line -4
         left   = 80
         top    = 110 + (line * font_height)
