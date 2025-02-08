@@ -27,7 +27,9 @@ class keyboard_overrides:
         if e.name == 'space':
             key_mod = ' '
         if e.name == 'enter':
-            key_mod = ' '
+            key_mod = '\n'
+        if e.name == 'backspace':
+            key_mod = '\b'
         if key_mod not in (['shift','ctrl']):
             return key_mod            
 
