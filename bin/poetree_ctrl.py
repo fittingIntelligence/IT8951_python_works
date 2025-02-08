@@ -1,3 +1,5 @@
+# from collections import deque
+
 class poetree:
     def __init__(self, ui, kb, win, io):
         self.ui  = ui
@@ -7,24 +9,30 @@ class poetree:
         
         self.cur_screen = None
         self.content = ''
-        self.unwritten_content = ''
+        self.unwritten_content = []
         
     def partial_update_msg(self, a,b):
         self.ui.partial_update_msg(a,b)
         self.content = ''.join([b,a])
         self.unwritten_content = ''
         
+    def get_unwritten(self):
+        return [''.join(self.unwritten_content), len(self.unwritten_content)]
 
     def partial_update_msg_1(self):
+        unwritten_content, unwritten_len = self.get_unwritten(self)
+        written_content = self.content
         print(f"""
               first
-              {self.unwritten_content}
+              {unwritten_content}
               
-              {self.content}
-              """)        
-        self.ui.partial_update_msg(self.unwritten_content,self.content)
-        self.content = ''.join([self.content,self.unwritten_content])
-        self.unwritten_content = ''
+              {written_content}
+              """)
+        
+        self.ui.partial_update_msg(unwritten_content,written_content)
+        self.content = ''.join([written_content,unwritten_content])
+        self.unwritten_content = self.unwritten_content[unwritten_len:]
+        
         print(f"""
               end
               {self.unwritten_content}
@@ -43,7 +51,7 @@ class poetree:
         # self.partial_update_msg(''.join(self.input_content),self.content)
         
     def update_content_stream(self,e):
-        self.unwritten_content += e
+        self.unwritten_content.append(e)
         print(self.unwritten_content)
 
     
