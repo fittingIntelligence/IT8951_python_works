@@ -20,7 +20,7 @@ class poetree:
         return [''.join(self.unwritten_content), len(self.unwritten_content)]
 
     def partial_update_msg_1(self):
-        unwritten_content, unwritten_len = self.get_unwritten(self)
+        unwritten_content, unwritten_len = self.get_unwritten()
         written_content = self.content
         print(f"""
               first
