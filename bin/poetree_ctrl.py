@@ -107,6 +107,8 @@ class poetree:
 
     def writerscreen(self):
         self.ui.display_image_8bpp(self.backgrounds['gs'])
+        self.ui.write_text(80, 40, 'Writing Screen', 30, 0, 0, 1800, 1400)
+
         self.ui.write_text(1000, 1360, f'System started {self.startuptime}', 24, 0, 0, 1800, 1400)
         self.unwritten_content = self.content
         self.content=''

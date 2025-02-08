@@ -47,8 +47,7 @@ p = poetree(
 # p.ui.clear_display()
 # p.ui.display_image_8bpp()
 p.ui.print_system_info()
-p.ui.display_image_8bpp(ui_backgrounds['gs'])
-p.ui.write_text(1000, 1360, f'System started {startup_datetime}', 24, 0, 0, 1800, 1400)
+p.writerscreen()
 
 
 
