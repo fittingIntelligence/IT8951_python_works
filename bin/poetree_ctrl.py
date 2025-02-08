@@ -21,25 +21,10 @@ class poetree:
 
     def partial_update_msg_1(self):
         unwritten_content, unwritten_len = self.get_unwritten()
-        written_content = self.content
-        print(f"""
-              first
-              {unwritten_content}
-              
-              {written_content}
-              """)
-        
+        written_content = self.content        
         self.ui.partial_update_msg(unwritten_content,written_content)
         self.content = ''.join([written_content,unwritten_content])
         self.unwritten_content = self.unwritten_content[unwritten_len:]
-        
-        print(f"""
-              end
-              {self.unwritten_content}
-              
-              {self.content}
-              """)        
-
 
     def clear_screen(self):
         self.ui.clear_display()
