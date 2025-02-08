@@ -46,7 +46,7 @@ class poetree:
             print(key_pressed)
             self.update_content_stream(key_pressed)
             
-            if key_pressed == 'Q':
+            if key_pressed == 'caps_lock':
                 self.clear_screen()
         
         
