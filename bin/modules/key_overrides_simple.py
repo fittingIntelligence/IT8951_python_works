@@ -22,6 +22,8 @@ class keyboard_overrides:
             self.control_active = True
         if self.shift_active or self.capslock_active:
             key_mod = keymaps.shift_mapping.get(e.name)
+        if e.name == 'caps lock': 
+            self.capslock_active = True if self.capslock_active == False else False
         if e.name == 'space':
             key_mod = ' '
         if e.name == 'enter':
