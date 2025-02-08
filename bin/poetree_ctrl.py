@@ -91,7 +91,7 @@ class poetree:
         return [left, top, right, bottom]
         
     def loadscreen(self):
-        self.ui.display_image_8bpp(self.ui_backgrounds['gs'])
+        self.ui.display_image_8bpp(self.backgrounds['gs'])
         self.ui.write_text(80, 40, 'Load a file', 30, 0, 0, 1800, 1400)
         self.ls.list_files()
         self.ls.display_items()
