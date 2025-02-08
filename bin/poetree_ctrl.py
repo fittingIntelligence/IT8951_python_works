@@ -52,9 +52,12 @@ class poetree:
                     self.clear_screen()
                     self.content=''
                     
-                if key_pressed == '<activate shutdown>':
+                elif key_pressed == '<activate shutdown>':
                     self.shutdown()
                 
+                elif key_pressed == '<activate file load screen>':
+                    self.loadscreen()
+
                 elif key_pressed == '~':
                     print(self.content)
                     
