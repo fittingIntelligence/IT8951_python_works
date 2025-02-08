@@ -81,6 +81,7 @@ class poetree:
                         print('Selecting item')
                         self.io.select_item()
                         self.io.position = 0
+                        self.clear_window_content()
                         left, top, right, bottom = self.selection_visual()
                         self.ui.partial_update_msg( '\n'.join(self.io.selectedItemList)  ,'')
                         self.ui.fill_coords(left , top, right, bottom)                        
@@ -123,6 +124,13 @@ class poetree:
         right  = 90
         bottom = 110 + (line + 1 )* font_height
         return [left, top, right, bottom]
+    
+    def clear_window_content(self):
+        left   = 80
+        top    = 100
+        right  = 1772
+        bottom = 1304
+        self.ui.clear_coords(left, top, right, bottom)
         
     def loadscreen(self):
         self.ui.display_image_8bpp(self.backgrounds['gs'])
