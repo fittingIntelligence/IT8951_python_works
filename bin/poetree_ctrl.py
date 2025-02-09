@@ -1,6 +1,8 @@
 # from collections import deque
 import os
 from datetime import datetime
+from itertools import zip_longest
+
 
 class poetree:
     def __init__(self, ui, kb, win, io, backgrounds):
@@ -153,4 +155,10 @@ class poetree:
         self.content=''
         self.partial_update_msg_1()
         self.cur_screen = 'writerscreen'
-        
+    
+
+    def compare_string_arrays(arr1, arr2):
+        r = [''.join('1' if c1 != c2 else '0' for c1, c2 in zip_longest(str1, str2, fillvalue='')) for str1, str2 in zip_longest(arr1, arr2, fillvalue='')]
+        print (r)
+        return r
+
