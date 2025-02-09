@@ -16,6 +16,7 @@ class poetree:
         self.cur_screen = None
         self.content = ''
         self.unwritten_content = []
+        self.pil_clears = []
         
         
     def partial_update_msg(self, a,b):
@@ -157,8 +158,34 @@ class poetree:
         self.cur_screen = 'writerscreen'
     
 
-    def compare_string_arrays(arr1, arr2):
+    def compare_string_arrays(self, arr1, arr2):
         r = [''.join('1' if c1 != c2 else '0' for c1, c2 in zip_longest(str1, str2, fillvalue='')) for str1, str2 in zip_longest(arr1, arr2, fillvalue='')]
         print (r)
+        self.pil_clears = r
         return r
+
+
+def clear_box(x_position, y_position, num_chars):
+    font_width=10
+    print(f"Clearing box at position ({y_position+1}, {(x_position +1 )* font_width}) for {num_chars * font_width} characters")
+        
+def get_pil_clear_coords(x):
+    for i, row in enumerate(x):
+        if row: 
+            regions = []
+            start = None
+            for j, char in enumerate(row):
+                if char == '1' and start is None:
+                    start = j
+                elif char != '1' and start is not None:
+                    regions.append((start, i, j - start))
+                    start = None
+            if start is not None:
+                regions.append((start, i, len(row) - start))
+            for region in regions:
+                clear_box(region[0], region[1], region[2])
+
+x= ['Hello there','','My friend!']
+y= ['H llo there','','M       d']
+get_pil_clear_coords(compare_string_arrays(x,y))
 
